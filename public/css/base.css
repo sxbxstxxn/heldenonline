@@ -1,0 +1,13 @@
+body {
+    font-family: 'Play', sans-serif;
+    /*background-color:#E2D0AA;*/
+}
+
+.bodycontainer {
+    margin-top:56px;
+    margin-bottom:15px;
+}
+
+.card {
+    margin-top:15px;
+}
