@@ -34,6 +34,9 @@
         {{ include('_menu.html.twig') }}
         <div class="container bodycontainer">
             <div class="row">
+                <div class="col-md-12 flashmessages">
+                    {{ include('_flashes.html.twig') }}
+                </div>
                 <div class="col-md-3 mainleft">
                     {% block leftsidebar %}{% endblock %}
                 </div>
@@ -43,6 +46,13 @@
                 <div class="col-md-2 mainright">
                     {% block rightsidebar %}{% endblock %}
                 </div>
+            </div>
+            <div>test<br/>
+                {% if block("leftsidebar") is defined %}
+                    left is defined
+                {% else %}
+                    left is not definde
+                {% endif %}
             </div>
         </div>
         <!-- Footer -->

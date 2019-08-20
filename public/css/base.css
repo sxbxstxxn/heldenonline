@@ -8,6 +8,13 @@ body {
     margin-bottom:15px;
 }
 
+.flashmessages {
+    margin-top:15px;
+}
+.flashmessages .alert {
+    margin-bottom:0px;
+}
+
 .card {
     margin-top:15px;
 }
