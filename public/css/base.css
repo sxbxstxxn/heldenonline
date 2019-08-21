@@ -3,18 +3,32 @@ body {
     /*background-color:#E2D0AA;*/
 }
 
+a:hover, a:visited {
+    text-decoration: none;
+}
+
 .bodycontainer {
     margin-top:56px;
     margin-bottom:15px;
 }
 
-.flashmessages {
-    margin-top:15px;
-}
-.flashmessages .alert {
-    margin-bottom:0px;
-}
-
 .card {
     margin-top:15px;
+}
+
+.page-footer {
+    /*margin-left:0px;
+    margin-right:0px;
+    padding:15px;*/
+}
+
+.startseite .card-img-top {
+    margin:auto;
+}
+.startseite .card-body h1 {
+    text-align:center;
+}
+
+.startseite .dsalogo {
+    margin:15px auto;
 }

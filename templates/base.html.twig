@@ -37,31 +37,45 @@
                 <div class="col-md-12 flashmessages">
                     {{ include('_flashes.html.twig') }}
                 </div>
-                <div class="col-md-3 mainleft">
-                    {% block leftsidebar %}{% endblock %}
-                </div>
-                <div class="col-md-7 main">
-                    {% block content %}{% endblock %}
-                </div>
-                <div class="col-md-2 mainright">
-                    {% block rightsidebar %}{% endblock %}
-                </div>
-            </div>
-            <div>test<br/>
-                {% if block("leftsidebar") is defined %}
-                    left is defined
-                {% else %}
-                    left is not definde
-                {% endif %}
+                {% block content %}{% endblock %}
             </div>
         </div>
         <!-- Footer -->
         <footer class="page-footer font-small bg-dark text-white">
-
+            <!-- Footer Links -->
+            <div class="container">
+                <!-- Grid row-->
+                <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a class="text-secondary" href="#!">Kontakt</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a class="text-secondary" href="{{ path('impressum') }}">Impressum</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a class="text-secondary" href="{{ path('datenschutz') }}">Datenschutz</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row-->
+            </div>
+            <!-- Footer Links -->
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2019 Copyright: Sebastian Christoph</div>
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a class="text-secondary" target="_blank" href="https://www.sebastian-christoph.de/"> Sebastian Christoph</a>
+            </div>
             <!-- Copyright -->
-
         </footer>
         <!-- Footer -->
     </body>

@@ -24,4 +24,19 @@ class DefaultController extends AbstractController
         return $this->render('profile.html.twig');
     }
 
+    /**
+     * @Route("/impressum", name="impressum")
+     */
+    public function impressum(): Response
+    {
+        return $this->render('impressum.html.twig');
+    }
+
+    /**
+     * @Route("/datenschutz", name="datenschutz")
+     */
+    public function datenschutz(): Response
+    {
+        return $this->render('datenschutz.html.twig');
+    }
 }
