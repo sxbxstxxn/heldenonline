@@ -1,25 +1,30 @@
 {% extends '1col.html.twig' %}
 
-{% block title parent() ~ 'Homepage' %}
-{% block content_id 'homepage' %}
+{% block title parent() ~ 'Login' %}
 
 {% block maincontent %}
-    <div class="card">
+    <div class="card text-white bg-dark">
+        <div class="card-header">
+            Login
+        </div>
         <div class="card-body">
-            <h2>Login</h2>
             {% if error %}
                 <div class="alert alert-danger">{{ error.message }}</div>
             {% endif %}
             <form action="{{ path('login') }}" method="post">
-                <div class="form-group">
-                    <label class="control-label required" for="username">Benutzername</label>
-                    <input type="text" id="username" name="_username" required="required" class="password-field form-control" value="{{ last_username }}">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="material-icons">account_box</i></span>
+                    </div>
+                    <input type="text" id="username" name="_username" required="required" class="form-control" value="{{ last_username }}" placeholder="Benutzername">
                 </div>
-                <div class="form-group">
-                    <label class="control-label required" for="password">Passwort</label>
-                    <input type="password" id="password" name="_password" required="required" class="password-field form-control">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="material-icons">lock</i></span>
+                    </div>
+                    <input type="password" id="password" name="_password" required="required" class="password-field form-control" placeholder="Passwort">
                 </div>
-                <button type="submit" class="btn btn-dark">Login</button>
+                <button type="submit" class="btn btn-secondary">Login</button>
             </form>
         </div>
     </div>

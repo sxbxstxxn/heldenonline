@@ -1,13 +1,35 @@
 {% extends '1col.html.twig' %}
 
-{% block title parent() ~ 'Homepage' %}
-{% block content_id 'homepage' %}
+{% block title parent() ~ 'Registrierung' %}
 
 {% block maincontent %}
-    <div class="card">
+    <div class="card text-white bg-dark">
+        <div class="card-header">
+            Registrierung
+        </div>
         <div class="card-body">
-            <h2>Registrierung</h2>
-            {{ form(form) }}
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="material-icons">account_box</i></span>
+                </div>
+                {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder':'Benutzername' }}) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="material-icons">lock</i></span>
+                </div>
+                {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder':'Passwort' }}) }}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="material-icons">lock</i></span>
+                </div>
+                {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder':'Passwort wiederholen' }}) }}
+            </div>
+            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary' }, 'label':'Registrieren'}) }}
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
