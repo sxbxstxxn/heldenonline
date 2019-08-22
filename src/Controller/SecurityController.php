@@ -25,9 +25,9 @@ class SecurityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $manager->register($form->getData());
-            $this->addFlash('success', 'erfolgreich registriert');
+            $this->addFlash('success', 'Du hast Dich erfolgreich registriert und kannst Dich jetzt einloggen.');
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('security/register.html.twig', [

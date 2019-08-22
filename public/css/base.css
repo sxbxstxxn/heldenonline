@@ -13,6 +13,11 @@ a:hover, a:visited {
     min-height:713px;
 }
 
+.mainalerts {
+    margin-top:15px;
+    margin-bottom:0px;
+}
+
 .card {
     margin-top:15px;
 }

@@ -1,5 +1,5 @@
 {% for label, messages in app.flashes %}
-    <div class="alert alert-{{ label }}" role="alert">
+    <div class="alert alert-{{ label }} mainalerts" role="alert">
         {%- if messages|length == 1 -%}
             {{- messages|first -}}
         {%- else -%}

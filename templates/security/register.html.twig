@@ -10,25 +10,56 @@
         <div class="card-body">
             {{ form_start(form) }}
             {{ form_errors(form) }}
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="material-icons">account_box</i></span>
+
+            <div class="form-group row">
+                <label for="user_username" class="col-sm-4 col-form-label">Benutzername</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.username, (form.children.username.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.email) }}
+                    </div>
                 </div>
-                {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder':'Benutzername' }}) }}
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="material-icons">lock</i></span>
+            <div class="form-group row">
+                <label for="user_email" class="col-sm-4 col-form-label">E-Mail</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.email, (form.children.email.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.email) }}
+                    </div>
                 </div>
-                {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder':'Passwort' }}) }}
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="material-icons">lock</i></span>
+            <div class="form-group row">
+                <label for="user_password_first" class="col-sm-4 col-form-label">Passwort</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.password.first, (form.children.password.first.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.password.first) }}
+                    </div>
                 </div>
-                {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder':'Passwort wiederholen' }}) }}
             </div>
-            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary' }, 'label':'Registrieren'}) }}
+            <div class="form-group row">
+                <label for="user_password_second" class="col-sm-4 col-form-label">Passwort wiederholen</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.password.second, (form.children.password.second.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.password.second) }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user_dateofbirth" class="col-sm-4 col-form-label">Geburtsdatum</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.dateofbirth, {'attr': {'class': 'form-control' }}) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.picture, {'attr': {'class': 'form-control' }}) }}
+                </div>
+            </div>
+            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary' }, 'label': 'Registrieren' }) }}
             {{ form_end(form) }}
         </div>
     </div>
