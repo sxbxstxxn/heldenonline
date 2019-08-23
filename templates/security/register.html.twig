@@ -16,7 +16,9 @@
                 <div class="col-sm-8">
                     {{ form_widget(form.username, (form.children.username.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
                     <div class="invalid-feedback">
-                        {{ form_errors(form.email) }}
+                        {% for error in form.children.username.vars.errors.form.errors %}
+                            {{ error.message }}<br/>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -25,7 +27,9 @@
                 <div class="col-sm-8">
                     {{ form_widget(form.email, (form.children.email.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
                     <div class="invalid-feedback">
-                        {{ form_errors(form.email) }}
+                        {% for error in form.children.email.vars.errors.form.errors %}
+                            {{ error.message }}<br/>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -34,7 +38,9 @@
                 <div class="col-sm-8">
                     {{ form_widget(form.password.first, (form.children.password.first.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
                     <div class="invalid-feedback">
-                        {{ form_errors(form.password.first) }}
+                        {% for error in form.children.password.first.vars.errors.form.errors %}
+                            {{ error.message }}<br/>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -43,7 +49,9 @@
                 <div class="col-sm-8">
                     {{ form_widget(form.password.second, (form.children.password.second.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
                     <div class="invalid-feedback">
-                        {{ form_errors(form.password.second) }}
+                        {% for error in form.children.password.second.vars.errors.form.errors %}
+                            {{ error.message }}<br/>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -56,10 +64,10 @@
             <div class="form-group row">
                 <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
                 <div class="col-sm-8">
-                    {{ form_widget(form.picture, {'attr': {'class': 'form-control' }}) }}
+                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
                 </div>
             </div>
-            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary' }, 'label': 'Registrieren' }) }}
+            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'registrieren' }) }}
             {{ form_end(form) }}
         </div>
     </div>

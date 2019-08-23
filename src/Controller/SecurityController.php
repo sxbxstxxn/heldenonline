@@ -6,7 +6,9 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\User\UserManager;
+use http\Client\Curl\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +26,21 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $manager->register($form->getData());
+
+            // PICTURE FILE
+            $pictureFile = $form['picture']->getData();
+            if ($pictureFile) {
+                $newFilename = 'profile-'.$form['username']->getData().'-'.uniqid().'.'.$pictureFile->guessExtension();
+                try {
+                    $pictureFile->move(
+                        $this->getParameter('pictures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+            }
+            $manager->register($form->getData(),$newFilename);
             $this->addFlash('success', 'Du hast Dich erfolgreich registriert und kannst Dich jetzt einloggen.');
 
             return $this->redirectToRoute('login');

@@ -8,23 +8,25 @@
             Login
         </div>
         <div class="card-body">
-            {% if error %}
-                <div class="alert alert-danger">{{ error.message }}</div>
-            {% endif %}
-            <form action="{{ path('login') }}" method="post">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="material-icons">account_box</i></span>
+            <form action="{{ path('login') }}" method="post" novalidate>
+                <div class="form-group row">
+                    <label for="username" class="col-sm-4 col-form-label">Benutzername</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="username" name="_username" required="required" class="form-control {{ (error) ? 'is-invalid' : ''}}" value="{{ last_username }}">
                     </div>
-                    <input type="text" id="username" name="_username" required="required" class="form-control" value="{{ last_username }}" placeholder="Benutzername">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="material-icons">lock</i></span>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-4 col-form-label">Passwort</label>
+                    <div class="col-sm-8">
+                        <input type="password" id="password" name="_password" required="required" class="password-field form-control {{ (error) ? 'is-invalid' : ''}}">
+                        {% if error %}
+                            <div class="invalid-feedback">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
                     </div>
-                    <input type="password" id="password" name="_password" required="required" class="password-field form-control" placeholder="Passwort">
                 </div>
-                <button type="submit" class="btn btn-secondary">Login</button>
+                <button type="submit" class="btn btn-secondary float-right">Login</button>
             </form>
         </div>
     </div>

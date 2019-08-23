@@ -19,13 +19,17 @@ class UserManager
         $this->entityManager = $entityManager;
     }
 
-    public function register(User $user): void
+    public function register(User $user, $picture = NULL): void
     {
         $plainPassword = $user->getPassword();
         $encodedPassword = $this->userPasswordEncoder->encodePassword($user, $plainPassword);
         $user->setPassword($encodedPassword);
 
+        //PICTURE
+        $user->setPicture($picture);
+
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
+
 }
