@@ -1,0 +1,28 @@
+{% extends '3col.html.twig' %}
+
+{% block title parent() ~ 'Startseite' %}
+
+{% block leftcontent %}
+<div class="card leftcontent text-white bg-dark">
+    <div class="card-body">
+        <h1 class="card-title">Dein Profil</h1>
+        <p class="card-text">
+            <div class="cardheader">
+                <img class="rounded" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" width="200" height="200"/>
+            </div>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block maincontent %}
+<div class="card startseite text-white bg-dark">
+   Maincontent
+</div>
+{% endblock %}
+
+{% block rightcontent %}
+<div class="card rightcontent text-white bg-dark">
+    RightContent
+</div>
+{% endblock %}

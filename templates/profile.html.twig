@@ -1,25 +1,11 @@
-{% extends '3col.html.twig' %}
+{% extends '1col.html.twig' %}
 
 {% block title parent() ~ 'Profil' %}
 
-{% block leftcontent %}
-    <div class="card text-white bg-dark">
-        <div class="card-body">
-            Left content!
-        </div>
-    </div>
-{% endblock %}
 {% block maincontent %}
     <div class="card text-white bg-dark">
-        <div class="card-body">
-            Profile
-        </div>
-    </div>
-{% endblock %}
-{% block rightcontent %}
-    <div class="card text-white bg-dark">
-        <div class="card-body">
-            Right content!
+        <div class="cardheader">
+            <img class="rounded" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" width="200" height="200"/>
         </div>
     </div>
 {% endblock %}
