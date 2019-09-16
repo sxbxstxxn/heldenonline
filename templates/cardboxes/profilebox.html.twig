@@ -1,0 +1,12 @@
+<div class="card leftcontent text-white bg-dark">
+    <div class="card-body">
+        <div class="card-header">
+            <h4>{{ app.user.username }}</h4>
+            <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" />
+        </div>
+        <div class="card-body">
+            <div><i class="lefticon material-icons bg-dark">email</i><small class="text-white">{{ app.user.email }}</small></div>
+            <div><i class="lefticon material-icons">cake</i><small class="text-white">{{ app.user.dateofbirth|date("d.m.Y") }}</small></div>
+        </div>
+    </div>
+</div>

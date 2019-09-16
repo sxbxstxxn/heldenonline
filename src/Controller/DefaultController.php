@@ -17,11 +17,11 @@ class DefaultController extends AbstractController
      }
 
     /**
-     * @Route("/profile", name="profile", methods={"GET"})
+     * @Route("/kontakt", name="kontakt", methods={"GET"})
      */
-    public function profile(): Response
+    public function kontakt(): Response
     {
-        return $this->render('profile.html.twig');
+        return $this->render('kontakt.html.twig');
     }
 
     /**

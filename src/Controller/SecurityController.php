@@ -29,6 +29,7 @@ class SecurityController extends AbstractController
 
             // PICTURE FILE
             $pictureFile = $form['picture']->getData();
+            $newFilename = NULL;
             if ($pictureFile) {
                 $newFilename = 'profile-'.$form['username']->getData().'-'.uniqid().'.'.$pictureFile->guessExtension();
                 try {

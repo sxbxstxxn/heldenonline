@@ -18,6 +18,13 @@ a:hover, a:visited {
     margin-bottom:0px;
 }
 
+.lefticon {
+    top: 5px;
+    position: relative;
+    margin-right: 5px;
+    color:#6c757d;
+}
+
 .card {
     margin-top:15px;
 }
