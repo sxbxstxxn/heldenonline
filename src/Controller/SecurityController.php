@@ -20,7 +20,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="register", methods={"GET","POST"})
      */
-    public function register(Request $request, UserManager $manager): Response
+    public function register(Request $request, UserManager $manager, \Swift_Mailer $mailer): Response
     {
         $form = $this->createForm(UserType::class);
         $form->handleRequest($request);
@@ -42,6 +42,22 @@ class SecurityController extends AbstractController
                 }
             }
             $manager->register($form->getData(),$newFilename);
+
+            // MAIL
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('registrierung@helden.online')
+                ->setTo('sxbxstxxn@googlemail.com')
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'emails/registration.html.twig',
+                        ['name' => 'testname']
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
+            // END MAIL
+
             $this->addFlash('success', 'Du hast Dich erfolgreich registriert und kannst Dich jetzt einloggen.');
 
             return $this->redirectToRoute('login');

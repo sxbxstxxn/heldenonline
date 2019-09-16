@@ -39,4 +39,27 @@ class DefaultController extends AbstractController
     {
         return $this->render('datenschutz.html.twig');
     }
+
+    /**
+     * @Route("/testmail", name="testmail")
+     */
+    public function testmail(\Swift_Mailer $mailer)
+    {
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('registrierung@helden.online')
+            ->setTo('sxbxstxxn@googlemail.com')
+            ->setBody(
+                $this->renderView(
+                // templates/emails/registration.html.twig
+                    'emails/registration.html.twig',
+                    ['name' => 'testname']
+                ),
+                'text/html'
+            );
+        ;
+
+        $mailer->send($message);
+
+        return $this->render('index.html.twig');
+    }
 }
