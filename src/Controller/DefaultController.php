@@ -45,8 +45,8 @@ class DefaultController extends AbstractController
      */
     public function testmail(\Swift_Mailer $mailer)
     {
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('registrierung@helden.online')
+        $message = (new \Swift_Message('Deine Registrierung'))
+            ->setFrom(array('registrierung@helden.online' => 'Helden Online'))
             ->setTo('sxbxstxxn@googlemail.com')
             ->setBody(
                 $this->renderView(
