@@ -1,0 +1,14 @@
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ 'Login' %}
+
+{% block maincontent %}
+<div class="card text-white bg-dark">
+    <div class="card-header">
+        Herzlich Willkommen!
+    </div>
+    <div class="card-body">
+        Danke {{ user }}. Deine Registrierung ist jetzt bestätigt und Du kannst Dich <a class="text-secondary" href="{{ path('login') }}">hier</a> einloggen.
+    </div>
+</div>
+{% endblock %}

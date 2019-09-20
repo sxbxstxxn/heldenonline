@@ -10,12 +10,14 @@ security:
             entity:
                 class: App\Entity\User
                 property: username
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             pattern: '^/'
+            user_checker: App\Security\UserChecker
             anonymous: true
             form_login:
                 check_path: login

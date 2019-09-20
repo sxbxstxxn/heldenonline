@@ -46,7 +46,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $dateOfBirth;
+    private $dateofbirth;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -57,6 +57,22 @@ class User implements UserInterface
     {
         return $this->id;
     }
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $registrationDate;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $registrationHash = '';
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $registrationConfirmed = 0;
+
 
     /**
      * A visual identifier that represents this user.
@@ -132,14 +148,14 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getDateOfBirth(): ?\DateTimeInterface
+    public function getDateofbirth(): ?\DateTimeInterface
     {
-        return $this->dateOfBirth;
+        return $this->dateofbirth;
     }
 
-    public function setDateOfBirth(?\DateTimeInterface $dateOfBirth): self
+    public function setDateofbirth(?\DateTimeInterface $dateofbirth): self
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->dateofbirth = $dateofbirth;
 
         return $this;
     }
@@ -158,4 +174,51 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRegistrationDate(): ?int
+    {
+        return $this->registrationDate;
+    }
+
+    public function setRegistrationDate(?int $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRegistrationHash(): ?string
+    {
+        return $this->registrationHash;
+    }
+
+    public function setRegistrationHash(?string $registrationHash): self
+    {
+        $this->registrationHash = $registrationHash;
+
+        return $this;
+    }
+
+
+
+    public function setRegistrationConfirmed(?int $registrationConfirmed): self
+    {
+        $this->registrationConfirmed = $registrationConfirmed;
+
+        return $this;
+    }
+
+    public function isConfirmed(): ?bool
+    {
+        return $this->registrationConfirmed;
+    }
+
+
+
 }
