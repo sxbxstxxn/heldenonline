@@ -12,6 +12,17 @@
         <meta name="msapplication-TileColor" content="#343a40">
         <meta name="msapplication-config" content="{{ asset('images/favicons/browserconfig.xml') }}">
         <meta name="theme-color" content="#343a40">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{{ google_analytics_id }}');
+        </script>
+
         <title>{% block title %}Helden Online - {% endblock %}</title>
         {% block stylesheets %}
             <!-- Bootstrap CSS -->
