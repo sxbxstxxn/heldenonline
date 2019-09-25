@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block maincontent %}
-<div class="card startseite text-white bg-dark">
-   Maincontent
-</div>
+
+    {{ include('cardboxes/userlist.html.twig') }}
+
 {% endblock %}
 
 {% block rightcontent %}
 <div class="card rightcontent text-white bg-dark">
-    RightContent
+    right content
 </div>
 {% endblock %}

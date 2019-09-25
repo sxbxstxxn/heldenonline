@@ -1,0 +1,37 @@
+<?php
+
+
+namespace App\EventListener;
+
+use App\User\UserManager;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
+
+class RequestListener
+{
+
+    public function __construct(TokenStorageInterface $t, RouterInterface $r, UserManager $manager)
+    {
+        $this->tokenStorage = $t;
+        $this->router = $r;
+        $this->manager = $manager;
+    }
+
+    public function onKernelRequest(RequestEvent $event)
+    {
+
+        if (!$event->isMasterRequest()) {
+            // don't do anything if it's not the master request
+        }
+
+        $currentUsername = $this->tokenStorage->getToken()->getUsername();
+        $activityTimestamp = time();
+
+        $this->manager->setLastActivity($currentUsername,$activityTimestamp);
+
+        return;
+        // ...
+    }
+}

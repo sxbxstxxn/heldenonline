@@ -62,4 +62,12 @@ class UserManager
         $this->entityManager->remove($user);
         $this->entityManager->flush();
     }
+
+    public function setLastActivity($username, $time)
+    {
+        $user = $this->userRepository->loadUserByUsername($username);
+        $user->setLastActivityAt($time);
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+    }
 }
