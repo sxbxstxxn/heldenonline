@@ -26,7 +26,13 @@ class RequestListener
             // don't do anything if it's not the master request
         }
 
-        $currentUsername = $this->tokenStorage->getToken()->getUsername();
+        if ($this->tokenStorage->getToken()) {
+            $currentUsername = $this->tokenStorage->getToken()->getUsername();
+        }
+        else {
+            $currentUsername = 'anon.';
+        }
+
         $currentURL = $this->router->getContext()->getPathInfo();
         $activityTimestamp = time();
 

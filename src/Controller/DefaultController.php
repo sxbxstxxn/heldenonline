@@ -25,12 +25,33 @@ class DefaultController extends AbstractController
      }
 
     /**
-     * @Route("/kontakt", name="kontakt", methods={"GET"})
+     * @Route("/kontakt", name="kontakt", methods={"GET","POST"})
      */
-    public function kontakt(): Response
+    public function kontakt(Request $request, \Swift_Mailer $mailer): Response
     {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
 
-        return $this->render('kontakt.html.twig');
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Deine E-Mail wurde verschickt. Wir versuchen Dir schnellstmöglich zu antworten.');
+
+            $sender = $form['sender']->getData();
+            $subject = 'Kontaktformular: '.$form['subject']->getData();
+            $message = $form['message']->getData();
+
+            $mailmessage = (new \Swift_Message($subject))
+                ->setFrom(array($sender))
+                ->setTo('admin@helden.online')
+                ->setBody($message,'text/html');
+            ;
+            $mailer->send($mailmessage);
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render('kontakt.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
