@@ -19,9 +19,6 @@ a:hover, a:visited {
 }
 
 .lefticon {
-    top: 5px;
-    position: relative;
-    margin-right: 5px;
     color:#6c757d;
 }
 
@@ -35,6 +32,37 @@ a:hover, a:visited {
     padding:15px;*/
 }
 
+/* Tooltip container */
+.userlist-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    cursor:default;
+}
+
+/* Tooltip text */
+.userlist-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    cursor:default;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.userlist-tooltip:hover .tooltiptext {
+    visibility: visible;
+    cursor:default;
+}
+
+
+
 .startseite .card-img-top {
     margin:auto;
 }
@@ -44,4 +72,23 @@ a:hover, a:visited {
 
 .startseite .dsalogo {
     margin:15px auto;
+}
+
+
+/* Profilebox */
+.profilebox .card-header h4,
+.profilebox .text-white {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.profilebox .row {
+    margin-bottom:10px;
+}
+
+.nopadding {
+    padding:0px;
 }
