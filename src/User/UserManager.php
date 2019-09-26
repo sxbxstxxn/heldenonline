@@ -7,18 +7,22 @@ namespace App\User;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+
 
 class UserManager
 {
     private $userPasswordEncoder;
     private $entityManager;
 
-    public function __construct(UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager, UserRepository $userrepository)
+    public function __construct(UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager, UserRepository $userrepository, SerializerInterface $serializer)
     {
         $this->userPasswordEncoder = $userPasswordEncoder;
         $this->entityManager = $entityManager;
         $this->userRepository = $userrepository;
+        $this->serializer = $serializer;
     }
 
     public function register(User $user, $picture = NULL, $hashstring): void
@@ -70,4 +74,6 @@ class UserManager
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }
+
+
 }

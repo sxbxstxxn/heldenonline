@@ -1,12 +1,22 @@
-<div class="card leftcontent text-white bg-dark">
+<div class="card profilebox text-white bg-dark">
     <div class="card-body">
         <div class="card-header">
             <h4>{{ app.user.username }}</h4>
-            <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" />
+            {% if app.user.picture %}}
+                <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" />
+            {% else %}
+            <img class="img-fluid" src="{{ asset('images/logo.png') }}" />
+            {% endif %}
         </div>
         <div class="card-body">
-            <div><i class="lefticon material-icons bg-dark">email</i><small class="text-white">{{ app.user.email }}</small></div>
-            <div><i class="lefticon material-icons">cake</i><small class="text-white">{{ app.user.dateofbirth|date("d.m.Y") }}</small></div>
+            <div class="row">
+                <i class="lefticon material-icons bg-dark col-sm-2 nopadding">email</i>
+                <span class="text-white col-sm-10 nopadding">{{ app.user.email }}</span>
+            </div>
+            <div class="row">
+                <i class="lefticon material-icons bg-dark col-sm-2 nopadding">cake</i>
+                <span class="text-white col-sm-10 nopadding">{{ app.user.dateofbirth|date("d.m.Y") }}</span>
+            </div>
         </div>
     </div>
 </div>

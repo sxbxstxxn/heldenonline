@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,12 +21,14 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"profile","list"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank
+     * @Groups({"profile","list"})
      */
     private $username = '';
 
@@ -40,16 +43,19 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\Email
      * @Assert\NotBlank
+     * @Groups({"profile"})
      */
     private $email = '';
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"profile","list"})
      */
     private $dateofbirth;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"profile","list"})
      */
     private $picture;
 
@@ -75,6 +81,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(name="last_activity_at", type="integer")
+     * @Groups({"list"})
      */
     protected $lastActivityAt;
 

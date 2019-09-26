@@ -1,3 +1,19 @@
 <div class="card startseite text-white bg-dark">
-    {{ dump(app) }}
+    <script>
+        sendRequest();
+        function sendRequest() {
+            $.ajax({
+                url: "/userlist",
+                success:
+                    function (result) {
+                        $("#userlist_ajax").html(result);
+                        setTimeout(function () {
+                            sendRequest();
+                        }, 5000);
+                    }
+            });
+        }
+    </script>
+    <div class="card-header">Wer ist online?</div>
+    <div id="userlist_ajax" class="card-body"></div>
 </div>

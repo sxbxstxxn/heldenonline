@@ -1,0 +1,8 @@
+{% for user in userlist %}
+    {% if date().timestamp - user.lastActivityAt < 600 %}
+        <div class="userlist-tooltip">
+            <small>{{ user.username }}, </small>
+            <span class="tooltiptext"><small>Letzte Aktivität:<br/> vor {{ (date().timestamp - user.lastActivityAt) // 60 }} Minuten</small></span>
+        </div>
+    {% endif %}
+{% endfor %}
