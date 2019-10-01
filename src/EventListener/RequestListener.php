@@ -36,8 +36,6 @@ class RequestListener
         $currentURL = $this->router->getContext()->getPathInfo();
         $activityTimestamp = time();
 
-        //file_put_contents('test.txt', $currentURL);
-
         if ($currentUsername != 'anon.' && $currentURL != '/userlist') {
             $this->manager->setLastActivity($currentUsername, $activityTimestamp);
         }

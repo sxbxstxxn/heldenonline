@@ -16,13 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-
-
     /**
      * @var EntityManagerInterface
      */
-
-
     public function __construct(UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager, UserRepository $userrepository, SerializerInterface $serializer)
     {
         $this->userPasswordEncoder = $userPasswordEncoder;
@@ -33,10 +29,8 @@ class UserController extends AbstractController
 
     public function listUsers()
     {
-        //$allUsers = $this->userRepository->findAll();
         $allUsers = $this->entityManager->getRepository(User::class)->findAll();
         $allSerializedUsers = $this->serializer->serialize($allUsers,'json', ['groups' => ['list']]);
-        //$userlist = $this->serializer->deserialize($allSerializedUsers,User::class,'json');
         $userlist = json_decode($allSerializedUsers);
 
         return $this->render(
@@ -44,9 +38,6 @@ class UserController extends AbstractController
             'userlist' => $allSerializedUsers
         ]);
 
-        //return JsonResponse::fromJsonString(
-        //    $serializer->serialize($allUsers, 'json', ['groups' => ['list']])
-        //);
     }
 
     /**
@@ -54,7 +45,6 @@ class UserController extends AbstractController
      */
     public function userlist(): Response
     {
-        //$allUsers = $this->entityManager->getRepository(User::class)->findAll();
 
         $allUsers = $this->entityManager->getRepository(User::class)->findBy(
             array('registrationConfirmed' => 1)
@@ -70,32 +60,6 @@ class UserController extends AbstractController
 
     public function listBirthdays(): Response
     {
-
-        /*
-         SELECT
-            user.username,
-            user.dateofbirth,
-            FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25) AS agenow,
-            DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR) AS nextbirthday,
-            -DATEDIFF(NOW(),DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR)) AS daysbeforebirthday
-        FROM
-            DB_hhdon_dev.user;
-         */
-
-
-        /*
-         SELECT
-            user.username,
-            user.dateofbirth
-        FROM
-            DB_hhdon_dev.user
-        WHERE
-            -DATEDIFF(NOW(),DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR)) < 30
-        ;
-         */
-
-        // DATE_DIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25 AS agenow    ,
-        // -DATE_DIFF(CURRENT_TIMESTAMP(),DATE_ADD(user.dateofbirth, INTERVAL DATE_DIFF(CURRENT_TIMESTAMP(),user.dateofbirth) / 365.25 +1 YEAR)) AS daysbeforebirthday
         //added beberlein doctrine extension for using floor and other functions, see https://github.com/beberlei/DoctrineExtensions/
         $dql = 'SELECT 
                     user.username, 
@@ -112,11 +76,6 @@ class UserController extends AbstractController
                  ';
         $query = $this->entityManager->createQuery($dql);
         $allUsers = $query->execute();
-
-        //$allSerializedUsers = $this->serializer->serialize($allUsers,'json', ['groups' => ['list']]);
-        //$userlist = json_decode($allSerializedUsers);
-
-
 
         return $this->render(
             'cardboxes/birthdaylist.html.twig', [

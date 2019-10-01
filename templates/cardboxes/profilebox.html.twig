@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="card-header">
             <h4>{{ app.user.username }}</h4>
-            {% if app.user.picture %}}
+            {% if app.user.picture %}
                 <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ app.user.picture) }}" />
             {% else %}
             <img class="img-fluid" src="{{ asset('images/logo.png') }}" />
