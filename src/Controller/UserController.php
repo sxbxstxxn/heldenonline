@@ -95,12 +95,20 @@ class UserController extends AbstractController
          */
 
         // DATE_DIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25 AS agenow    ,
-        // -DATE_DIFF(CURRENT_TIMESTAMP(),DATE_ADD(user.dateofbirth, INTERVAL DATEDIFF(NOW(),user.dateofbirth) / 365.25 +1 YEAR)) AS daysbeforebirthday
+        // -DATE_DIFF(CURRENT_TIMESTAMP(),DATE_ADD(user.dateofbirth, INTERVAL DATE_DIFF(CURRENT_TIMESTAMP(),user.dateofbirth) / 365.25 +1 YEAR)) AS daysbeforebirthday
+        //added beberlein doctrine extension for using floor and other functions, see https://github.com/beberlei/DoctrineExtensions/
         $dql = 'SELECT 
                     user.username, 
-                    user.dateofbirth                   
+                    user.dateofbirth,
+                    FLOOR(DATEDIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25) + 1 AS nextage,
+                    DATEADD(user.dateofbirth,(FLOOR(DATEDIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25)+1),\'YEAR\') AS nextbirthday,
+                    -DATEDIFF(CURRENT_TIMESTAMP(),DATEADD(user.dateofbirth,(FLOOR(DATEDIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25)+1),\'YEAR\')) AS daysuntilbirthday                   
                 FROM 
-                    App\Entity\User user                                       
+                    App\Entity\User user  
+                WHERE
+                    -DATEDIFF(CURRENT_TIMESTAMP(),DATEADD(user.dateofbirth,(FLOOR(DATEDIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25)+1),\'YEAR\')) < 30                                        
+                ORDER BY
+                    nextbirthday ASC                                     
                  ';
         $query = $this->entityManager->createQuery($dql);
         $allUsers = $query->execute();

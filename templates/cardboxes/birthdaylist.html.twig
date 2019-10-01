@@ -1,4 +1,11 @@
 <div class="card birthdaylistbox text-white bg-dark">
     <div class="card-header">Geburtstage</div>
-    <div class="card-body">{{ dump(userlist) }}</div>
+    <div class="card-body">
+        {% for user in userlist %}
+            <div class="userlist-tooltip">
+                <small>{{ user.username }} ({{ user.nextage }}) </small>
+                <span class="tooltiptext"><small>{{user.nextbirthday | date("d.m.Y")}}</small></span>
+            </div>
+        {% endfor %}
+    </div>
 </div>
