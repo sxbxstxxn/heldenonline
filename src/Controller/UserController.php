@@ -67,4 +67,52 @@ class UserController extends AbstractController
             'userlist' => $userlist
         ]);
     }
+
+    public function listBirthdays(): Response
+    {
+
+        /*
+         SELECT
+            user.username,
+            user.dateofbirth,
+            FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25) AS agenow,
+            DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR) AS nextbirthday,
+            -DATEDIFF(NOW(),DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR)) AS daysbeforebirthday
+        FROM
+            DB_hhdon_dev.user;
+         */
+
+
+        /*
+         SELECT
+            user.username,
+            user.dateofbirth
+        FROM
+            DB_hhdon_dev.user
+        WHERE
+            -DATEDIFF(NOW(),DATE_ADD(user.dateofbirth, INTERVAL FLOOR(DATEDIFF(NOW(),user.dateofbirth) / 365.25)+1 YEAR)) < 30
+        ;
+         */
+
+        // DATE_DIFF(CURRENT_TIMESTAMP(), user.dateofbirth) / 365.25 AS agenow    ,
+        // -DATE_DIFF(CURRENT_TIMESTAMP(),DATE_ADD(user.dateofbirth, INTERVAL DATEDIFF(NOW(),user.dateofbirth) / 365.25 +1 YEAR)) AS daysbeforebirthday
+        $dql = 'SELECT 
+                    user.username, 
+                    user.dateofbirth                   
+                FROM 
+                    App\Entity\User user                                       
+                 ';
+        $query = $this->entityManager->createQuery($dql);
+        $allUsers = $query->execute();
+
+        //$allSerializedUsers = $this->serializer->serialize($allUsers,'json', ['groups' => ['list']]);
+        //$userlist = json_decode($allSerializedUsers);
+
+
+
+        return $this->render(
+            'cardboxes/birthdaylist.html.twig', [
+            'userlist' => $allUsers
+        ]);
+    }
 }

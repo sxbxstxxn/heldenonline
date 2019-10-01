@@ -89,6 +89,13 @@ a:hover, a:visited {
     margin-bottom:10px;
 }
 
+.userlistbox .card-footer {
+    color:#aaaaaa;
+    text-align:right;
+}
+
+
+
 .nopadding {
     padding:0px;
 }

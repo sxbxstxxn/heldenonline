@@ -1,4 +1,4 @@
-<div class="card startseite text-white bg-dark">
+<div class="card userlistbox text-white bg-dark">
     <script>
         sendRequest();
         function sendRequest() {
@@ -7,6 +7,13 @@
                 success:
                     function (result) {
                         $("#userlist_ajax").html(result);
+                        var now = new Date();
+                        var h = now.getHours();
+                        var m = now.getMinutes();
+                        var s = now.getSeconds();
+                        var footermessage = '<small>Stand: '+h+':'+m+':'+s+'</small>';
+
+                        $("#userlist_timestamp").html(footermessage);
                         setTimeout(function () {
                             sendRequest();
                         }, 5000);
@@ -14,6 +21,7 @@
             });
         }
     </script>
-    <div class="card-header">Wer ist online?</div>
+    <div class="card-header">gerade online</div>
     <div id="userlist_ajax" class="card-body"></div>
+    <div id="userlist_timestamp" class="card-footer"></div>
 </div>
