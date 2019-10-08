@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
+
     /**
      * @var EntityManagerInterface
      */
@@ -82,4 +83,5 @@ class UserController extends AbstractController
             'userlist' => $allUsers
         ]);
     }
+
 }

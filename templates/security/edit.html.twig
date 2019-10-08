@@ -1,0 +1,31 @@
+{% extends '3col.html.twig' %}
+
+{% block title parent() ~ 'Startseite' %}
+
+{% block leftcontent %}
+{{ include('cardboxes/profilebox.html.twig') }}
+{% endblock %}
+
+{% block maincontent %}
+
+<div class="card maincontent text-white bg-dark">
+    <div class="card-header">
+        Benutzerdaten bearbeiten
+    </div>
+    <div class="card-body">
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block rightcontent %}
+{{ render(controller(
+'App\\Controller\\UserController::listUsers'
+)) }}
+
+{{ render(controller(
+'App\\Controller\\UserController::listBirthdays'
+)) }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ 'Passwort vergessen' %}
+
+{% block maincontent %}
+<div class="card text-white bg-dark">
+    <div class="card-header">
+        Passwort vergessen
+    </div>
+    <div class="card-body">
+        <form action="{{ path('forgotpw') }}" method="post" novalidate>
+            <div class="form-group row">
+                <p class="col-sm-12 col-form-label">Bitte gib Deine E-Mail Adresse an. Du erhälst dann die nötigen Informationen um ein neues Passwort zu vergeben.</p>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">E-Mail</label>
+                <div class="col-sm-8">
+                    <input type="text" id="email" name="_email" required="required" class="form-control {{ (error) ? 'is-invalid' : ''}}">
+                    {% if error %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary float-right">Abschicken</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -69,10 +69,11 @@ class DefaultController extends AbstractController
     {
         return $this->render('datenschutz.html.twig');
     }
-
+/*
     /**
      * @Route("/testmail", name="testmail")
      */
+/*
     public function testmail(\Swift_Mailer $mailer)
     {
         $message = (new \Swift_Message('Deine Registrierung'))
@@ -92,4 +93,5 @@ class DefaultController extends AbstractController
 
         return $this->render('index.html.twig');
     }
+ */
 }

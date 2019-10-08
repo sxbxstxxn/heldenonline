@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use App\User\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -12,7 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
@@ -172,4 +174,62 @@ class SecurityController extends AbstractController
             );
         }
     }
+
+    /**
+     * @Route("/editprofile", name="editprofile", methods={"GET","POST"})
+     */
+    public function edit(): Response
+    {
+        $user = $this->getUser();
+        return $this->render('security/edit.html.twig', [
+            //'form' => $form->createView(),
+            'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/forgotpw", name="forgotpw", methods={"GET","POST"})
+     */
+    public function forgotpassword(Request $request, ValidatorInterface $validator, UserRepository $userRepository): Response
+    {
+
+        $email = $request->get('_email');
+
+        if ($email)
+        {
+            $emailConstraint = new Assert\Email();
+            $emailConstraint->message = 'Dieser Wert ist keine gültige E-Mail-Adresse.';
+            $errors = $validator->validate($email,$emailConstraint);
+
+            if (0 === count($errors)) {
+                // ... this IS a valid email address, do something
+                // check if mail is in DB
+                $mailresult = $userRepository->findBy(['email' => $email]);
+                if ($mailresult)
+                {
+                    // yes = send pw-change-mail
+                    $this->addFlash('success', 'Du hast jetzt eine E-Mail mit den Informationen für ein neues Passwort erhalten.');
+                    $errorMessage = '';
+                }
+                else {
+                    // no = errormessage
+                    $errorMessage = 'Die E-Mail Adresse wurde nicht gefunden. Du kannst Dich damit also neu registrieren.';
+                }
+
+            } else {
+                // this is *not* a valid email address
+                $errorMessage = $errors[0]->getMessage();
+            }
+        }
+        else {
+            $errorMessage = '';
+        }
+
+
+
+        return $this->render('security/forgotpw.html.twig', [
+            'error' => $errorMessage
+        ]);
+    }
+
 }
