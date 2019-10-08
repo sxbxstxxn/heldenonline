@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Form\ResetPasswordType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\User\UserManager;
@@ -190,7 +191,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/forgotpw", name="forgotpw", methods={"GET","POST"})
      */
-    public function forgotpassword(Request $request, ValidatorInterface $validator, UserRepository $userRepository): Response
+    public function forgotpassword(Request $request, ValidatorInterface $validator, UserRepository $userRepository, UserManager $manager, \Swift_Mailer $mailer): Response
     {
 
         $email = $request->get('_email');
@@ -201,13 +202,45 @@ class SecurityController extends AbstractController
             $emailConstraint->message = 'Dieser Wert ist keine gültige E-Mail-Adresse.';
             $errors = $validator->validate($email,$emailConstraint);
 
+
+
             if (0 === count($errors)) {
+
+                $user = $userRepository->loadUserByEmail($email);
+                $username = $user->getUsername();
                 // ... this IS a valid email address, do something
                 // check if mail is in DB
                 $mailresult = $userRepository->findBy(['email' => $email]);
                 if ($mailresult)
                 {
-                    // yes = send pw-change-mail
+                    $hashstring = hash('md5','hash'.strval(time()).$username);
+                    $hashurl = $this->generateUrl(
+                        'requestnewpw',
+                        array(
+                            'user'=>$username,
+                            'hash'=>$hashstring,
+                        ),
+                        UrlGeneratorInterface::ABSOLUTE_URL
+                    );
+
+                    $manager->setHash($username, $hashstring);
+                    // MAIL
+                    $message = (new \Swift_Message('Passwort vergessen'))
+                        ->setFrom(array('registrierung@helden.online' => 'Helden Online'))
+                        ->setTo($email)
+                        ->setBody(
+                            $this->renderView(
+                                'emails/forgotpw.html.twig',
+                                array(
+                                    'name' => $username,
+                                    'hashurl' => $hashurl,
+                                )
+                            ),
+                            'text/html'
+                        );
+                    ;
+                    $mailer->send($message);
+                    // END MAIL
                     $this->addFlash('success', 'Du hast jetzt eine E-Mail mit den Informationen für ein neues Passwort erhalten.');
                     $errorMessage = '';
                 }
@@ -231,5 +264,48 @@ class SecurityController extends AbstractController
             'error' => $errorMessage
         ]);
     }
+    /**
+     * @Route("/requestnewpw", name="requestnewpw", methods={"GET","POST"})
+     */
+    public function requestnewpassword(Request $request, UserRepository $userRepository, UserManager $manager): Response
+    {
+        $hashstring = '';
+        $username = '';
+        $user = '';
+        if(isset($_GET['hash']) && !empty($_GET['hash'])) {
+            $hashstring = $_GET['hash'];
+        }
+        if(isset($_GET['user']) && !empty($_GET['user'])) {
+            $username = $_GET['user'];
+            $user = $userRepository->loadUserByUsername($username);
+            $hashindb = $manager->getHash($username);
+        }
 
+
+        if ($hashstring != '' && $user != '' && isset($hashindb) && $hashindb == $hashstring) {
+            //$manager->confirm($username, $hashstring);
+            $form = $this->createForm(ResetPasswordType::class);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+
+                //$manager->register($form->getData(),$newFilename, $hashstring);
+                $manager->setNewPassword($user,$form->getData());
+                $manager->setHash($username,NULL);
+                $this->addFlash('success', 'Du hast erfolgreich Dein Passwort geändert und kannst Dich jetzt mit dem neuen Passwort einloggen.');
+                return $this->redirectToRoute('login');
+            }
+            return $this->render('security/requestnewpw.html.twig', [
+                'form' => $form->createView(),
+            ]);
+        }
+        else {
+            $errormessage = 'Da ist etwas schiefgelaufen. Bitte wenden Dich an einen Admin über das Kontaktformular.';
+            return $this->render(
+                'security/confirm_fail.html.twig',
+                array(
+                    'errormessage' => $errormessage,
+                )
+            );
+        }
+    }
 }

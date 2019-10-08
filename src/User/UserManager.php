@@ -61,6 +61,14 @@ class UserManager
         return $user->getRegistrationHash();
     }
 
+    public function setHash($username, $hash)
+    {
+        $user = $this->userRepository->loadUserByUsername($username);
+        $user->setRegistrationHash($hash);
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+    }
+
     public function delete($username): void
     {
         $user = $this->userRepository->loadUserByUsername($username);
@@ -72,6 +80,17 @@ class UserManager
     {
         $user = $this->userRepository->loadUserByUsername($username);
         $user->setLastActivityAt($time);
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+    }
+
+    public function setNewPassword($user, $formPW)
+    {
+        //$plainPassword = $user->getPassword();
+        $plainPassword = $formPW['password'];
+        $encodedPassword = $this->userPasswordEncoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encodedPassword);
+
         $this->entityManager->persist($user);
         $this->entityManager->flush();
     }

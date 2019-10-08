@@ -1,0 +1,40 @@
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ 'Login' %}
+
+{% block maincontent %}
+<div class="card text-white bg-dark">
+    <div class="card-header">
+        Neues Passwort festlegen.
+    </div>
+    <div class="card-body">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div class="form-group row">
+            <label for="user_password_first" class="col-sm-4 col-form-label">Passwort</label>
+            <div class="col-sm-8">
+                {{ form_widget(form.password.first, (form.children.password.first.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                <div class="invalid-feedback">
+                    {% for error in form.children.password.first.vars.errors.form.errors %}
+                    {{ error.message }}<br/>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="user_password_second" class="col-sm-4 col-form-label">Passwort wiederholen</label>
+            <div class="col-sm-8">
+                {{ form_widget(form.password.second, (form.children.password.second.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
+                <div class="invalid-feedback">
+                    {% for error in form.children.password.second.vars.errors.form.errors %}
+                    {{ error.message }}<br/>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'Passwort ändern' }) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
