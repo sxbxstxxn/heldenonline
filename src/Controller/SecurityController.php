@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Form\EditProfileType;
 use App\Form\ResetPasswordType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -179,11 +180,38 @@ class SecurityController extends AbstractController
     /**
      * @Route("/editprofile", name="editprofile", methods={"GET","POST"})
      */
-    public function edit(): Response
+    public function edit(Request $request, UserManager $manager): Response
     {
         $user = $this->getUser();
+        $username = $user->getUsername();
+
+        $form = $this->createForm(EditProfileType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // PICTURE FILE
+            $pictureFile = $form['picture']->getData();
+            $newFilename = NULL;
+            if ($pictureFile) {
+                $newFilename = 'profile-'.$username.'-'.uniqid().'.'.$pictureFile->guessExtension();
+                try {
+                    $pictureFile->move(
+                        $this->getParameter('pictures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+            }
+
+            $manager->editUser($user, $form->getData(), $newFilename);
+            $this->addFlash('success', 'Deine Änderungen wurden erfolgreich übernommen.');
+
+        }
+
         return $this->render('security/edit.html.twig', [
-            //'form' => $form->createView(),
+            'form' => $form->createView(),
             'user' => $user
         ]);
     }
@@ -296,6 +324,7 @@ class SecurityController extends AbstractController
             }
             return $this->render('security/requestnewpw.html.twig', [
                 'form' => $form->createView(),
+                'username' => $username,
             ]);
         }
         else {

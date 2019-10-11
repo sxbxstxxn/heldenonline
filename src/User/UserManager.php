@@ -95,4 +95,17 @@ class UserManager
         $this->entityManager->flush();
     }
 
+    public function editUser(User $user, $formEdit, $picture = NULL)
+    {
+        //var_dump($formEdit);exit;
+        //$user->setPicture = $formEdit['picture'];
+        if (isset($picture)) {
+            $user->setPicture($picture);
+        }
+        $user->setDateofbirth($formEdit['dateofbirth']);
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+    }
+
 }

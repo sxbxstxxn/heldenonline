@@ -18,5 +18,11 @@
                 <span class="text-white col-sm-10 nopadding">{{ app.user.dateofbirth|date("d.m.Y") }}</span>
             </div>
         </div>
+        <div class="card-footer">
+            <div class="row">
+                <i class="lefticon material-icons bg-dark col-sm-2 nopadding">create</i>
+                <span class="text-secondary col-sm-10 nopadding"><a class="text-secondary" href="{{ path('editprofile') }}">Profil bearbeiten</a></span>
+            </div>
+        </div>
     </div>
 </div>

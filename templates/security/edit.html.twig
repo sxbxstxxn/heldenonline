@@ -14,7 +14,42 @@
     </div>
     <div class="card-body">
 
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group row">
+            <label for="user_username" class="col-sm-4 col-form-label">Benutzername</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" value="{{ user.username }}" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="user_email" class="col-sm-4 col-form-label">E-Mail</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" value="{{ user.email }}" readonly>
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label for="user_dateofbirth" class="col-sm-4 col-form-label">Geburtsdatum</label>
+            <div class="col-sm-8">
+                {{ form_widget(form.dateofbirth, {'attr': {'class': 'form-control' }, 'value': user.dateofbirth| date("Y-m-d")}) }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
+            <div class="col-sm-8">
+                {% if user.picture %}
+                    <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
+                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}
+                {% else %}
+                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
+                {% endif %}
+
+
+            </div>
+        </div>
+        {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
+        {{ form_end(form) }}
     </div>
 </div>
 
