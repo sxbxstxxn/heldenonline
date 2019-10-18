@@ -9,11 +9,16 @@
 {% block maincontent %}
 
 <div class="card maincontent text-white bg-dark">
+    <script>
+        function deletePicture() {
+            $('#edit_profile_picturedeleted').attr('value','true');
+            $('#editpicturebigmode').html('');
+        }
+    </script>
     <div class="card-header">
         Benutzerdaten bearbeiten
     </div>
     <div class="card-body">
-
         {{ form_start(form) }}
         {{ form_errors(form) }}
         <div class="form-group row">
@@ -39,13 +44,19 @@
             <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
             <div class="col-sm-8">
                 {% if user.picture %}
-                    <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
+                    <div id="editpicturebigmode" class="col-sm-12 nopadding">
+                        <div class="col-sm-11 float-left nopadding">
+                            <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
+                        </div>
+                        <div class="col-sm-1 float-left nopadding">
+                            <i class="linkicon lefticon material-icons bg-dark nopadding" data-toggle="tooltip" data-placement="right" title="Bild entfernen" style="vertical-align:top;" onclick="deletePicture()">delete_sweep</i>
+                        </div>
+                    </div>
                     {{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}
                 {% else %}
                     {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
                 {% endif %}
-
-
+            {{ form_widget(form.picturedeleted) }}
             </div>
         </div>
         {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}

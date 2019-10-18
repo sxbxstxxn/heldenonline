@@ -5,9 +5,11 @@ namespace App\Form;
 
 
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -36,6 +38,9 @@ class EditProfileType extends AbstractType
                         'mimeTypesMessage' => 'Bitte lade nur Bilder (jpg oder png) hoch!',
                     ])
                 ],
+            ])
+            ->add('picturedeleted', HiddenType::class, [
+
             ])
             ->add('submit', SubmitType::class, [
 

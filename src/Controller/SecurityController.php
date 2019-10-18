@@ -192,6 +192,9 @@ class SecurityController extends AbstractController
 
             // PICTURE FILE
             $pictureFile = $form['picture']->getData();
+            $picturedeleted = $form['picturedeleted']->getData();
+            //var_dump($test);exit;
+
             $newFilename = NULL;
             if ($pictureFile) {
                 $newFilename = 'profile-'.$username.'-'.uniqid().'.'.$pictureFile->guessExtension();
@@ -204,6 +207,12 @@ class SecurityController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
             }
+            else{
+                if ($picturedeleted == 'true') {
+                    $newFilename = '';
+                }
+            }
+
 
             $manager->editUser($user, $form->getData(), $newFilename);
             $this->addFlash('success', 'Deine Änderungen wurden erfolgreich übernommen.');

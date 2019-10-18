@@ -22,6 +22,10 @@ a:hover, a:visited {
     color:#6c757d;
 }
 
+.linkicon, .linkicon:hover {
+    cursor: pointer;
+}
+
 .card {
     margin-top:15px;
 }
@@ -32,14 +36,14 @@ a:hover, a:visited {
     padding:15px;*/
 }
 
-/* Tooltip container */
+/* Tooltip container
 .userlist-tooltip {
     position: relative;
     display: inline-block;
     cursor:default;
 }
 
-/* Tooltip text */
+/* Tooltip text
 .userlist-tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -49,18 +53,18 @@ a:hover, a:visited {
     padding: 5px 0;
     border-radius: 6px;
     cursor:default;
-    /* Position the tooltip text - see examples below! */
+    /* Position the tooltip text - see examples below!
     position: absolute;
     z-index: 1;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Show the tooltip text when you mouse over the tooltip container
 .userlist-tooltip:hover .tooltiptext {
     visibility: visible;
     cursor:default;
 }
 
-
+*/
 
 .startseite .card-img-top {
     margin:auto;
