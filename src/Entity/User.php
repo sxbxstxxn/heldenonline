@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -84,6 +86,16 @@ class User implements UserInterface
      * @Groups({"list"})
      */
     protected $lastActivityAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Character", mappedBy="user")
+     */
+    private $characters;
+
+    public function __construct()
+    {
+        $this->characters = new ArrayCollection();
+    }
 
     /**
      * A visual identifier that represents this user.
@@ -255,6 +267,39 @@ class User implements UserInterface
         //$delay = new \DateTime('2 minutes ago');
 
         //return ( $this->getLastActivityAt() > $delay );
+    }
+
+    /**
+     * @return Collection|Character[]
+     *
+     * @see UserInterface
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacter(Character $character): self
+    {
+        if (!$this->characters->contains($character)) {
+            $this->characters[] = $character;
+            $character->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacter(Character $character): self
+    {
+        if ($this->characters->contains($character)) {
+            $this->characters->removeElement($character);
+            // set the owning side to null (unless already changed)
+            if ($character->getUser() === $this) {
+                $character->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 

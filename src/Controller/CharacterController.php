@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Character;
+use App\Entity\User;
 use App\Repository\CharacterRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +33,8 @@ class CharacterController extends AbstractController
 
     public function listCharacters(): Response
     {
+
+        //$allCharacters = $this->characterRepository->findAll();
         $allCharacters = $this->characterRepository->findAll();
 
         return $this->render(

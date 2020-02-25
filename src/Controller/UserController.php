@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -81,6 +82,15 @@ class UserController extends AbstractController
         return $this->render(
             'cardboxes/birthdaylist.html.twig', [
             'userlist' => $allUsers
+        ]);
+    }
+
+    public function listCharacters(UserInterface $user): Response
+    {
+        $characters = $user->getCharacters();
+
+        return $this->render('characters/list.html.twig', [
+            'characters' => $characters
         ]);
     }
 
