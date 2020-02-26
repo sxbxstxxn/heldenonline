@@ -1,3 +1,5 @@
 <div class="characterlist">
-{{ dump(characters) }}
+    {% for character in characters %}
+        {{character.id}} | {{character.charname}}<br/>
+    {% endfor %}
 </div>

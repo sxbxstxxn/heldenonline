@@ -19,6 +19,20 @@ class CharacterRepository extends ServiceEntityRepository
         parent::__construct($registry, Character::class);
     }
 
+    public function findOneByIdJoinedToUser($userId)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT c,u
+            FROM App\Entity\Character c
+            INNER JOIN c.user u
+            WHERE u.id = :id'
+        )->setParameter('id', $userId);
+
+        return $query->getArrayResult();
+    }
+
     // /**
     //  * @return Character[] Returns an array of Character objects
     //  */

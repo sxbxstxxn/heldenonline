@@ -85,13 +85,5 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function listCharacters(UserInterface $user): Response
-    {
-        $characters = $user->getCharacters();
-
-        return $this->render('characters/list.html.twig', [
-            'characters' => $characters
-        ]);
-    }
 
 }

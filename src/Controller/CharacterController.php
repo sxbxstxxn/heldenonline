@@ -35,7 +35,12 @@ class CharacterController extends AbstractController
     {
 
         //$allCharacters = $this->characterRepository->findAll();
-        $allCharacters = $this->characterRepository->findAll();
+        //$allCharacters = $this->characterRepository->findAll();
+
+        $allCharacters = $this->getDoctrine()
+            ->getRepository(Character::class)
+            ->findOneByIdJoinedToUser(59);
+
 
         return $this->render(
             'characters/list.html.twig', [
