@@ -56,9 +56,11 @@ class CharacterController extends AbstractController
         //$allCharacters = $this->characterRepository->findAll();
         //$allCharacters = $this->characterRepository->findAll();
 
+        $userid = $this->getUser()->getId();
+        
         $allCharacters = $this->getDoctrine()
             ->getRepository(Character::class)
-            ->findOneByIdJoinedToUser(59);
+            ->findOneByIdJoinedToUser($userid);
 
 
         return $this->render(
