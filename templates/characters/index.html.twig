@@ -10,8 +10,11 @@
 
     <div class="card maincontent text-white bg-dark">
         <div class="card-body">
-            Meine Charaktere
+            <h4>Meine Charaktere</h4>
             {{ render(controller('App\\Controller\\CharacterController::listCharacters' )) }}
+        </div>
+        <div class="card-footer text-right">
+            <a href="/characters/create" class="btn btn-secondary">Neuen Charakter anlegen</a>
         </div>
     </div>
 

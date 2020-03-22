@@ -3,8 +3,13 @@ body {
     /*background-color:#E2D0AA;*/
 }
 
-a:hover, a:visited {
+a, a:hover, a:visited {
     text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #6c757d;
 }
 
 .bodycontainer {
@@ -81,3 +86,4 @@ a:hover, a:visited {
 .nopadding {
     padding:0px;
 }
+

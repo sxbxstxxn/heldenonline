@@ -1,0 +1,22 @@
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ character.charname %}
+
+{% block maincontent %}
+
+    <div class="card maincontent text-white bg-dark">
+        <div class="card-body">
+            {{ character.charname }}
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <i class="lefticon material-icons bg-dark nopadding">view_list</i>
+                <span class="text-secondary nopadding">
+                    <a class="text-secondary" href="/characters">zurück zur Übersicht</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

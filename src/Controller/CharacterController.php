@@ -41,14 +41,83 @@ class CharacterController extends AbstractController
         $form = $this->createForm(CharacterType::class);
         $form->handleRequest($request);
 
+        $character = new Character();
+        $user = $this->getUser();
+
         if ($form->isSubmitted()) {
+            $character = $form->getData();
+            $character->setUser($user);
+            $this->entityManager->persist($character);
+            $this->entityManager->flush();
+
             $this->addFlash('success', 'Char erstellt.');
+            //doesn't work, don't know why. when redirect is active, the character ist not saved in database
+            return $this->redirectToRoute('characters');
         }
 
         return $this->render('characters/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/characters/show/{id}", name="character_show")
+     */
+    public function show(Character $character)
+    {
+        $user = $this->getUser();
+        if (!$character) {
+            throw $this->createNotFoundException(
+                'Kein Charakter mit der ID '.$id.' vorhanden.'
+            );
+        }
+        if ($user == $character->getUser()) {
+            return $this->render(
+                'characters/show.html.twig', [
+                'character' => $character
+            ]);
+        }
+        else {
+            $this->addFlash('danger', 'Dies ist nicht Dein Char. Keine Berechtigung.');
+            return $this->redirectToRoute('characters');
+        }
+    }
+
+    /**
+     * @Route("characters/edit/{id}", name="character_edit")
+     */
+    public function edit(Character $character)
+    {
+        $user = $this->getUser();
+        if ($user == $character->getUser()) {
+            return $this->render(
+                'characters/edit.html.twig', [
+                'character' => $character
+            ]);
+        }
+        else {
+            $this->addFlash('danger', 'Dies ist nicht Dein Char. Keine Berechtigung.');
+            return $this->redirectToRoute('characters');
+        }
+    }
+
+    /**
+     * @Route("characters/delete/{id}", name="character_delete")
+     */
+    public function delete(Character $character)
+    {
+        $user = $this->getUser();
+        if ($user == $character->getUser()) {
+            $this->entityManager->remove($character);
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Char gelöscht.');
+        }
+        else {
+            $this->addFlash('danger', 'Charakter wurde nicht gelöscht. Keine Berechtigung.');
+        }
+        return $this->redirectToRoute('characters');
+    }
+
 
     public function listCharacters(): Response
     {
@@ -57,7 +126,7 @@ class CharacterController extends AbstractController
         //$allCharacters = $this->characterRepository->findAll();
 
         $userid = $this->getUser()->getId();
-        
+
         $allCharacters = $this->getDoctrine()
             ->getRepository(Character::class)
             ->findOneByIdJoinedToUser($userid);
