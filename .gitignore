@@ -1,4 +1,5 @@
-
+.htaccess
+.htpasswd
 
 ###> symfony/framework-bundle ###
 /.env.local
