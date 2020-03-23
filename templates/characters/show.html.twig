@@ -5,8 +5,17 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
+        <div class="card-header">
+            Charakter anzeigen
+        </div>
         <div class="card-body">
-            {{ character.charname }}
+            <div class="form-group row">
+                <label for="character_charname" class="col-sm-4 col-form-label">Charaktername</label>
+                <div class="col-sm-8">
+                    {{ character.charname }}
+                </div>
+            </div>
+
         </div>
         <div class="card-footer">
             <div class="row">

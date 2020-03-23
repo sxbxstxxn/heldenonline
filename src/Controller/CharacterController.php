@@ -86,13 +86,27 @@ class CharacterController extends AbstractController
     /**
      * @Route("characters/edit/{id}", name="character_edit")
      */
-    public function edit(Character $character)
+    public function edit(Character $character, Request $request)
     {
         $user = $this->getUser();
         if ($user == $character->getUser()) {
+
+            $form = $this->createForm(CharacterType::class);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted()) {
+                $formData = $form->getData();
+
+                $character->setCharname($formData->getCharname());
+
+                $this->entityManager->flush();
+                $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
+                return $this->redirectToRoute('characters');
+            }
             return $this->render(
                 'characters/edit.html.twig', [
-                'character' => $character
+                'character' => $character,
+                'form' => $form->createView()
             ]);
         }
         else {

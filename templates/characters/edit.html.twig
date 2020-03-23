@@ -5,8 +5,20 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
+        <div class="card-header">
+            Charakter bearbeiten
+        </div>
         <div class="card-body">
-            {{ dump(character) }}
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="form-group row">
+                <label for="character_charname" class="col-sm-4 col-form-label">Charaktername</label>
+                <div class="col-sm-8">
+                    {{ form_widget(form.charname, {'attr': {'class':'form-control' },'value':character.charname}) }}
+                </div>
+            </div>
+            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
+            {{ form_end(form) }}
         </div>
         <div class="card-footer">
             <div class="row">
