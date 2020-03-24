@@ -6,7 +6,26 @@
 
     <div class="card maincontent text-white bg-dark">
         <div class="card-header">
-            Charakter bearbeiten
+            <div class="row">
+                <div class="col-10">Charakter bearbeiten</div>
+                <div class="col-2">
+                    <div class="col-4 charicon nopadding">
+                        <a href="/characters">
+                            <i class="material-icons bg-dark nopadding">view_list</i>
+                        </a>
+                    </div>
+                    <div class="col-4 charicon nopadding">
+                        <a href="/characters/show/{{ character.id }}">
+                            <i class="material-icons bg-dark nopadding">remove_red_eye</i>
+                        </a>
+                    </div>
+                    <div class="col-4 charicon nopadding">
+                        <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
+                            <i class="material-icons bg-dark nopadding">delete</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             {{ form_start(form) }}
@@ -17,16 +36,11 @@
                     {{ form_widget(form.charname, {'attr': {'class':'form-control' },'value':character.charname}) }}
                 </div>
             </div>
-            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
-            {{ form_end(form) }}
+
         </div>
         <div class="card-footer">
-            <div class="row">
-                <i class="lefticon material-icons bg-dark nopadding">view_list</i>
-                <span class="text-secondary nopadding">
-                    <a class="text-secondary" href="/characters">zurück zur Übersicht</a>
-                </span>
-            </div>
+            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
+            {{ form_end(form) }}
         </div>
     </div>
 

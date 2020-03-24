@@ -6,7 +6,26 @@
 
     <div class="card maincontent text-white bg-dark">
         <div class="card-header">
-            Charakter anzeigen
+            <div class="row">
+                <div class="col-10">Charakter anzeigen</div>
+                <div class="col-2">
+                    <div class="col-4 charicon nopadding">
+                        <a href="/characters">
+                            <i class="material-icons bg-dark nopadding">view_list</i>
+                        </a>
+                    </div>
+                    <div class="col-4 charicon nopadding">
+                        <a href="/characters/edit/{{ character.id }}">
+                            <i class="material-icons bg-dark nopadding">edit</i>
+                        </a>
+                    </div>
+                    <div class="col-4 charicon nopadding">
+                        <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
+                            <i class="material-icons bg-dark nopadding">delete</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="form-group row">
@@ -15,15 +34,10 @@
                     {{ character.charname }}
                 </div>
             </div>
-
+            {% include 'characters/deletemodal.html.twig' %}
         </div>
         <div class="card-footer">
-            <div class="row">
-                <i class="lefticon material-icons bg-dark nopadding">view_list</i>
-                <span class="text-secondary nopadding">
-                    <a class="text-secondary" href="/characters">zurück zur Übersicht</a>
-                </span>
-            </div>
+            
         </div>
     </div>
 
