@@ -5,10 +5,13 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
+        {{ form_start(form) }}
         <div class="card-header">
             <div class="row">
-                <div class="col-10">Charakter bearbeiten</div>
-                <div class="col-2">
+                <div class="col-8 charname nopadding">
+                    {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
+                </div>
+                <div class="col-4">
                     <div class="col-4 charicon nopadding">
                         <a href="/characters">
                             <i class="material-icons bg-dark nopadding">view_list</i>
@@ -28,17 +31,85 @@
             </div>
         </div>
         <div class="card-body">
-            {{ form_start(form) }}
-            {{ form_errors(form) }}
-            <div class="form-group row">
-                <label for="character_charname" class="col-sm-4 col-form-label">Charaktername</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.charname, {'attr': {'class':'form-control' },'value':character.charname}) }}
+            <div class="charactersheet">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">MU</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' },'value':character.attributeMu}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KL</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' },'value':character.attributeKl}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">IN</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' },'value':character.attributeIn}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">CH</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' },'value':character.attributeCh}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">FF</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' },'value':character.attributeFf}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">GE</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' },'value':character.attributeGe}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KO</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' },'value':character.attributeKo}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KK</div>
+                                    <div class="col-12 attribute-value nopadding">
+                                        {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' },'value':character.attributeKk}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
         <div class="card-footer">
+            {{ form_errors(form) }}
             {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
             {{ form_end(form) }}
         </div>

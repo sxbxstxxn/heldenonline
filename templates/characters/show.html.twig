@@ -7,8 +7,8 @@
     <div class="card maincontent text-white bg-dark">
         <div class="card-header">
             <div class="row">
-                <div class="col-10">Charakter anzeigen</div>
-                <div class="col-2">
+                <div class="col-8 charname">{{ character.charname }}</div>
+                <div class="col-4">
                     <div class="col-4 charicon nopadding">
                         <a href="/characters">
                             <i class="material-icons bg-dark nopadding">view_list</i>
@@ -28,16 +28,69 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="form-group row">
-                <label for="character_charname" class="col-sm-4 col-form-label">Charaktername</label>
-                <div class="col-sm-8">
-                    {{ character.charname }}
+            <div class="charactersheet">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">MU</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeMu }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KL</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKl }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">IN</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeIn }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">CH</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeCh }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">FF</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeFf }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">GE</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeGe }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KO</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKo }}</div>
+                                </div>
+                            </div>
+                            <div class="col-3 nopadding">
+                                <div class="attribute-box">
+                                    <div class="col-12 attribute-description nopadding">KK</div>
+                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKk }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% include 'characters/deletemodal.html.twig' %}
         </div>
         <div class="card-footer">
-            
+            {% include 'characters/deletemodal.html.twig' %}
         </div>
     </div>
 

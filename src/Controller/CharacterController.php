@@ -98,6 +98,14 @@ class CharacterController extends AbstractController
                 $formData = $form->getData();
 
                 $character->setCharname($formData->getCharname());
+                $character->setAttributeMu($formData->getAttributeMu());
+                $character->setAttributeKl($formData->getAttributeKl());
+                $character->setAttributeIn($formData->getAttributeIn());
+                $character->setAttributeCh($formData->getAttributeCh());
+                $character->setAttributeFf($formData->getAttributeFf());
+                $character->setAttributeGe($formData->getAttributeGe());
+                $character->setAttributeKo($formData->getAttributeKo());
+                $character->setAttributeKk($formData->getAttributeKk());
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');

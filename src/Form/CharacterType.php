@@ -14,7 +14,14 @@ class CharacterType extends AbstractType
     {
         $builder
             ->add('charname')
-            //->add('user')
+            ->add('attributeMu')
+            ->add('attributeKl')
+            ->add('attributeIn')
+            ->add('attributeCh')
+            ->add('attributeFf')
+            ->add('attributeGe')
+            ->add('attributeKo')
+            ->add('attributeKk')
             ->add('submit', SubmitType::class);
 
     }
