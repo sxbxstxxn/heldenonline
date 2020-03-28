@@ -34,7 +34,45 @@
         </div>
         <div class="card-body">
             <div class="charactersheet">
-                <div class="row">
+                <div class="row origin">
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Spezies</div>
+                                    <div class="col-12 origin-value nopadding">
+                                        {{ form_widget(form.species, {'attr': {'class':'inputbox' }, 'value':character.species.id~'' }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Kultur</div>
+                                    <div class="col-12 origin-value nopadding">
+                                        {{ form_widget(form.culture, {'attr': {'class':'inputbox' }, 'value':character.culture.id~'' }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Kultur</div>
+                                    <div class="col-12 origin-value nopadding">
+                                        {{ form_widget(form.profession, {'attr': {'class':'inputbox' }, 'value':character.profession.id~'' }) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attributes">
                     <div class="col-6">
                         <div class="row">
                             <div class="col-3 nopadding">

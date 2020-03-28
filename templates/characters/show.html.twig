@@ -31,7 +31,39 @@
         </div>
         <div class="card-body">
             <div class="charactersheet">
-                <div class="row">
+                <div class="row origin">
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Spezies</div>
+                                    <div class="col-12 origin-value nopadding">{{ character.species.speciesname }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Kultur</div>
+                                    <div class="col-12 origin-value nopadding">{{ character.culture.culturename }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="origin-box">
+                                    <div class="col-12 origin-description nopadding">Profession</div>
+                                    <div class="col-12 origin-value nopadding">{{ character.profession.professionname }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row attributes">
                     <div class="col-6">
                         <div class="row">
                             <div class="col-3 nopadding">

@@ -4,10 +4,13 @@
 namespace App\Controller;
 
 use App\Entity\Character;
+use App\Entity\Species;
+
 use App\Entity\User;
 use App\Form\CharacterType;
 use App\Repository\CharacterRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use PhpParser\Node\Stmt\Return_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,12 +69,14 @@ class CharacterController extends AbstractController
     public function show(Character $character)
     {
         $user = $this->getUser();
+
         if (!$character) {
             throw $this->createNotFoundException(
                 'Kein Charakter mit der ID '.$id.' vorhanden.'
             );
         }
         if ($user == $character->getUser()) {
+
             return $this->render(
                 'characters/show.html.twig', [
                 'character' => $character
@@ -106,6 +111,9 @@ class CharacterController extends AbstractController
                 $character->setAttributeGe($formData->getAttributeGe());
                 $character->setAttributeKo($formData->getAttributeKo());
                 $character->setAttributeKk($formData->getAttributeKk());
+                $character->setSpecies($formData->getSpecies());
+                $character->setCulture($formData->getCulture());
+                $character->setProfession($formData->getProfession());
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
@@ -160,6 +168,17 @@ class CharacterController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test() :Response
+    {
+        //$characterrepository $this->entityManager->getRepository(Character::class);
+        $char = $this->characterRepository->find(2);
+        $species = $char->getSpecies();
+        $speciesname = $species->getSpeciesname();
 
+        var_dump($speciesname);die;
+    }
 
 }

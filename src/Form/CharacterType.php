@@ -3,6 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Character;
+use App\Entity\Culture;
+use App\Entity\Profession;
+use App\Entity\Species;
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,6 +28,20 @@ class CharacterType extends AbstractType
             ->add('attributeGe')
             ->add('attributeKo')
             ->add('attributeKk')
+
+            ->add('species', EntityType::class, [
+                'class' => Species::class,
+                'choice_label' => 'speciesname'
+            ])
+            ->add('culture', EntityType::class, [
+                'class' => Culture::class,
+                'choice_label' => 'culturename'
+            ])
+            ->add('profession', EntityType::class, [
+                'class' => Profession::class,
+                'choice_label' => 'professionname'
+            ])
+
             ->add('submit', SubmitType::class);
 
     }

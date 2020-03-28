@@ -68,7 +68,25 @@ class Character
      * @ORM\Column(type="integer")
      */
     private $attributeKk;
-    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Species", inversedBy="speciesname")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $species;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Culture", inversedBy="speciesname")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $culture;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profession", inversedBy="professionname")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $profession;
+
 
     public function getId(): ?int
     {
@@ -194,5 +212,42 @@ class Character
 
         return $this;
     }
+
+    public function getSpecies(): ?Species
+    {
+        return $this->species;
+    }
+
+    public function setSpecies(?Species $species): self
+    {
+        $this->species = $species;
+
+        return $this;
+    }
+
+    public function getCulture(): ?Culture
+    {
+        return $this->culture;
+    }
+
+    public function setCulture(?Culture $culture): self
+    {
+        $this->culture = $culture;
+
+        return $this;
+    }
+
+    public function getProfession(): ?Profession
+    {
+        return $this->profession;
+    }
+
+    public function setProfession(?Profession $profession): self
+    {
+        $this->profession = $profession;
+
+        return $this;
+    }
+
 
 }

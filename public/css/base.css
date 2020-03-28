@@ -94,9 +94,32 @@ input[type=number] {
 
 
 
-/* charactersheet */
+/* CHARACTERSHEET */
+/* origin */
+.charactersheet .origin-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
 
+.charactersheet .origin-box .origin-description {
+    font-weight: bold;
+    font-size: 15px;
+}
 
+.charactersheet .origin-box .origin-value {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+ .charactersheet .origin-box .origin-value select,
+ .charactersheet .origin-box .origin-value option{
+    padding:0px;
+    text-align-last: center;
+}
+
+/* attributes */
 .charactersheet .attribute-box {
     background-color: #6c757d;
     color: #343A40;
