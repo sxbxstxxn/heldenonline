@@ -8,24 +8,26 @@
         {{ form_start(form) }}
         <div class="card-header">
             <div class="row">
-                <div class="col-8 charname nopadding">
+                <div class="col-8 nopadding">
                     {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
                 </div>
                 <div class="col-4">
-                    <div class="col-4 charicon nopadding">
-                        <a href="/characters">
-                            <i class="material-icons bg-dark nopadding">view_list</i>
-                        </a>
-                    </div>
-                    <div class="col-4 charicon nopadding">
-                        <a href="/characters/show/{{ character.id }}">
-                            <i class="material-icons bg-dark nopadding">remove_red_eye</i>
-                        </a>
-                    </div>
-                    <div class="col-4 charicon nopadding">
-                        <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
-                            <i class="material-icons bg-dark nopadding">delete</i>
-                        </a>
+                    <div class="row">
+                        <div class="col-4 text-right">
+                            <a href="/characters">
+                                <i class="material-icons bg-dark nopadding">view_list</i>
+                            </a>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="/characters/show/{{ character.id }}">
+                                <i class="material-icons bg-dark nopadding">remove_red_eye</i>
+                            </a>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
+                                <i class="material-icons bg-dark nopadding">delete</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,9 +111,13 @@
             </div>
         </div>
         <div class="card-footer">
-            {{ form_errors(form) }}
-            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
-            {{ form_end(form) }}
+            <div class="row">
+                <div class="col align-self-end nopadding">
+                    {{ form_errors(form) }}
+                    {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
         </div>
     </div>
 

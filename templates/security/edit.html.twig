@@ -1,10 +1,6 @@
-{% extends '3col.html.twig' %}
+{% extends '1col.html.twig' %}
 
 {% block title parent() ~ 'Startseite' %}
-
-{% block leftcontent %}
-{{ include('cardboxes/profilebox.html.twig') }}
-{% endblock %}
 
 {% block maincontent %}
 
@@ -64,14 +60,4 @@
     </div>
 </div>
 
-{% endblock %}
-
-{% block rightcontent %}
-{{ render(controller(
-'App\\Controller\\UserController::listUsers'
-)) }}
-
-{{ render(controller(
-'App\\Controller\\UserController::listBirthdays'
-)) }}
 {% endblock %}

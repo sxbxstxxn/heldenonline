@@ -1,0 +1,22 @@
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ 'Userlist' %}
+
+{% block maincontent %}
+
+
+    <div class="card maincontent text-white bg-dark">
+        <div class="card-header">
+            <div class="row">Userliste</div>
+        </div>
+        <div class="card-body">
+            {% for user in userlist %}
+                {{ user.username }}
+            {% endfor %}
+        </div>
+        <div class="card-footer">
+            footer
+        </div>
+    </div>
+
+{% endblock %}

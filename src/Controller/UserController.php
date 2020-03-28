@@ -6,7 +6,9 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\User\UserManager;
 use Doctrine\ORM\EntityManagerInterface;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,37 +31,20 @@ class UserController extends AbstractController
         $this->serializer = $serializer;
     }
 
-    public function listUsers()
-    {
-        $allUsers = $this->entityManager->getRepository(User::class)->findAll();
-        $allSerializedUsers = $this->serializer->serialize($allUsers,'json', ['groups' => ['list']]);
-        $userlist = json_decode($allSerializedUsers);
-
-        return $this->render(
-            'cardboxes/userlist.html.twig', [
-            'userlist' => $allSerializedUsers
-        ]);
-
-    }
 
     /**
-     * @Route("/userlist", name="userlist", methods={"GET"})
+     * @Route("/users/list", name="userlist", methods={"GET"})
      */
-    public function userlist(): Response
+    public function list(): Response
     {
-
-        $allUsers = $this->entityManager->getRepository(User::class)->findBy(
+        $userlist = $this->entityManager->getRepository(User::class)->findBy(
             array('registrationConfirmed' => 1)
         );
-
-        $allSerializedUsers = $this->serializer->serialize($allUsers,'json', ['groups' => ['list']]);
-        $userlist = json_decode($allSerializedUsers);
-
-        return $this->render('userlist.html.twig', [
+        return $this->render('users/list.html.twig', [
             'userlist' => $userlist
         ]);
     }
-
+/*
     public function listBirthdays(): Response
     {
         //added beberlein doctrine extension for using floor and other functions, see https://github.com/beberlei/DoctrineExtensions/
@@ -84,6 +69,15 @@ class UserController extends AbstractController
             'userlist' => $allUsers
         ]);
     }
-
-
+*/
+    /**
+     * @Route("/user/show/{id}", name="user_show", methods={"GET","POST"})
+     */
+    public function show(User $user)
+    {
+        return $this->render(
+            'users/show.html.twig', [
+            'user' => $user
+        ]);
+    }
 }

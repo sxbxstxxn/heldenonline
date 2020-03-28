@@ -178,9 +178,9 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/editprofile", name="editprofile", methods={"GET","POST"})
+     * @Route("/account", name="account", methods={"GET","POST"})
      */
-    public function edit(Request $request, UserManager $manager): Response
+    public function account(Request $request, UserManager $manager): Response
     {
         $user = $this->getUser();
         $username = $user->getUsername();

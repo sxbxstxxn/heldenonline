@@ -1,23 +1,27 @@
 <div class="characterlist">
     {% for character in characters %}
         <div class="row">
-            <div class="col-9">
+            <div class="col-8 col-md-10">
                 {{character.charname}}
             </div>
-            <div class="col-1 nopadding">
-                <a href="/characters/show/{{ character.id }}">
-                    <i class="material-icons bg-dark nopadding">remove_red_eye</i>
-                </a>
-            </div>
-            <div class="col-1 nopadding">
-                <a href="/characters/edit/{{ character.id }}">
-                    <i class="material-icons bg-dark nopadding">edit</i>
-                </a>
-            </div>
-            <div class="col-1 nopadding">
-                <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
-                    <i class="material-icons bg-dark nopadding">delete</i>
-                </a>
+            <div class="col-4 col-md-2">
+                <div class="row">
+                    <div class="col-4 text-right">
+                        <a href="/characters/show/{{ character.id }}">
+                            <i class="material-icons bg-dark nopadding">remove_red_eye</i>
+                        </a>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="/characters/edit/{{ character.id }}">
+                            <i class="material-icons bg-dark nopadding">edit</i>
+                        </a>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
+                            <i class="material-icons bg-dark nopadding">delete</i>
+                        </a>
+                    </div>
+                </div>
             </div>
             {% include 'characters/deletemodal.html.twig' %}
         </div>

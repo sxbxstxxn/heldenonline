@@ -1,5 +1,32 @@
-{% if app.user %}
-    {{ include('index_auth.html.twig') }}
-{% else %}
-    {{ include('index_noauth.html.twig') }}
-{% endif %}
+{% extends '1col.html.twig' %}
+
+{% block title parent() ~ 'Startseite' %}
+
+{% block maincontent %}
+    <div class="card startseite text-white bg-dark">
+        <img class="card-img-top" src="{{ asset('images/logo.png') }}" style="width:24%"/>
+        <div class="card-body">
+            <h1 class="card-title">Helden Online</h1>
+            {% if app.user %}
+                <p class="card-text">
+                    eingeloggt.
+                </p>
+            {% else %}
+                <p class="card-text">
+                    Helden Online ist eine Fanseite. Es gibt keine kommerziellen Ziele, keine versteckten Kosten für User, die sich anmelden oder sonstiges.
+                    Wir betreiben die Seite aus reinem Spaß an Pen&Paper Rollenspielen. Ziel ist es, dass man jederzeit seine "Helden" aus bekannten Pen&Paper-Rollenspielen hier speichern, einsehen, ändern und ausdrucken kann.
+                    Da dies privat geschieht und alle, die hier mitarbeiten auch noch Jobs haben, kann es sein, dass nicht immer alles reibungslos verläuft. Ich hoffe ihr habt dafür Verständnis.
+                    Da wir nicht alle Pen&Paper System gleichzeitig (oder generell alle) umsetzen können, haben wir uns dazu entschlossen als erstes "Das Schwarze Auge" für die 5.Edition anzugehen.
+                    Bei Fragen und Anmerkungen könnt ihr jederzeit die Kontaktseite verwenden und euch bei uns melden.
+                </p>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

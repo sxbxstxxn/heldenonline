@@ -1,32 +1,21 @@
-{% extends '3col.html.twig' %}
+{% extends '1col.html.twig' %}
 
 {% block title parent() ~ 'Meine Charaktere' %}
-
-{% block leftcontent %}
-    {{ include('cardboxes/profilebox.html.twig') }}
-{% endblock %}
 
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
+        <div class="card-header">Meine Charaktere</div>
         <div class="card-body">
-            <h4>Meine Charaktere</h4>
             {{ render(controller('App\\Controller\\CharacterController::listCharacters' )) }}
         </div>
         <div class="card-footer text-right">
-            <a href="/characters/create" class="btn btn-secondary">Neuen Charakter anlegen</a>
+            <div class="row">
+                <div class="col align-self-end nopadding">
+                    <a href="/characters/create" class="btn btn-secondary">Neuen Charakter anlegen</a>
+                </div>
+            </div>
         </div>
     </div>
-
-{% endblock %}
-
-{% block rightcontent %}
-    {{ render(controller(
-        'App\\Controller\\UserController::listUsers'
-    )) }}
-
-    {{ render(controller(
-        'App\\Controller\\UserController::listBirthdays'
-    )) }}
 
 {% endblock %}

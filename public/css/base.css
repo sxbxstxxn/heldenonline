@@ -35,25 +35,42 @@ input[type=number] {
     margin-bottom:0px;
 }
 
-.lefticon {
-    color:#6c757d;
+.form-control:disabled, .form-control[readonly] {
+    opacity:0.5;
 }
 
-.linkicon, .linkicon:hover {
-    cursor: pointer;
+.nopadding {
+    padding:0px;
 }
 
+.inputbox {
+    border:none;
+    width:100%;
+    height:100%;
+    padding-left:15px;
+    padding-right:15px;
+}
 
-
+/* Cardboxes */
 .card {
     margin-top:15px;
 }
 
-.page-footer {
-    /*margin-left:0px;
-    margin-right:0px;
-    padding:15px;*/
+.card-header {
+    font-size: 1.5rem;
+    padding: 0.75rem 1.5rem;
 }
+
+.card-body {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.card-footer {
+    padding: 0.75rem 1.5rem;
+}
+
+
 
 .ulisseslogo {
     width:100%;
@@ -73,61 +90,11 @@ input[type=number] {
 }
 
 
-/* Profilebox */
-.profilebox .card-header h4,
-.profilebox .text-white {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: block;
-    overflow: hidden;
-}
 
-.profilebox .row {
-    margin-bottom:10px;
-}
 
-.userlistbox .card-footer {
-    color:#aaaaaa;
-    text-align:right;
-}
 
-.userlistbox .btn-sm , .birthdaylistbox .btn-sm{
-    padding:3px;
-    font-size:10px;
-}
-
-.form-control:disabled, .form-control[readonly] {
-    opacity:0.5;
-}
-
-.nopadding {
-    padding:0px;
-}
-
-.inputbox {
-    border:none;
-    width:100%;
-    height:100%;
-    padding-left:15px;
-    padding-right:15px;
-}
-
-.charname {
-    font-size:40px;
-}
-.charicon {
-    float:left;
-    text-align: right;
-    font-size:40px;
-}
-
-.charicon .material-icons {
-    font-size:40px;
-}
 
 /* charactersheet */
-
 
 
 .charactersheet .attribute-box {
@@ -145,4 +112,8 @@ input[type=number] {
 .charactersheet .attribute-box .attribute-value {
     font-size: 25px;
     font-weight: bold;
+}
+
+.charactersheet .attribute-box .attribute-value input {
+    padding:0px;
 }
