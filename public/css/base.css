@@ -89,12 +89,17 @@ input[type=number] {
     margin:15px auto;
 }
 
-
-
-
-
-
 /* CHARACTERSHEET */
+.charactersheet .break {
+    height:10px;
+}
+
+.charactersheet select,
+.charactersheet option{
+    padding:0px;
+    text-align-last: center;
+}
+
 /* origin */
 .charactersheet .origin-box {
     background-color: #6c757d;
@@ -113,11 +118,7 @@ input[type=number] {
     font-weight: bold;
 }
 
- .charactersheet .origin-box .origin-value select,
- .charactersheet .origin-box .origin-value option{
-    padding:0px;
-    text-align-last: center;
-}
+
 
 /* attributes */
 .charactersheet .attribute-box {
@@ -139,4 +140,30 @@ input[type=number] {
 
 .charactersheet .attribute-box .attribute-value input {
     padding:0px;
+}
+
+/* story */
+.charactersheet .story-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .story-box .story-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* experience */
+.charactersheet .experience-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .experience-box .experience-description {
+    font-weight: bold;
+    font-size: 15px;
 }

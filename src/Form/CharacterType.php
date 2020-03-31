@@ -10,6 +10,7 @@ use App\Entity\Species;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,14 +21,6 @@ class CharacterType extends AbstractType
     {
         $builder
             ->add('charname')
-            ->add('attributeMu')
-            ->add('attributeKl')
-            ->add('attributeIn')
-            ->add('attributeCh')
-            ->add('attributeFf')
-            ->add('attributeGe')
-            ->add('attributeKo')
-            ->add('attributeKk')
 
             ->add('species', EntityType::class, [
                 'class' => Species::class,
@@ -41,6 +34,35 @@ class CharacterType extends AbstractType
                 'class' => Profession::class,
                 'choice_label' => 'professionname'
             ])
+            ->add('attributeMu')
+            ->add('attributeKl')
+            ->add('attributeIn')
+            ->add('attributeCh')
+            ->add('attributeFf')
+            ->add('attributeGe')
+            ->add('attributeKo')
+            ->add('attributeKk')
+
+            ->add('gender', ChoiceType::class, [
+                'choices' => [
+                    'männlich' => 'männlich',
+                    'weiblich' => 'weiblich',
+                ],
+            ])
+            ->add('birthplace')
+            ->add('birthdate')
+            ->add('age')
+
+            ->add('size')
+            ->add('weight')
+            ->add('haircolor')
+            ->add('eyecolor')
+            ->add('title')
+            ->add('socialstatus')
+            ->add('family')
+            ->add('characteristics')
+            ->add('further')
+
 
             ->add('submit', SubmitType::class);
 

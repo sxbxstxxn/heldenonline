@@ -114,6 +114,19 @@ class CharacterController extends AbstractController
                 $character->setSpecies($formData->getSpecies());
                 $character->setCulture($formData->getCulture());
                 $character->setProfession($formData->getProfession());
+                $character->setGender($formData->getGender());
+                $character->setBirthplace($formData->getBirthplace());
+                $character->setBirthdate($formData->getBirthdate());
+                $character->setAge($formData->getAge());
+                $character->setSize($formData->getSize());
+                $character->setWeight($formData->getWeight());
+                $character->setHaircolor($formData->getHaircolor());
+                $character->setEyecolor($formData->getEyecolor());
+                $character->setTitle($formData->getTitle());
+                $character->setSocialstatus($formData->getSocialstatus());
+                $character->setFamily($formData->getFamily());
+                $character->setCharacteristics($formData->getCharacteristics());
+                $character->setFurther($formData->getFurther());
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');

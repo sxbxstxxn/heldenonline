@@ -87,6 +87,71 @@ class Character
      */
     private $profession;
 
+    /**
+     * @ORM\Column(type="string", length=11)
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $birthplace;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $birthdate;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $age;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $size;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $weight;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $haircolor;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $eyecolor;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $socialstatus;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $family;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $characteristics;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $further;
+
 
     public function getId(): ?int
     {
@@ -249,5 +314,159 @@ class Character
         return $this;
     }
 
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
 
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getBirthplace(): ?string
+    {
+        return $this->birthplace;
+    }
+
+    public function setBirthplace(?string $birthplace): self
+    {
+        $this->birthplace = $birthplace;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?string
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?string $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(?string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getWeight(): ?string
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?string $weight): self
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getHaircolor(): ?string
+    {
+        return $this->haircolor;
+    }
+
+    public function setHaircolor(?string $haircolor): self
+    {
+        $this->haircolor = $haircolor;
+
+        return $this;
+    }
+
+    public function getEyecolor(): ?string
+    {
+        return $this->eyecolor;
+    }
+
+    public function setEyecolor(?string $eyecolor): self
+    {
+        $this->eyecolor = $eyecolor;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getSocialstatus(): ?int
+    {
+        return $this->socialstatus;
+    }
+
+    public function setSocialstatus(int $socialstatus): self
+    {
+        $this->socialstatus = $socialstatus;
+
+        return $this;
+    }
+
+    public function getFamily(): ?string
+    {
+        return $this->family;
+    }
+
+    public function setFamily(?string $family): self
+    {
+        $this->family = $family;
+
+        return $this;
+    }
+
+    public function getCharacteristics(): ?string
+    {
+        return $this->characteristics;
+    }
+
+    public function setCharacteristics(?string $characteristics): self
+    {
+        $this->characteristics = $characteristics;
+
+        return $this;
+    }
+
+    public function getFurther(): ?string
+    {
+        return $this->further;
+    }
+
+    public function setFurther(?string $further): self
+    {
+        $this->further = $further;
+
+        return $this;
+    }
 }
