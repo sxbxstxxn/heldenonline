@@ -47,7 +47,7 @@ class CharacterController extends AbstractController
         $character = new Character();
         $user = $this->getUser();
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $character = $form->getData();
             $character->setUser($user);
             $this->entityManager->persist($character);

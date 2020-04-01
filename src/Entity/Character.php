@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -20,6 +21,7 @@ class Character
 
     /**
      * @ORM\Column(type="string", length=45)
+     * @Assert\NotBlank
      */
     private $charname;
 
@@ -103,7 +105,7 @@ class Character
     private $birthdate;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $age;
 
