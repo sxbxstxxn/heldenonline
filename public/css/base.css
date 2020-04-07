@@ -159,6 +159,10 @@ input[type=number] {
     font-size: 15px;
 }
 
+.charactersheet .story-box .story-value {
+    min-height:24px;
+}
+
 /* experience */
 .charactersheet .experience-box {
     background-color: #6c757d;
