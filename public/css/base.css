@@ -50,6 +50,7 @@ input[type=number] {
     padding-left:14px;
     padding-right:14px;
     border:1px solid #fff;
+    text-align: center;
 }
 .has-error .inputbox {
     border:1px solid red;
