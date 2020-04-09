@@ -95,6 +95,24 @@ input[type=number] {
 }
 
 /* CHARACTERSHEET */
+.charsheet {
+    padding-bottom: 0px;
+}
+.charsheet .nav-tabs {
+    border-bottom:none;
+    font-size:1.2rem;
+}
+
+.charsheet .nav-tabs .nav-link {
+    border:none;
+}
+.charsheet .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    background-color:#6c757d;
+    color:#343A40;
+}
+
 .charactersheet .break {
     height:10px;
 }
@@ -103,7 +121,36 @@ input[type=number] {
 .charactersheet option{
     padding:0px;
     text-align-last: center;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
 }
+
+/* name */
+.charactersheet .name-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .name-box .name-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.charactersheet .name-box .name-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.charactersheet .name-box .name-value input{
+    font-weight: bold;
+}
+
 
 /* origin */
 .charactersheet .origin-box {
@@ -121,8 +168,13 @@ input[type=number] {
 .charactersheet .origin-box .origin-value {
     font-size: 25px;
     font-weight: bold;
+    background-color: #a1afbd;
 }
 
+.charactersheet .origin-box .origin-value select,
+.charactersheet .origin-box .origin-value option{
+    font-weight:bold;
+}
 
 
 /* attributes */
@@ -141,10 +193,12 @@ input[type=number] {
 .charactersheet .attribute-box .attribute-value {
     font-size: 25px;
     font-weight: bold;
+    background-color: #a1afbd;
 }
 
 .charactersheet .attribute-box .attribute-value input {
     padding:0px;
+    font-weight:bold;
 }
 
 /* story */
@@ -162,6 +216,7 @@ input[type=number] {
 
 .charactersheet .story-box .story-value {
     min-height:24px;
+    background-color: #a1afbd;
 }
 
 /* experience */
@@ -175,4 +230,8 @@ input[type=number] {
 .charactersheet .experience-box .experience-description {
     font-weight: bold;
     font-size: 15px;
+}
+
+.charactersheet .experience-box .experience-value {
+    background-color: #a1afbd;
 }

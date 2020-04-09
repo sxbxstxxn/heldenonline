@@ -6,304 +6,358 @@
 
     <div class="card maincontent text-white bg-dark">
         {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        <div class="card-header">
+        <div class="card-header charsheet">
             <div class="row">
-                <div class="col-12 nopadding {% if not form.charname.vars.valid %}has-error{% endif %}">
-                    {{ form_widget(form.charname, {'attr': {'class':'inputbox' }}) }}
+                <div class="col-12">
+                    <ul class="nav nav-tabs row justify-content-md-left" id="myTab" role="tablist">
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link active" id="personaldata-tab" data-toggle="tab" href="#personaldata" role="tab" aria-controls="personaldata" aria-selected="true">Persönliche Daten</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="playvalues-tab" data-toggle="tab" href="#playvalues" role="tab" aria-controls="playvalues" aria-selected="false">Spielwerte</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="battle-tab" data-toggle="tab" href="#battle" role="tab" aria-controls="battle" aria-selected="false">Kampf</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="ownership-tab" data-toggle="tab" href="#ownership" role="tab" aria-controls="ownership" aria-selected="false">Besitz</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="spells-tab" data-toggle="tab" href="#spells" role="tab" aria-controls="spells" aria-selected="false">Zauber</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="liturgies-tab" data-toggle="tab" href="#liturgies" role="tab" aria-controls="liturgies" aria-selected="false">Liturgien</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <div class="charactersheet">
-                <div class="row origin">
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Spezies</div>
-                                    <div class="col-12 origin-value nopadding">
-                                        {{ form_widget(form.species, {'attr': {'class':'inputbox' }}) }}
+            <div class="tab-content" id="myTabContent">
+                <!-- Seite Persönliche Daten -->
+                <div class="tab-pane fade show active" id="personaldata" role="tabpanel" aria-labelledby="personaldata-tab">
+                    <div class="charactersheet">
+                        <div class="row name">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="name-box {% if not form.charname.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 name-description nopadding">Name</div>
+                                            <div class="col-12 name-value nopadding">
+                                                {{ form_widget(form.charname, {'attr': {'class':'inputbox' }}) }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Kultur</div>
-                                    <div class="col-12 origin-value nopadding">
-                                        {{ form_widget(form.culture, {'attr': {'class':'inputbox' }}) }}
+                        <div class="row break"></div>
+                        <div class="row origin">
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Spezies</div>
+                                            <div class="col-12 origin-value nopadding">
+                                                {{ form_widget(form.species, {'attr': {'class':'inputbox' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Kultur</div>
+                                            <div class="col-12 origin-value nopadding">
+                                                {{ form_widget(form.culture, {'attr': {'class':'inputbox' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Kultur</div>
+                                            <div class="col-12 origin-value nopadding">
+                                                {{ form_widget(form.profession, {'attr': {'class':'inputbox' }}) }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Kultur</div>
-                                    <div class="col-12 origin-value nopadding">
-                                        {{ form_widget(form.profession, {'attr': {'class':'inputbox' }}) }}
+                        <div class="row attributes">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">MU</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KL</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">IN</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">CH</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">FF</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">GE</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KO</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KK</div>
+                                            <div class="col-12 attribute-value nopadding">
+                                                {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row attributes">
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">MU</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' }}) }}
+                        <div class="row break"></div>
+                        <div class="row story">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geschlecht</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.gender, {'attr': {'class':'inputbox text-center' }}) }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KL</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geburtsort</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.birthplace, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">IN</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geburtsdatum</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.birthdate, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">CH</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Alter</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.age, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Größe</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.size, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Gewicht</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.weight, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Haarfarbe</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.haircolor, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Augenfarbe</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.eyecolor, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Titel</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.title, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">SO</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.socialstatus, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Familie</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.family, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Charakteristika</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.characteristics, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Sonstiges</div>
+                                            <div class="col-12 story-value nopadding">{{ form_widget(form.further, {'attr': {'class':'inputbox' }}) }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">FF</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' }}) }}
+                        <div class="row break"></div>
+                        <div class="row experience">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
+                                            <div class="col-12 experience-value nopadding">erfahrungsgrad</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">GE</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP Gesamt</div>
+                                            <div class="col-12 experience-value nopadding">apgesamt</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KO</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP gesammelt</div>
+                                            <div class="col-12 experience-value nopadding">apgesammelt</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KK</div>
-                                    <div class="col-12 attribute-value nopadding">
-                                        {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' }}) }}
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP ausgegeben</div>
+                                            <div class="col-12 experience-value nopadding">apausgegeben</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row story">
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geschlecht</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.gender, {'attr': {'class':'inputbox text-center' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geburtsort</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.birthplace, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geburtsdatum</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.birthdate, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Alter</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.age, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Größe</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.size, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Gewicht</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.weight, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Haarfarbe</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.haircolor, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Augenfarbe</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.eyecolor, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Titel</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.title, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">SO</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.socialstatus, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Familie</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.family, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Charakteristika</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.characteristics, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Sonstiges</div>
-                                    <div class="col-12 story-value nopadding">{{ form_widget(form.further, {'attr': {'class':'inputbox' }}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row experience">
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
-                                    <div class="col-12 experience-value nopadding">erfahrungsgrad</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP Gesamt</div>
-                                    <div class="col-12 experience-value nopadding">apgesamt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP gesammelt</div>
-                                    <div class="col-12 experience-value nopadding">apgesammelt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP ausgegeben</div>
-                                    <div class="col-12 experience-value nopadding">apausgegeben</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">
+                    Spielwerte
+                </div>
+                <div class="tab-pane fade" id="battle" role="tabpanel" aria-labelledby="contact-tab">
+                    Kampf
+                </div>
+                <div class="tab-pane fade" id="ownership" role="tabpanel" aria-labelledby="ownership-tab">
+                    Besitz
+                </div>
+                <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spells-tab">
+                    Zauber
+                </div>
+                <div class="tab-pane fade" id="liturgies" role="tabpanel" aria-labelledby="liturgies-tab">
+                    Liturgien
+                </div>
             </div>
         </div>
         <div class="card-footer">

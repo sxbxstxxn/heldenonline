@@ -6,34 +6,71 @@
 
     <div class="card maincontent text-white bg-dark">
         {{ form_start(form) }}
-        <div class="card-header">
+        <div class="card-header  charsheet">
             <div class="row">
-                <div class="col-8 col-md-10 nopadding">
-                    {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
-                </div>
-                <div class="col-4 col-md-2">
+                <div class="col-12 col-md-2 order-md-2 nopadding">
                     <div class="row">
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="/characters">
                                 <i class="material-icons bg-dark nopadding">view_list</i>
                             </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="/characters/show/{{ character.id }}">
                                 <i class="material-icons bg-dark nopadding">remove_red_eye</i>
                             </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
                                 <i class="material-icons bg-dark nopadding">delete</i>
                             </a>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-10 order-md-1">
+                    <ul class="nav nav-tabs row justify-content-md-left" id="myTab" role="tablist">
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link active" id="personaldata-tab" data-toggle="tab" href="#personaldata" role="tab" aria-controls="personaldata" aria-selected="true">Persönliche Daten</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="playvalues-tab" data-toggle="tab" href="#playvalues" role="tab" aria-controls="playvalues" aria-selected="false">Spielwerte</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="battle-tab" data-toggle="tab" href="#battle" role="tab" aria-controls="battle" aria-selected="false">Kampf</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="ownership-tab" data-toggle="tab" href="#ownership" role="tab" aria-controls="ownership" aria-selected="false">Besitz</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="spells-tab" data-toggle="tab" href="#spells" role="tab" aria-controls="spells" aria-selected="false">Zauber</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="liturgies-tab" data-toggle="tab" href="#liturgies" role="tab" aria-controls="liturgies" aria-selected="false">Liturgien</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="card-body">
-            <div class="charactersheet">
+            <div class="tab-content" id="myTabContent">
+                <!-- Seite Persönliche Daten -->
+                <div class="tab-pane fade show active" id="personaldata" role="tabpanel" aria-labelledby="personaldata-tab">
+                    <div class="charactersheet">
+                <div class="row name">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="name-box">
+                                    <div class="col-12 name-description nopadding">Name</div>
+                                    <div class="col-12 name-value nopadding">
+                                        {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row break"></div>
                 <div class="row origin">
                     <div class="col-12 col-md-4">
                         <div class="row">
@@ -324,7 +361,24 @@
                 </div>
                 <div class="row break"></div>
                 <div class="row">
-                    
+
+                </div>
+            </div>
+                </div>
+                <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">
+                    Spielwerte
+                </div>
+                <div class="tab-pane fade" id="battle" role="tabpanel" aria-labelledby="battle-tab">
+                    Kampf
+                </div>
+                <div class="tab-pane fade" id="ownership" role="tabpanel" aria-labelledby="ownership-tab">
+                    Besitz
+                </div>
+                <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spells-tab">
+                    Zauber
+                </div>
+                <div class="tab-pane fade" id="liturgies" role="tabpanel" aria-labelledby="liturgies-tab">
+                    Liturgien
                 </div>
             </div>
         </div>

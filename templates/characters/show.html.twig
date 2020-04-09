@@ -5,303 +5,362 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
-        <div class="card-header">
+        <div class="card-header charsheet">
             <div class="row">
-                <div class="col-8 col-md-10">{{ character.charname }}</div>
-                <div class="col-4 col-md-2">
+                <div class="col-12 col-md-2 order-md-2 nopadding">
                     <div class="row">
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="/characters">
                                 <i class="material-icons bg-dark nopadding">view_list</i>
                             </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="/characters/edit/{{ character.id }}">
                                 <i class="material-icons bg-dark nopadding">edit</i>
                             </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-center nopadding">
                             <a href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
                                 <i class="material-icons bg-dark nopadding">delete</i>
                             </a>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-10 order-md-1">
+                    <ul class="nav nav-tabs row justify-content-md-left" id="myTab" role="tablist">
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link active" id="personaldata-tab" data-toggle="tab" href="#personaldata" role="tab" aria-controls="personaldata" aria-selected="true">Persönliche Daten</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="playvalues-tab" data-toggle="tab" href="#playvalues" role="tab" aria-controls="playvalues" aria-selected="false">Spielwerte</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="battle-tab" data-toggle="tab" href="#battle" role="tab" aria-controls="battle" aria-selected="false">Kampf</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="ownership-tab" data-toggle="tab" href="#ownership" role="tab" aria-controls="ownership" aria-selected="false">Besitz</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="spells-tab" data-toggle="tab" href="#spells" role="tab" aria-controls="spells" aria-selected="false">Zauber</a>
+                        </li>
+                        <li class="nav-item col-12 col-md-auto nopadding">
+                            <a class="nav-link" id="liturgies-tab" data-toggle="tab" href="#liturgies" role="tab" aria-controls="liturgies" aria-selected="false">Liturgien</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="charactersheet">
-                <div class="row origin">
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Spezies</div>
-                                    <div class="col-12 origin-value nopadding">{{ character.species.speciesname }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Kultur</div>
-                                    <div class="col-12 origin-value nopadding">{{ character.culture.culturename }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description nopadding">Profession</div>
-                                    <div class="col-12 origin-value nopadding">{{ character.profession.professionname }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attributes">
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">MU</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeMu }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KL</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKl }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">IN</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeIn }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">CH</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeCh }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">FF</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeFf }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">GE</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeGe }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KO</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKo }}</div>
-                                </div>
-                            </div>
-                            <div class="col-3 nopadding">
-                                <div class="attribute-box">
-                                    <div class="col-12 attribute-description nopadding">KK</div>
-                                    <div class="col-12 attribute-value nopadding">{{ character.attributeKk }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row story">
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geschlecht</div>
-                                    <div class="col-12 story-value nopadding">{{ character.gender }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geburtsort</div>
-                                    <div class="col-12 story-value nopadding">{{ character.birthplace }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Geburtsdatum</div>
-                                    <div class="col-12 story-value nopadding">{{ character.birthdate }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Alter</div>
-                                    <div class="col-12 story-value nopadding">{{ character.age }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Größe</div>
-                                    <div class="col-12 story-value nopadding">{{ character.size }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Gewicht</div>
-                                    <div class="col-12 story-value nopadding">{{ character.weight }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Haarfarbe</div>
-                                    <div class="col-12 story-value nopadding">{{ character.haircolor }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Augenfarbe</div>
-                                    <div class="col-12 story-value nopadding">{{ character.eyecolor }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Titel</div>
-                                    <div class="col-12 story-value nopadding">{{ character.title }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">SO</div>
-                                    <div class="col-12 story-value nopadding">{{ character.socialstatus }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Familie</div>
-                                    <div class="col-12 story-value nopadding">{{ character.family }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Charakteristika</div>
-                                    <div class="col-12 story-value nopadding">{{ character.characteristics }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="story-box">
-                                    <div class="col-12 story-description nopadding">Sonstiges</div>
-                                    <div class="col-12 story-value nopadding">{{ character.further }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row experience">
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
-                                    <div class="col-12 experience-value nopadding">erfahrungsgrad</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP Gesamt</div>
-                                    <div class="col-12 experience-value nopadding">apgesamt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP gesammelt</div>
-                                    <div class="col-12 experience-value nopadding">apgesammelt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 nopadding">
-                                <div class="experience-box">
-                                    <div class="col-12 experience-description nopadding">AP ausgegeben</div>
-                                    <div class="col-12 experience-value nopadding">apausgegeben</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row">
 
+        <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+                <!-- Seite Persönliche Daten -->
+                <div class="tab-pane fade show active" id="personaldata" role="tabpanel" aria-labelledby="personaldata-tab">
+                    <div class="charactersheet">
+                        <div class="row name">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="name-box">
+                                            <div class="col-12 name-description nopadding">Name</div>
+                                            <div class="col-12 name-value nopadding">{{ character.charname }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row origin">
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Spezies</div>
+                                            <div class="col-12 origin-value nopadding">{{ character.species.speciesname }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Kultur</div>
+                                            <div class="col-12 origin-value nopadding">{{ character.culture.culturename }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description nopadding">Profession</div>
+                                            <div class="col-12 origin-value nopadding">{{ character.profession.professionname }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row attributes">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">MU</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeMu }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KL</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeKl }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">IN</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeIn }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">CH</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeCh }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">FF</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeFf }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">GE</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeGe }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KO</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeKo }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 nopadding">
+                                        <div class="attribute-box">
+                                            <div class="col-12 attribute-description nopadding">KK</div>
+                                            <div class="col-12 attribute-value nopadding">{{ character.attributeKk }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row story">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geschlecht</div>
+                                            <div class="col-12 story-value nopadding">{{ character.gender }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geburtsort</div>
+                                            <div class="col-12 story-value nopadding">{{ character.birthplace }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Geburtsdatum</div>
+                                            <div class="col-12 story-value nopadding">{{ character.birthdate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Alter</div>
+                                            <div class="col-12 story-value nopadding">{{ character.age }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Größe</div>
+                                            <div class="col-12 story-value nopadding">{{ character.size }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Gewicht</div>
+                                            <div class="col-12 story-value nopadding">{{ character.weight }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Haarfarbe</div>
+                                            <div class="col-12 story-value nopadding">{{ character.haircolor }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Augenfarbe</div>
+                                            <div class="col-12 story-value nopadding">{{ character.eyecolor }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Titel</div>
+                                            <div class="col-12 story-value nopadding">{{ character.title }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">SO</div>
+                                            <div class="col-12 story-value nopadding">{{ character.socialstatus }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Familie</div>
+                                            <div class="col-12 story-value nopadding">{{ character.family }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Charakteristika</div>
+                                            <div class="col-12 story-value nopadding">{{ character.characteristics }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description nopadding">Sonstiges</div>
+                                            <div class="col-12 story-value nopadding">{{ character.further }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row experience">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
+                                            <div class="col-12 experience-value nopadding">erfahrungsgrad</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP Gesamt</div>
+                                            <div class="col-12 experience-value nopadding">apgesamt</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP gesammelt</div>
+                                            <div class="col-12 experience-value nopadding">apgesammelt</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP ausgegeben</div>
+                                            <div class="col-12 experience-value nopadding">apausgegeben</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row">
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">
+                    Spielwerte
+                </div>
+                <div class="tab-pane fade" id="battle" role="tabpanel" aria-labelledby="contact-tab">
+                    Kampf
+                </div>
+                <div class="tab-pane fade" id="ownership" role="tabpanel" aria-labelledby="ownership-tab">
+                    Besitz
+                </div>
+                <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spells-tab">
+                    Zauber
+                </div>
+                <div class="tab-pane fade" id="liturgies" role="tabpanel" aria-labelledby="liturgies-tab">
+                    Liturgien
                 </div>
             </div>
+
         </div>
         <div class="card-footer">
             {% include 'characters/deletemodal.html.twig' %}
