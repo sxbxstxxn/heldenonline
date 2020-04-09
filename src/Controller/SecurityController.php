@@ -77,7 +77,7 @@ class SecurityController extends AbstractController
                     // templates/emails/registration.html.twig
                         'emails/registration.html.twig',
                         array(
-                            'name' => $form['username'],
+                            'name' => $form['username']->getData(),
                             'hashurl' => $hashurl,
                             'removeurl' => $removeurl,
                         )
