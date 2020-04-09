@@ -11,53 +11,96 @@
             $('#editpicturebigmode').html('');
         }
     </script>
-    <div class="card-header">
-        Benutzerdaten bearbeiten
+    {{ form_start(form) }}
+    <div class="card-header useredit">
+        <div class="row justify-content-md-left">
+            <div class="col-auto header-box">
+                Benutzerdaten bearbeiten
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div class="form-group row">
-            <label for="user_username" class="col-sm-4 col-form-label">Benutzername</label>
-            <div class="col-sm-8">
-                <input class="form-control" type="text" value="{{ user.username }}" readonly>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="user_email" class="col-sm-4 col-form-label">E-Mail</label>
-            <div class="col-sm-8">
-                <input class="form-control" type="text" value="{{ user.email }}" readonly>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="user_dateofbirth" class="col-sm-4 col-form-label">Geburtsdatum</label>
-            <div class="col-sm-8">
-                {{ form_widget(form.dateofbirth, {'attr': {'class': 'form-control' }, 'value': user.dateofbirth| date("Y-m-d")}) }}
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
-            <div class="col-sm-8">
-                {% if user.picture %}
-                    <div id="editpicturebigmode" class="col-sm-12 nopadding">
-                        <div class="col-sm-11 float-left nopadding">
-                            <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
-                        </div>
-                        <div class="col-sm-1 float-left nopadding">
-                            <i class="linkicon lefticon material-icons bg-dark nopadding" data-toggle="tooltip" data-placement="right" title="Bild entfernen" style="vertical-align:top;" onclick="deletePicture()">delete_sweep</i>
+        <div class="edit">
+            <div class="row username">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 nopadding">
+                            <div class="username-box">
+                                <div class="col-12 username-description nopadding">Benutzername</div>
+                                <div class="col-12 username-value nopadding">
+                                    <input class="inputbox" type="text" value="{{ user.username }}" readonly>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}
-                {% else %}
-                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
-                {% endif %}
-            {{ form_widget(form.picturedeleted) }}
+                </div>
+            </div>
+            <div class="row break"></div>
+            <div class="row email">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 nopadding">
+                            <div class="email-box">
+                                <div class="col-12 email-description nopadding">E-Mail</div>
+                                <div class="col-12 email-value nopadding">
+                                    <input class="inputbox" type="text" value="{{ user.email }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row break"></div>
+            <div class="row birthandpic">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-md-6 nopadding">
+                            <div class="birthday-box">
+                                <div class="col-12 birthday-description nopadding">Geburtsdatum</div>
+                                <div class="col-12 birthday-value nopadding">
+                                    {{ form_widget(form.dateofbirth, {'attr': {'class': 'inputbox' }, 'value': user.dateofbirth| date("Y-m-d")}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 nopadding">
+                            <div class="picture-box">
+                                <div class="col-12 picture-description nopadding">Bild</div>
+                                <div class="col-12 picture-value nopadding">
+                                    {% if user.picture %}
+                                        <div id="editpicturebigmode">
+                                                <div class="col-1 offset-11 nopadding">
+                                                    <i class="linkicon lefticon material-icons" data-toggle="tooltip" data-placement="right" title="Bild entfernen" onclick="deletePicture()">delete_sweep</i>
+                                                </div>
+                                                <div class="col-10 offset-1 nopadding">
+                                                    <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
+                                                </div>
+                                                <div class="col-10 offset-1 nopadding">{{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}</div>
+                                        </div>
+
+                                    {% else %}
+                                        <div class="col-10 offset-1 nopadding">
+                                            {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
+                                        </div>
+                                    {% endif %}
+                                    {{ form_widget(form.picturedeleted) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ form_errors(form) }}
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-12">
+                {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
             </div>
         </div>
-        {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'speichern' }) }}
-        {{ form_end(form) }}
     </div>
+    {{ form_end(form) }}
 </div>
 
 {% endblock %}

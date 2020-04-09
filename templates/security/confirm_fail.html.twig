@@ -5,10 +5,19 @@
 {% block maincontent %}
 <div class="card text-white bg-dark">
     <div class="card-header">
-        Fehler
+        <div class="row justify-content-md-left">
+            <div class="col-auto header-box">
+                Fehler
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        {{ errormessage }}
+        <div class="confirmfail">
+            <div class="row alert alert-danger" role="alert">
+                {{ errormessage }}
+            </div>
+        </div>
     </div>
 </div>
+
 {% endblock %}

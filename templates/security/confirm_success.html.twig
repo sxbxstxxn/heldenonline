@@ -5,10 +5,18 @@
 {% block maincontent %}
 <div class="card text-white bg-dark">
     <div class="card-header">
-        Herzlich Willkommen!
+        <div class="row justify-content-md-left">
+            <div class="col-auto header-box">
+                Herzlich Willkommen!
+            </div>
+        </div>
     </div>
     <div class="card-body">
-        Danke {{ user }}. Deine Registrierung ist jetzt bestätigt und Du kannst Dich <a class="text-secondary" href="{{ path('login') }}">hier</a> einloggen.
+        <div class="confirmsuccess">
+            <div class="row alert alert-success" role="alert">
+                Danke {{ user }}. Deine Registrierung ist jetzt bestätigt und Du kannst Dich&nbsp;<a class="text-secondary" href="{{ path('login') }}">hier</a>&nbsp;einloggen.
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

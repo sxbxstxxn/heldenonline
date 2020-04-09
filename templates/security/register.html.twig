@@ -4,71 +4,123 @@
 
 {% block maincontent %}
     <div class="card text-white bg-dark">
-        <div class="card-header">
-            Registrierung
+        {{ form_start(form) }}
+        <div class="card-header register">
+            <div class="row justify-content-md-left">
+                <div class="col-auto header-box">
+                    Registrierung
+                </div>
+            </div>
         </div>
         <div class="card-body">
-            {{ form_start(form) }}
+            <div class="register">
+                <div class="row username">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="username-box {{ (form.children.username.vars.valid) ? '' : 'has-error'}}">
+                                    <div class="col-12 username-description nopadding">Benutzername</div>
+                                    <div class="col-12 username-value nopadding">
+                                        {{ form_widget(form.username, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                    <div class="col-12 username-error nopadding">
+                                        {% for error in form.children.username.vars.errors.form.errors %}
+                                            {{ error.message }}<br/>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row break"></div>
+                <div class="row email">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 nopadding">
+                                <div class="email-box {{ (form.children.email.vars.valid) ? '' : 'has-error'}}">
+                                    <div class="col-12 email-description nopadding">E-Mail</div>
+                                    <div class="col-12 email-value nopadding">
+                                        {{ form_widget(form.email, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                    <div class="col-12 email-error nopadding">
+                                        {% for error in form.children.email.vars.errors.form.errors %}
+                                            {{ error.message }}<br/>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row break"></div>
+                <div class="row password">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-md-6 nopadding">
+                                <div class="password-box {{ (form.children.password.first.vars.valid) ? '' : 'has-error'}}">
+                                    <div class="col-12 password-description nopadding">Passwort</div>
+                                    <div class="col-12 password-value nopadding">
+                                        {{ form_widget(form.password.first, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                    <div class="col-12 password-error nopadding">
+                                        {% for error in form.children.password.first.vars.errors.form.errors %}
+                                            {{ error.message }}<br/>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 nopadding">
+                                <div class="password-box {{ (form.children.password.second.vars.valid) ? '' : 'has-error'}}">
+                                    <div class="col-12 password-description nopadding">Passwort</div>
+                                    <div class="col-12 password-value nopadding">
+                                        {{ form_widget(form.password.second, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                    <div class="col-12 password-error nopadding">
+                                        {% for error in form.children.password.second.vars.errors.form.errors %}
+                                            {{ error.message }}<br/>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row break"></div>
+                <div class="row birthandpic">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-md-6 nopadding">
+                                <div class="birthday-box">
+                                    <div class="col-12 birthday-description nopadding">Geburtsdatum</div>
+                                    <div class="col-12 birthday-value nopadding">
+                                        {{ form_widget(form.dateofbirth, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 nopadding">
+                                <div class="picture-box">
+                                    <div class="col-12 picture-description nopadding">Bild</div>
+                                    <div class="col-12 picture-value nopadding">
+                                        {{ form_widget(form.picture, {'attr': {'class': 'inputbox' }}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row break"></div>
             {{ form_errors(form) }}
-
-            <div class="form-group row">
-                <label for="user_username" class="col-sm-4 col-form-label">Benutzername</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.username, (form.children.username.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
-                    <div class="invalid-feedback">
-                        {% for error in form.children.username.vars.errors.form.errors %}
-                            {{ error.message }}<br/>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="user_email" class="col-sm-4 col-form-label">E-Mail</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.email, (form.children.email.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
-                    <div class="invalid-feedback">
-                        {% for error in form.children.email.vars.errors.form.errors %}
-                            {{ error.message }}<br/>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="user_password_first" class="col-sm-4 col-form-label">Passwort</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.password.first, (form.children.password.first.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
-                    <div class="invalid-feedback">
-                        {% for error in form.children.password.first.vars.errors.form.errors %}
-                            {{ error.message }}<br/>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="user_password_second" class="col-sm-4 col-form-label">Passwort wiederholen</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.password.second, (form.children.password.second.vars.valid ? {'attr': {'class': 'form-control' }}:{'attr': {'class': 'form-control is-invalid' }})) }}
-                    <div class="invalid-feedback">
-                        {% for error in form.children.password.second.vars.errors.form.errors %}
-                            {{ error.message }}<br/>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="user_dateofbirth" class="col-sm-4 col-form-label">Geburtsdatum</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.dateofbirth, {'attr': {'class': 'form-control' }}) }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="user_picture" class="col-sm-4 col-form-label">Bild</label>
-                <div class="col-sm-8">
-                    {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
-                </div>
-            </div>
-            {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'registrieren' }) }}
-            {{ form_end(form) }}
         </div>
+
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-12">
+                    {{ form_widget(form.submit, {'attr': {'class':'btn btn-secondary float-right' },'label': 'registrieren' }) }}
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -24,6 +24,26 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+input[type=file] {
+    border:none;
+}
+
+input:read-only {
+    background-color:#a1afbd;
+    border:none;
+}
+
+.btn, .alert {
+    border-radius: 0px;
+}
+
+.linkicon {
+    cursor:pointer;
+}
+.linkicon:hover {
+    color:#6c757d;
+}
+
 .bodycontainer {
     margin-top:56px;
     margin-bottom:15px;
@@ -66,6 +86,11 @@ input[type=number] {
     padding: 0.75rem 1.5rem;
 }
 
+.card-header .header-box {
+    background-color: #6c757d;
+    color: #343A40;
+}
+
 .card-body {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
@@ -92,6 +117,306 @@ input[type=number] {
 
 .startseite .dsalogo {
     margin:15px auto;
+}
+
+
+/* LOGIN */
+.login .break {
+    height:10px;
+}
+/* username */
+.login .username-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.login .username-box .username-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login .username-box .username-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.login .username-box .username-value input{
+    font-weight: bold;
+}
+/* password */
+.login .password-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.login .password-box .password-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login .password-box .password-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.login .password-box .password-value input{
+    font-weight: bold;
+}
+
+/* FORGOT PASSWORD */
+.forgotpw .break {
+    height:10px;
+}
+/* description */
+.forgotpw .description-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+.forgotpw .description-box .description-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+/* email */
+.forgotpw .email-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.forgotpw .email-box .email-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.forgotpw .email-box .email-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.forgotpw .email-box .email-value input{
+    font-weight: bold;
+}
+
+/* REGISTER */
+.register .break {
+    height:10px;
+}
+/* username */
+.register .username-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.register .username-box .username-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.register .username-box .username-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.register .username-box .username-value input{
+    font-weight: bold;
+}
+
+.register .username-box .username-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* email */
+.register .email-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.register .email-box .email-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.register .email-box .email-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.register .email-box .email-value input{
+    font-weight: bold;
+}
+
+.register .email-box .email-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* password */
+.register .password-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.register .password-box .password-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.register .password-box .password-value {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.register .password-box .password-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* birthday */
+.register .birthday-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.register .birthday-box .birthday-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.register .birthday-box .birthday-value {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+
+/* picture */
+.register .picture-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.register .picture-box .picture-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.register .picture-box .picture-value {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #a1afbd;
+    max-height: 26px;
+    overflow: hidden;
+}
+
+/* EDIT */
+.edit .break {
+    height:10px;
+}
+/* username */
+.edit .username-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.edit .username-box .username-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.edit .username-box .username-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.edit .username-box .username-value input{
+    font-weight: bold;
+}
+
+/* email */
+.edit .email-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.edit .email-box .email-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.edit .email-box .email-value {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #a1afbd;
+}
+
+.edit .email-box .email-value input{
+    font-weight: bold;
+}
+/* birthday */
+.edit .birthday-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.edit .birthday-box .birthday-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.edit .birthday-box .birthday-value {
+    font-size: 15px;
+    background-color: #a1afbd;
+}
+/* picture */
+.edit .picture-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.edit .picture-box .picture-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.edit .picture-box .picture-value {
+    font-size: 15px;
+    background-color: #a1afbd;
 }
 
 /* CHARACTERSHEET */
@@ -127,6 +452,19 @@ input[type=number] {
     appearance: none;
     border: none;
 }
+/*
+.register input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+}
+.register input[type=date]::-webkit-inner-spin-button,
+.register input[type=date]::-webkit-calendar-picker-indicator {
+    display:none;
+    -webkit-appearance: none;
+}
+*/
 
 /* name */
 .charactersheet .name-box {
