@@ -5,7 +5,7 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         <div class="card-header  charsheet">
             <div class="row">
                 <div class="col-12 col-md-2 order-md-2 p-0">
@@ -60,7 +60,7 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12 p-0">
-                                <div class="name-box">
+                                <div class="name-box {% if not form.charname.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 name-description p-0">Name</div>
                                     <div class="col-12 name-value p-0">
                                         {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
@@ -75,7 +75,7 @@
                             <div class="col-6 col-md-3">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="experience-box">
+                                        <div class="experience-box {% if not form.experiencelevel.vars.valid %}has-error{% endif %}">
                                             <div class="col-12 experience-description p-0">Erfahrungsgrad</div>
                                             <div class="col-12 experience-value p-0">
                                                 {{ form_widget(form.experiencelevel, {'attr': {'class':'inputbox text-center' }, 'value':character.experiencelevel~'' }) }}
@@ -87,7 +87,7 @@
                             <div class="col-6 col-md-3">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="experience-box">
+                                        <div class="experience-box {% if not form.aptotal.vars.valid %}has-error{% endif %}">
                                             <div class="col-12 experience-description p-0">AP Gesamt</div>
                                             <div class="col-12 experience-value p-0">
                                                 {{ form_widget(form.aptotal, {'attr': {'class':'inputbox text-center' },'value':character.aptotal}) }}
@@ -99,7 +99,7 @@
                             <div class="col-6 col-md-3">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="experience-box">
+                                        <div class="experience-box {% if not form.apavailable.vars.valid %}has-error{% endif %}">
                                             <div class="col-12 experience-description p-0">AP verfügbar</div>
                                             <div class="col-12 experience-value p-0">
                                                 {{ form_widget(form.apavailable, {'attr': {'class':'inputbox text-center' },'value':character.apavailable}) }}
@@ -111,7 +111,7 @@
                             <div class="col-6 col-md-3">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="experience-box">
+                                        <div class="experience-box {% if not form.apspent.vars.valid %}has-error{% endif %}">
                                             <div class="col-12 experience-description p-0">AP ausgegeben</div>
                                             <div class="col-12 experience-value p-0">
                                                 {{ form_widget(form.apspent, {'attr': {'class':'inputbox text-center' },'value':character.apspent}) }}
@@ -164,7 +164,7 @@
                     <div class="col-6">
                         <div class="row">
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeMu.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">MU</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' },'value':character.attributeMu}) }}
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeKl.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">KL</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' },'value':character.attributeKl}) }}
@@ -180,7 +180,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeIn.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">IN</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' },'value':character.attributeIn}) }}
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeCh.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">CH</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' },'value':character.attributeCh}) }}
@@ -200,7 +200,7 @@
                     <div class="col-6">
                         <div class="row">
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeFf.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">FF</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' },'value':character.attributeFf}) }}
@@ -208,7 +208,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeGe.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">GE</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' },'value':character.attributeGe}) }}
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeKo.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">KO</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' },'value':character.attributeKo}) }}
@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                             <div class="col-3 p-0">
-                                <div class="attribute-box">
+                                <div class="attribute-box {% if not form.attributeKk.vars.valid %}has-error{% endif %}">
                                     <div class="col-12 attribute-description p-0">KK</div>
                                     <div class="col-12 attribute-value p-0">
                                         {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' },'value':character.attributeKk}) }}

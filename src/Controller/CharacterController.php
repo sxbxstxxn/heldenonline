@@ -99,7 +99,7 @@ class CharacterController extends AbstractController
             $form = $this->createForm(CharacterType::class);
             $form->handleRequest($request);
 
-            if ($form->isSubmitted()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $formData = $form->getData();
 
                 $character->setCharname($formData->getCharname());

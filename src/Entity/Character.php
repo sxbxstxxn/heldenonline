@@ -33,41 +33,49 @@ class Character
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeMu;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeKl;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeIn;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeCh;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeFf;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeGe;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeKo;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $attributeKk;
 
@@ -91,6 +99,7 @@ class Character
 
     /**
      * @ORM\Column(type="string", length=11)
+     * @Assert\NotBlank
      */
     private $gender;
 
@@ -156,21 +165,25 @@ class Character
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $aptotal;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $apavailable;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $apspent;
 
     /**
      * @ORM\Column(type="string", length=45)
+     * @Assert\NotBlank
      */
     private $experiencelevel;
 

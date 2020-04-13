@@ -77,7 +77,7 @@ input:read-only {
     text-align: center;
 }
 .has-error .inputbox {
-    border:1px solid red;
+    background-color: #f8d7da;
 }
 
 /* Cardboxes */
