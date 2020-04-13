@@ -519,6 +519,24 @@
                             </div>
 
                         </div>
+                        <div class="row break"></div>
+                        <div class="row advantages">
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="advantage-box">
+                                            <div class="col-12 advantage-description p-0">Vorteile</div>
+                                            <div class="col-12 advantage-value">
+                                                {% for advantage in character.advantages %}
+                                                    {{ advantage.advantagename }}{% if not loop.last %},{% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">

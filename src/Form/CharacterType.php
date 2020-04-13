@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Advantage;
 use App\Entity\Character;
 use App\Entity\Culture;
 use App\Entity\Profession;
@@ -118,6 +119,13 @@ class CharacterType extends AbstractType
             ->add('fatepointsbonus')
             ->add('fatepointsmax')
             ->add('fatepointscurrent')
+
+            
+            ->add('advantages', EntityType::class, [
+                'class' => Advantage::class,
+                'choice_label' => 'advantagename',
+                'multiple' => true
+            ])
 
             ->add('submit', SubmitType::class);
 

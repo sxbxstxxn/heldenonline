@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -341,6 +343,16 @@ class Character
      * @ORM\Column(type="integer", nullable=true)
      */
     private $fatepointscurrent;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Advantage")
+     */
+    private $advantages;
+
+    public function __construct()
+    {
+        $this->advantages = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -1076,6 +1088,32 @@ class Character
     public function setFatepointscurrent(?int $fatepointscurrent): self
     {
         $this->fatepointscurrent = $fatepointscurrent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Advantage[]
+     */
+    public function getAdvantages(): Collection
+    {
+        return $this->advantages;
+    }
+
+    public function addAdvantage(Advantage $advantage): self
+    {
+        if (!$this->advantages->contains($advantage)) {
+            $this->advantages[] = $advantage;
+        }
+
+        return $this;
+    }
+
+    public function removeAdvantage(Advantage $advantage): self
+    {
+        if ($this->advantages->contains($advantage)) {
+            $this->advantages->removeElement($advantage);
+        }
 
         return $this;
     }

@@ -608,6 +608,25 @@ input:read-only {
 }
 
 
+/* advantage */
+.charactersheet .advantage-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .advantage-box .advantage-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+.charactersheet .advantage-box .advantage-value {
+    min-height:24px;
+    background-color: #a1afbd;
+    text-align: left;
+}
+
+
 /* USERLIST */
 .mychars .character {
     background-color: #6c757d;

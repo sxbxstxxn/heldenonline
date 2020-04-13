@@ -102,6 +102,8 @@ class CharacterController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $formData = $form->getData();
 
+
+
                 $character->setCharname($formData->getCharname());
                 $character->setAptotal($formData->getAptotal());
                 $character->setApavailable($formData->getApavailable());
@@ -162,6 +164,8 @@ class CharacterController extends AbstractController
                 $character->setFatepointsbonus($formData->getFatepointsbonus());
                 $character->setFatepointsmax($formData->getFatepointsmax());
                 $character->setFatepointscurrent($formData->getFatepointscurrent());
+
+
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
