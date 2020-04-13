@@ -56,335 +56,80 @@
                 <!-- Seite Persönliche Daten -->
                 <div class="tab-pane fade show active" id="personaldata" role="tabpanel" aria-labelledby="personaldata-tab">
                     <div class="charactersheet">
-                <div class="row name">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="name-box {% if not form.charname.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 name-description p-0">Name</div>
-                                    <div class="col-12 name-value p-0">
-                                        {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row experience">
-                            <div class="col-6 col-md-3">
+                        <div class="row name">
+                            <div class="col-12">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="experience-box {% if not form.experiencelevel.vars.valid %}has-error{% endif %}">
-                                            <div class="col-12 experience-description p-0">Erfahrungsgrad</div>
-                                            <div class="col-12 experience-value p-0">
-                                                {{ form_widget(form.experiencelevel, {'attr': {'class':'inputbox text-center' }, 'value':character.experiencelevel~'' }) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="experience-box {% if not form.aptotal.vars.valid %}has-error{% endif %}">
-                                            <div class="col-12 experience-description p-0">AP Gesamt</div>
-                                            <div class="col-12 experience-value p-0">
-                                                {{ form_widget(form.aptotal, {'attr': {'class':'inputbox text-center' },'value':character.aptotal}) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="experience-box {% if not form.apavailable.vars.valid %}has-error{% endif %}">
-                                            <div class="col-12 experience-description p-0">AP verfügbar</div>
-                                            <div class="col-12 experience-value p-0">
-                                                {{ form_widget(form.apavailable, {'attr': {'class':'inputbox text-center' },'value':character.apavailable}) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="experience-box {% if not form.apspent.vars.valid %}has-error{% endif %}">
-                                            <div class="col-12 experience-description p-0">AP ausgegeben</div>
-                                            <div class="col-12 experience-value p-0">
-                                                {{ form_widget(form.apspent, {'attr': {'class':'inputbox text-center' },'value':character.apspent}) }}
+                                        <div class="name-box {% if not form.charname.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 name-description p-0">Name</div>
+                                            <div class="col-12 name-value p-0">
+                                                {{ form_widget(form.charname, {'attr': {'class':'inputbox' },'value':character.charname}) }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                <div class="row break"></div>
-                <div class="row origin">
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description p-0">Spezies</div>
-                                    <div class="col-12 origin-value p-0">
-                                        {{ form_widget(form.species, {'attr': {'class':'inputbox' }, 'value':character.species.id~'' }) }}
+                        <div class="row break"></div>
+                        <div class="row experience">
+                                    <div class="col-6 col-md-3">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="experience-box {% if not form.experiencelevel.vars.valid %}has-error{% endif %}">
+                                                    <div class="col-12 experience-description p-0">Erfahrungsgrad</div>
+                                                    <div class="col-12 experience-value p-0">
+                                                        {{ form_widget(form.experiencelevel, {'attr': {'class':'inputbox text-center' }, 'value':character.experiencelevel~'' }) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="experience-box {% if not form.aptotal.vars.valid %}has-error{% endif %}">
+                                                    <div class="col-12 experience-description p-0">AP Gesamt</div>
+                                                    <div class="col-12 experience-value p-0">
+                                                        {{ form_widget(form.aptotal, {'attr': {'class':'inputbox text-center' },'value':character.aptotal}) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="experience-box {% if not form.apavailable.vars.valid %}has-error{% endif %}">
+                                                    <div class="col-12 experience-description p-0">AP verfügbar</div>
+                                                    <div class="col-12 experience-value p-0">
+                                                        {{ form_widget(form.apavailable, {'attr': {'class':'inputbox text-center' },'value':character.apavailable}) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="experience-box {% if not form.apspent.vars.valid %}has-error{% endif %}">
+                                                    <div class="col-12 experience-description p-0">AP ausgegeben</div>
+                                                    <div class="col-12 experience-value p-0">
+                                                        {{ form_widget(form.apspent, {'attr': {'class':'inputbox text-center' },'value':character.apspent}) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description p-0">Kultur</div>
-                                    <div class="col-12 origin-value p-0">
-                                        {{ form_widget(form.culture, {'attr': {'class':'inputbox' }, 'value':character.culture.id~'' }) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="origin-box">
-                                    <div class="col-12 origin-description p-0">Kultur</div>
-                                    <div class="col-12 origin-value p-0">
-                                        {{ form_widget(form.profession, {'attr': {'class':'inputbox' }, 'value':character.profession.id~'' }) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row attributes">
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeMu.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">MU</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' },'value':character.attributeMu}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeKl.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">KL</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' },'value':character.attributeKl}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeIn.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">IN</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' },'value':character.attributeIn}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeCh.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">CH</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' },'value':character.attributeCh}) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeFf.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">FF</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' },'value':character.attributeFf}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeGe.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">GE</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' },'value':character.attributeGe}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeKo.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">KO</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' },'value':character.attributeKo}) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 p-0">
-                                <div class="attribute-box {% if not form.attributeKk.vars.valid %}has-error{% endif %}">
-                                    <div class="col-12 attribute-description p-0">KK</div>
-                                    <div class="col-12 attribute-value p-0">
-                                        {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' },'value':character.attributeKk}) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row story">
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Geschlecht</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.gender, {'attr': {'class':'inputbox text-center' }, 'value':character.gender~'' }) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Geburtsort</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.birthplace, {'attr': {'class':'inputbox' },'value':character.birthplace}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Geburtsdatum</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.birthdate, {'attr': {'class':'inputbox' },'value':character.birthdate}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Alter</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.age, {'attr': {'class':'inputbox' },'value':character.age}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Größe</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.size, {'attr': {'class':'inputbox' },'value':character.size}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Gewicht</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.weight, {'attr': {'class':'inputbox' },'value':character.weight}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Haarfarbe</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.haircolor, {'attr': {'class':'inputbox' },'value':character.haircolor}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Augenfarbe</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.eyecolor, {'attr': {'class':'inputbox' },'value':character.eyecolor}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Titel</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.title, {'attr': {'class':'inputbox' },'value':character.title}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">SO</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.socialstatus, {'attr': {'class':'inputbox' },'value':character.socialstatus}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Familie</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.family, {'attr': {'class':'inputbox' },'value':character.family}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Charakteristika</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.characteristics, {'attr': {'class':'inputbox' },'value':character.characteristics}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <div class="story-box">
-                                    <div class="col-12 story-description p-0">Sonstiges</div>
-                                    <div class="col-12 story-value p-0">{{ form_widget(form.further, {'attr': {'class':'inputbox' },'value':character.further}) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row break"></div>
-                <div class="row energy">
+                        <div class="row break"></div>
+                        <div class="row origin">
                             <div class="col-12 col-md-4">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Lebensenergie</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergy, {'attr': {'class':'inputbox' },'value':character.lifeenergy}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergybonus, {'attr': {'class':'inputbox' },'value':character.lifeenergybonus}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergypurchase, {'attr': {'class':'inputbox' },'value':character.lifeenergypurchase}) }}</div>
-                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.lifeenergymax, {'attr': {'class':'inputbox' },'value':character.lifeenergymax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-3 energy-value-description p-0">Wert</div>
-                                                <div class="col-3 energy-value-description p-0">Bonus</div>
-                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
-                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description p-0">Spezies</div>
+                                            <div class="col-12 origin-value p-0">
+                                                {{ form_widget(form.species, {'attr': {'class':'inputbox' }, 'value':character.species.id~'' }) }}
                                             </div>
                                         </div>
                                     </div>
@@ -393,19 +138,10 @@
                             <div class="col-12 col-md-4">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Astralenergie</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergy, {'attr': {'class':'inputbox' },'value':character.astralenergy}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergybonus, {'attr': {'class':'inputbox' },'value':character.astralenergybonus}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergypurchase, {'attr': {'class':'inputbox' },'value':character.astralenergypurchase}) }}</div>
-                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.astralenergymax, {'attr': {'class':'inputbox' },'value':character.astralenergymax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-3 energy-value-description p-0">Wert</div>
-                                                <div class="col-3 energy-value-description p-0">Bonus</div>
-                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
-                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description p-0">Kultur</div>
+                                            <div class="col-12 origin-value p-0">
+                                                {{ form_widget(form.culture, {'attr': {'class':'inputbox' }, 'value':character.culture.id~'' }) }}
                                             </div>
                                         </div>
                                     </div>
@@ -414,144 +150,427 @@
                             <div class="col-12 col-md-4">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Karmaenergie</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergy, {'attr': {'class':'inputbox' },'value':character.karmaenergy}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergybonus, {'attr': {'class':'inputbox' },'value':character.karmaenergybonus}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergypurchase, {'attr': {'class':'inputbox' },'value':character.karmaenergypurchase}) }}</div>
-                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.karmaenergymax, {'attr': {'class':'inputbox' },'value':character.karmaenergymax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-3 energy-value-description p-0">Wert</div>
-                                                <div class="col-3 energy-value-description p-0">Bonus</div>
-                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
-                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                        <div class="origin-box">
+                                            <div class="col-12 origin-description p-0">Kultur</div>
+                                            <div class="col-12 origin-value p-0">
+                                                {{ form_widget(form.profession, {'attr': {'class':'inputbox' }, 'value':character.profession.id~'' }) }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row attributes">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeMu.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">MU</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeMu, {'attr': {'class':'inputbox text-center' },'value':character.attributeMu}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeKl.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">KL</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeKl, {'attr': {'class':'inputbox text-center' },'value':character.attributeKl}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeIn.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">IN</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeIn, {'attr': {'class':'inputbox text-center' },'value':character.attributeIn}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeCh.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">CH</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeCh, {'attr': {'class':'inputbox text-center' },'value':character.attributeCh}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeFf.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">FF</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeFf, {'attr': {'class':'inputbox text-center' },'value':character.attributeFf}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeGe.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">GE</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeGe, {'attr': {'class':'inputbox text-center' },'value':character.attributeGe}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeKo.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">KO</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeKo, {'attr': {'class':'inputbox text-center' },'value':character.attributeKo}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="attribute-box {% if not form.attributeKk.vars.valid %}has-error{% endif %}">
+                                            <div class="col-12 attribute-description p-0">KK</div>
+                                            <div class="col-12 attribute-value p-0">
+                                                {{ form_widget(form.attributeKk, {'attr': {'class':'inputbox text-center' },'value':character.attributeKk}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row story">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Geschlecht</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.gender, {'attr': {'class':'inputbox text-center' }, 'value':character.gender~'' }) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Geburtsort</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.birthplace, {'attr': {'class':'inputbox' },'value':character.birthplace}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Geburtsdatum</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.birthdate, {'attr': {'class':'inputbox' },'value':character.birthdate}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Alter</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.age, {'attr': {'class':'inputbox' },'value':character.age}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Größe</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.size, {'attr': {'class':'inputbox' },'value':character.size}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Gewicht</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.weight, {'attr': {'class':'inputbox' },'value':character.weight}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Haarfarbe</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.haircolor, {'attr': {'class':'inputbox' },'value':character.haircolor}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Augenfarbe</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.eyecolor, {'attr': {'class':'inputbox' },'value':character.eyecolor}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Titel</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.title, {'attr': {'class':'inputbox' },'value':character.title}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">SO</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.socialstatus, {'attr': {'class':'inputbox' },'value':character.socialstatus}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Familie</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.family, {'attr': {'class':'inputbox' },'value':character.family}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Charakteristika</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.characteristics, {'attr': {'class':'inputbox' },'value':character.characteristics}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="story-box">
+                                            <div class="col-12 story-description p-0">Sonstiges</div>
+                                            <div class="col-12 story-value p-0">{{ form_widget(form.further, {'attr': {'class':'inputbox' },'value':character.further}) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row energy">
+                                    <div class="col-12 col-md-4">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Lebensenergie</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergy, {'attr': {'class':'inputbox' },'value':character.lifeenergy}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergybonus, {'attr': {'class':'inputbox' },'value':character.lifeenergybonus}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergypurchase, {'attr': {'class':'inputbox' },'value':character.lifeenergypurchase}) }}</div>
+                                                        <div class="col-3 energy-value p-0 last">{{ form_widget(form.lifeenergymax, {'attr': {'class':'inputbox' },'value':character.lifeenergymax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-3 energy-value-description p-0">Wert</div>
+                                                        <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                        <div class="col-3 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Astralenergie</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergy, {'attr': {'class':'inputbox' },'value':character.astralenergy}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergybonus, {'attr': {'class':'inputbox' },'value':character.astralenergybonus}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergypurchase, {'attr': {'class':'inputbox' },'value':character.astralenergypurchase}) }}</div>
+                                                        <div class="col-3 energy-value p-0 last">{{ form_widget(form.astralenergymax, {'attr': {'class':'inputbox' },'value':character.astralenergymax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-3 energy-value-description p-0">Wert</div>
+                                                        <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                        <div class="col-3 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Karmaenergie</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergy, {'attr': {'class':'inputbox' },'value':character.karmaenergy}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergybonus, {'attr': {'class':'inputbox' },'value':character.karmaenergybonus}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergypurchase, {'attr': {'class':'inputbox' },'value':character.karmaenergypurchase}) }}</div>
+                                                        <div class="col-3 energy-value p-0 last">{{ form_widget(form.karmaenergymax, {'attr': {'class':'inputbox' },'value':character.karmaenergymax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-3 energy-value-description p-0">Wert</div>
+                                                        <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                        <div class="col-3 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Seelenkraft</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.soulpower, {'attr': {'class':'inputbox' },'value':character.soulpower}) }}</div>
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.soulpowerbonus, {'attr': {'class':'inputbox' },'value':character.soulpowerbonus}) }}</div>
-                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.soulpowermax, {'attr': {'class':'inputbox' },'value':character.soulpowermax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-4 energy-value-description p-0">Wert</div>
-                                                <div class="col-4 energy-value-description p-0">Bonus</div>
-                                                <div class="col-4 energy-value-description p-0">Max</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Zähigkeit</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.toughness, {'attr': {'class':'inputbox' },'value':character.toughness}) }}</div>
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.toughnessbonus, {'attr': {'class':'inputbox' },'value':character.toughnessbonus}) }}</div>
-                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.toughnessmax, {'attr': {'class':'inputbox' },'value':character.toughnessmax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-4 energy-value-description p-0">Wert</div>
-                                                <div class="col-4 energy-value-description p-0">Bonus</div>
-                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Seelenkraft</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.soulpower, {'attr': {'class':'inputbox' },'value':character.soulpower}) }}</div>
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.soulpowerbonus, {'attr': {'class':'inputbox' },'value':character.soulpowerbonus}) }}</div>
+                                                        <div class="col-4 energy-value p-0 last">{{ form_widget(form.soulpowermax, {'attr': {'class':'inputbox' },'value':character.soulpowermax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-4 energy-value-description p-0">Wert</div>
+                                                        <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-4 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Ausweichen</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.dodge, {'attr': {'class':'inputbox' },'value':character.dodge}) }}</div>
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.dodgebonus, {'attr': {'class':'inputbox' },'value':character.dodgebonus}) }}</div>
-                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.dodgemax, {'attr': {'class':'inputbox' },'value':character.dodgemax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-4 energy-value-description p-0">Wert</div>
-                                                <div class="col-4 energy-value-description p-0">Bonus</div>
-                                                <div class="col-4 energy-value-description p-0">Max</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Initiative</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.initiative, {'attr': {'class':'inputbox' },'value':character.initiative}) }}</div>
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.initiativebonus, {'attr': {'class':'inputbox' },'value':character.initiativebonus}) }}</div>
-                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.initiativemax, {'attr': {'class':'inputbox' },'value':character.initiativemax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-4 energy-value-description p-0">Wert</div>
-                                                <div class="col-4 energy-value-description p-0">Bonus</div>
-                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Zähigkeit</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.toughness, {'attr': {'class':'inputbox' },'value':character.toughness}) }}</div>
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.toughnessbonus, {'attr': {'class':'inputbox' },'value':character.toughnessbonus}) }}</div>
+                                                        <div class="col-4 energy-value p-0 last">{{ form_widget(form.toughnessmax, {'attr': {'class':'inputbox' },'value':character.toughnessmax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-4 energy-value-description p-0">Wert</div>
+                                                        <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-4 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Geschwindigkeit</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.speed, {'attr': {'class':'inputbox' },'value':character.speed}) }}</div>
-                                                <div class="col-4 energy-value p-0">{{ form_widget(form.speedbonus, {'attr': {'class':'inputbox' },'value':character.speedbonus}) }}</div>
-                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.speedmax, {'attr': {'class':'inputbox' },'value':character.speedmax}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-4 energy-value-description p-0">Wert</div>
-                                                <div class="col-4 energy-value-description p-0">Bonus</div>
-                                                <div class="col-4 energy-value-description p-0">Max</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-2">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div class="energy-box">
-                                            <div class="col-12 energy-description p-0">Schicksalspunkte</div>
-                                            <div class="col-12 energy-values p-0">
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepoints, {'attr': {'class':'inputbox' },'value':character.fatepoints}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsbonus, {'attr': {'class':'inputbox' },'value':character.fatepointsbonus}) }}</div>
-                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsmax, {'attr': {'class':'inputbox' },'value':character.fatepointsmax}) }}</div>
-                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.fatepointscurrent, {'attr': {'class':'inputbox' },'value':character.fatepointscurrent}) }}</div>
-                                            </div>
-                                            <div class="col-12 energy-value-descriptions p-0">
-                                                <div class="col-3 energy-value-description p-0">Wert</div>
-                                                <div class="col-3 energy-value-description p-0">Bonus</div>
-                                                <div class="col-3 energy-value-description p-0">Max</div>
-                                                <div class="col-3 energy-value-description p-0">Aktuell</div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Ausweichen</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.dodge, {'attr': {'class':'inputbox' },'value':character.dodge}) }}</div>
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.dodgebonus, {'attr': {'class':'inputbox' },'value':character.dodgebonus}) }}</div>
+                                                        <div class="col-4 energy-value p-0 last">{{ form_widget(form.dodgemax, {'attr': {'class':'inputbox' },'value':character.dodgemax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-4 energy-value-description p-0">Wert</div>
+                                                        <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-4 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Initiative</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.initiative, {'attr': {'class':'inputbox' },'value':character.initiative}) }}</div>
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.initiativebonus, {'attr': {'class':'inputbox' },'value':character.initiativebonus}) }}</div>
+                                                        <div class="col-4 energy-value p-0 last">{{ form_widget(form.initiativemax, {'attr': {'class':'inputbox' },'value':character.initiativemax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-4 energy-value-description p-0">Wert</div>
+                                                        <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-4 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Geschwindigkeit</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.speed, {'attr': {'class':'inputbox' },'value':character.speed}) }}</div>
+                                                        <div class="col-4 energy-value p-0">{{ form_widget(form.speedbonus, {'attr': {'class':'inputbox' },'value':character.speedbonus}) }}</div>
+                                                        <div class="col-4 energy-value p-0 last">{{ form_widget(form.speedmax, {'attr': {'class':'inputbox' },'value':character.speedmax}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-4 energy-value-description p-0">Wert</div>
+                                                        <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-4 energy-value-description p-0">Max</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <div class="row">
+                                            <div class="col-12 p-0">
+                                                <div class="energy-box">
+                                                    <div class="col-12 energy-description p-0">Schicksalspunkte</div>
+                                                    <div class="col-12 energy-values p-0">
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.fatepoints, {'attr': {'class':'inputbox' },'value':character.fatepoints}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsbonus, {'attr': {'class':'inputbox' },'value':character.fatepointsbonus}) }}</div>
+                                                        <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsmax, {'attr': {'class':'inputbox' },'value':character.fatepointsmax}) }}</div>
+                                                        <div class="col-3 energy-value p-0 last">{{ form_widget(form.fatepointscurrent, {'attr': {'class':'inputbox' },'value':character.fatepointscurrent}) }}</div>
+                                                    </div>
+                                                    <div class="col-12 energy-value-descriptions p-0">
+                                                        <div class="col-3 energy-value-description p-0">Wert</div>
+                                                        <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                        <div class="col-3 energy-value-description p-0">Max</div>
+                                                        <div class="col-3 energy-value-description p-0">Aktuell</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </div>
+                        <div class="row break"></div>
+                        <div class="row">
+
+
+                            <select id="multiple" class="form-control form-control-chosen" data-placeholder="Vorteil auswählen..." multiple="" style="display: none;">
+                                <option></option>
+                                <option>Option One</option>
+                                <option>Option Two</option>
+                                <option>Option Three</option>
+                                <option>Option Four</option>
+                                <option>Option Five</option>
+                                <option>Option Six</option>
+                                <option>Option Seven</option>
+                                <option>Option Eight</option>
+                            </select>
 
                         </div>
-            </div>
+
+
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">
                     Spielwerte
@@ -569,7 +588,7 @@
                     Liturgien
                 </div>
             </div>
-        </div>
+
         <div class="card-footer">
             <div class="row">
                 <div class="col align-self-end p-0">
