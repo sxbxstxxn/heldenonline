@@ -135,7 +135,7 @@ class Character
     private $title;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=45, nullable=true)
      */
     private $socialstatus;
 
@@ -424,12 +424,12 @@ class Character
         return $this;
     }
 
-    public function getSocialstatus(): ?int
+    public function getSocialstatus(): ?string
     {
         return $this->socialstatus;
     }
 
-    public function setSocialstatus(int $socialstatus): self
+    public function setSocialstatus(?string $socialstatus): self
     {
         $this->socialstatus = $socialstatus;
 

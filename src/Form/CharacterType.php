@@ -58,7 +58,15 @@ class CharacterType extends AbstractType
             ->add('haircolor')
             ->add('eyecolor')
             ->add('title')
-            ->add('socialstatus')
+            ->add('socialstatus', ChoiceType::class, [
+                'choices' => [
+                    'Unfrei' => 'Unfrei',
+                    'Frei' => 'Frei',
+                    'Niederadel' => 'Niederadel',
+                    'Adel' => 'Adel',
+                    'Hochadel' => 'Hochadel',
+                ],
+            ])
             ->add('family')
             ->add('characteristics')
             ->add('further')
