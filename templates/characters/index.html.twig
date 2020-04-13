@@ -5,8 +5,14 @@
 {% block maincontent %}
 
     <div class="card maincontent text-white bg-dark">
-        <div class="card-header">Meine Charaktere</div>
-        <div class="card-body">
+        <div class="card-header">
+            <div class="row justify-content-md-left">
+                <div class="col-auto header-box">
+                    Meine Charaktere
+                </div>
+            </div>
+        </div>
+        <div class="card-body mychars">
             {{ render(controller('App\\Controller\\CharacterController::listCharacters' )) }}
         </div>
         <div class="card-footer text-right">

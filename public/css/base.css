@@ -12,6 +12,10 @@ a:hover {
     color: #6c757d;
 }
 
+a.text-dark:hover {
+    color: #fff !important;
+}
+
 /* Remove Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -572,4 +576,11 @@ input:read-only {
 
 .charactersheet .experience-box .experience-value {
     background-color: #a1afbd;
+}
+
+/* USERLIST */
+.mychars .character {
+    background-color: #6c757d;
+    padding-top:5px;
+    margin-bottom:5px;
 }
