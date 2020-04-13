@@ -52,6 +52,57 @@
                             </div>
                         </div>
                         <div class="row break"></div>
+                        <div class="row experience">
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
+                                            <div class="col-12 experience-value nopadding">
+                                                {{ form_widget(form.experiencelevel, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP Gesamt</div>
+                                            <div class="col-12 experience-value nopadding">
+                                                {{ form_widget(form.aptotal, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP verfügbar</div>
+                                            <div class="col-12 experience-value nopadding">
+                                                {{ form_widget(form.apavailable, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="row">
+                                    <div class="col-12 nopadding">
+                                        <div class="experience-box">
+                                            <div class="col-12 experience-description nopadding">AP ausgegeben</div>
+                                            <div class="col-12 experience-value nopadding">
+                                                {{ form_widget(form.apspent, {'attr': {'class':'inputbox text-center' }}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
                         <div class="row origin">
                             <div class="col-12 col-md-4">
                                 <div class="row">
@@ -298,47 +349,188 @@
                             </div>
                         </div>
                         <div class="row break"></div>
-                        <div class="row experience">
-                            <div class="col-6 col-md-3">
+                        <div class="row energy">
+                            <div class="col-12 col-md-4">
                                 <div class="row">
-                                    <div class="col-12 nopadding">
-                                        <div class="experience-box">
-                                            <div class="col-12 experience-description nopadding">Erfahrungsgrad</div>
-                                            <div class="col-12 experience-value nopadding">erfahrungsgrad</div>
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Lebensenergie</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergy, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergybonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.lifeenergypurchase, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.lifeenergymax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-3 energy-value-description p-0">Wert</div>
+                                                <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                            <div class="col-12 col-md-4">
                                 <div class="row">
-                                    <div class="col-12 nopadding">
-                                        <div class="experience-box">
-                                            <div class="col-12 experience-description nopadding">AP Gesamt</div>
-                                            <div class="col-12 experience-value nopadding">apgesamt</div>
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Astralenergie</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergy, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergybonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.astralenergypurchase, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.astralenergymax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-3 energy-value-description p-0">Wert</div>
+                                                <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+                            <div class="col-12 col-md-4">
                                 <div class="row">
-                                    <div class="col-12 nopadding">
-                                        <div class="experience-box">
-                                            <div class="col-12 experience-description nopadding">AP gesammelt</div>
-                                            <div class="col-12 experience-value nopadding">apgesammelt</div>
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Karmaenergie</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergy, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergybonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.karmaenergypurchase, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.karmaenergymax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-3 energy-value-description p-0">Wert</div>
+                                                <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                <div class="col-3 energy-value-description p-0">Zukauf</div>
+                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3">
+
+                            <div class="col-12 col-md-2">
                                 <div class="row">
-                                    <div class="col-12 nopadding">
-                                        <div class="experience-box">
-                                            <div class="col-12 experience-description nopadding">AP ausgegeben</div>
-                                            <div class="col-12 experience-value nopadding">apausgegeben</div>
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Seelenkraft</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.soulpower, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.soulpowerbonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.soulpowermax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-4 energy-value-description p-0">Wert</div>
+                                                <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-2">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Zähigkeit</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.toughness, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.toughnessbonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.toughnessmax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-4 energy-value-description p-0">Wert</div>
+                                                <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Ausweichen</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.dodge, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.dodgebonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.dodgemax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-4 energy-value-description p-0">Wert</div>
+                                                <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Initiative</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.initiative, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.initiativebonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.initiativemax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-4 energy-value-description p-0">Wert</div>
+                                                <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Geschwindigkeit</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.speed, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0">{{ form_widget(form.speedbonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-4 energy-value p-0 last">{{ form_widget(form.speedmax, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-4 energy-value-description p-0">Wert</div>
+                                                <div class="col-4 energy-value-description p-0">Bonus</div>
+                                                <div class="col-4 energy-value-description p-0">Max</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="energy-box">
+                                            <div class="col-12 energy-description p-0">Schicksalspunkte</div>
+                                            <div class="col-12 energy-values p-0">
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepoints, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsbonus, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0">{{ form_widget(form.fatepointsmax, {'attr': {'class':'inputbox' }}) }}</div>
+                                                <div class="col-3 energy-value p-0 last">{{ form_widget(form.fatepointscurrent, {'attr': {'class':'inputbox' }}) }}</div>
+                                            </div>
+                                            <div class="col-12 energy-value-descriptions p-0">
+                                                <div class="col-3 energy-value-description p-0">Wert</div>
+                                                <div class="col-3 energy-value-description p-0">Bonus</div>
+                                                <div class="col-3 energy-value-description p-0">Max</div>
+                                                <div class="col-3 energy-value-description p-0">Aktuell</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
