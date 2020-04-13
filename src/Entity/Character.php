@@ -174,6 +174,161 @@ class Character
      */
     private $experiencelevel;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $lifeenergy;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $lifeenergypurchase;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $lifeenergymax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $lifeenergybonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $astralenergy;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $astralenergybonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $astralenergypurchase;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $astralenergymax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $karmaenergy;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $karmaenergybonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $karmaenergypurchase;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $karmaenergymax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $soulpower;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $toughness;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dodge;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $initiative;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $speed;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $fatepoints;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $soulpowerbonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $soulpowermax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $toughnessbonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $toughnessmax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dodgebonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dodgemax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $initiativebonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $initiativemax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $speedbonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $speedmax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $fatepointsbonus;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $fatepointsmax;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $fatepointscurrent;
+
 
     public function getId(): ?int
     {
@@ -536,6 +691,378 @@ class Character
     public function setExperiencelevel(string $experiencelevel): self
     {
         $this->experiencelevel = $experiencelevel;
+
+        return $this;
+    }
+
+    public function getLifeenergy(): ?int
+    {
+        return $this->lifeenergy;
+    }
+
+    public function setLifeenergy(?int $lifeenergy): self
+    {
+        $this->lifeenergy = $lifeenergy;
+
+        return $this;
+    }
+
+    public function getLifeenergypurchase(): ?int
+    {
+        return $this->lifeenergypurchase;
+    }
+
+    public function setLifeenergypurchase(?int $lifeenergypurchase): self
+    {
+        $this->lifeenergypurchase = $lifeenergypurchase;
+
+        return $this;
+    }
+
+    public function getLifeenergymax(): ?int
+    {
+        return $this->lifeenergymax;
+    }
+
+    public function setLifeenergymax(?int $lifeenergymax): self
+    {
+        $this->lifeenergymax = $lifeenergymax;
+
+        return $this;
+    }
+
+    public function getLifeenergybonus(): ?int
+    {
+        return $this->lifeenergybonus;
+    }
+
+    public function setLifeenergybonus(?int $lifeenergybonus): self
+    {
+        $this->lifeenergybonus = $lifeenergybonus;
+
+        return $this;
+    }
+
+    public function getAstralenergy(): ?int
+    {
+        return $this->astralenergy;
+    }
+
+    public function setAstralenergy(?int $astralenergy): self
+    {
+        $this->astralenergy = $astralenergy;
+
+        return $this;
+    }
+
+    public function getAstralenergybonus(): ?int
+    {
+        return $this->astralenergybonus;
+    }
+
+    public function setAstralenergybonus(?int $astralenergybonus): self
+    {
+        $this->astralenergybonus = $astralenergybonus;
+
+        return $this;
+    }
+
+    public function getAstralenergypurchase(): ?int
+    {
+        return $this->astralenergypurchase;
+    }
+
+    public function setAstralenergypurchase(?int $astralenergypurchase): self
+    {
+        $this->astralenergypurchase = $astralenergypurchase;
+
+        return $this;
+    }
+
+    public function getAstralenergymax(): ?int
+    {
+        return $this->astralenergymax;
+    }
+
+    public function setAstralenergymax(?int $astralenergymax): self
+    {
+        $this->astralenergymax = $astralenergymax;
+
+        return $this;
+    }
+
+    public function getKarmaenergy(): ?int
+    {
+        return $this->karmaenergy;
+    }
+
+    public function setKarmaenergy(?int $karmaenergy): self
+    {
+        $this->karmaenergy = $karmaenergy;
+
+        return $this;
+    }
+
+    public function getKarmaenergybonus(): ?int
+    {
+        return $this->karmaenergybonus;
+    }
+
+    public function setKarmaenergybonus(?int $karmaenergybonus): self
+    {
+        $this->karmaenergybonus = $karmaenergybonus;
+
+        return $this;
+    }
+
+    public function getKarmaenergypurchase(): ?int
+    {
+        return $this->karmaenergypurchase;
+    }
+
+    public function setKarmaenergypurchase(?int $karmaenergypurchase): self
+    {
+        $this->karmaenergypurchase = $karmaenergypurchase;
+
+        return $this;
+    }
+
+    public function getKarmaenergymax(): ?int
+    {
+        return $this->karmaenergymax;
+    }
+
+    public function setKarmaenergymax(?int $karmaenergymax): self
+    {
+        $this->karmaenergymax = $karmaenergymax;
+
+        return $this;
+    }
+
+    public function getSoulpower(): ?int
+    {
+        return $this->soulpower;
+    }
+
+    public function setSoulpower(?int $soulpower): self
+    {
+        $this->soulpower = $soulpower;
+
+        return $this;
+    }
+
+    public function getToughness(): ?int
+    {
+        return $this->toughness;
+    }
+
+    public function setToughness(?int $toughness): self
+    {
+        $this->toughness = $toughness;
+
+        return $this;
+    }
+
+    public function getDodge(): ?int
+    {
+        return $this->dodge;
+    }
+
+    public function setDodge(?int $dodge): self
+    {
+        $this->dodge = $dodge;
+
+        return $this;
+    }
+
+    public function getInitiative(): ?int
+    {
+        return $this->initiative;
+    }
+
+    public function setInitiative(?int $initiative): self
+    {
+        $this->initiative = $initiative;
+
+        return $this;
+    }
+
+    public function getSpeed(): ?int
+    {
+        return $this->speed;
+    }
+
+    public function setSpeed(?int $speed): self
+    {
+        $this->speed = $speed;
+
+        return $this;
+    }
+
+    public function getFatepoints(): ?int
+    {
+        return $this->fatepoints;
+    }
+
+    public function setFatepoints(?int $fatepoints): self
+    {
+        $this->fatepoints = $fatepoints;
+
+        return $this;
+    }
+
+    public function getSoulpowerbonus(): ?int
+    {
+        return $this->soulpowerbonus;
+    }
+
+    public function setSoulpowerbonus(?int $soulpowerbonus): self
+    {
+        $this->soulpowerbonus = $soulpowerbonus;
+
+        return $this;
+    }
+
+    public function getSoulpowermax(): ?int
+    {
+        return $this->soulpowermax;
+    }
+
+    public function setSoulpowermax(?int $soulpowermax): self
+    {
+        $this->soulpowermax = $soulpowermax;
+
+        return $this;
+    }
+
+    public function getToughnessbonus(): ?int
+    {
+        return $this->toughnessbonus;
+    }
+
+    public function setToughnessbonus(?int $toughnessbonus): self
+    {
+        $this->toughnessbonus = $toughnessbonus;
+
+        return $this;
+    }
+
+    public function getToughnessmax(): ?int
+    {
+        return $this->toughnessmax;
+    }
+
+    public function setToughnessmax(?int $toughnessmax): self
+    {
+        $this->toughnessmax = $toughnessmax;
+
+        return $this;
+    }
+
+    public function getDodgebonus(): ?int
+    {
+        return $this->dodgebonus;
+    }
+
+    public function setDodgebonus(?int $dodgebonus): self
+    {
+        $this->dodgebonus = $dodgebonus;
+
+        return $this;
+    }
+
+    public function getDodgemax(): ?int
+    {
+        return $this->dodgemax;
+    }
+
+    public function setDodgemax(?int $dodgemax): self
+    {
+        $this->dodgemax = $dodgemax;
+
+        return $this;
+    }
+
+    public function getInitiativebonus(): ?int
+    {
+        return $this->initiativebonus;
+    }
+
+    public function setInitiativebonus(?int $initiativebonus): self
+    {
+        $this->initiativebonus = $initiativebonus;
+
+        return $this;
+    }
+
+    public function getInitiativemax(): ?int
+    {
+        return $this->initiativemax;
+    }
+
+    public function setInitiativemax(?int $initiativemax): self
+    {
+        $this->initiativemax = $initiativemax;
+
+        return $this;
+    }
+
+    public function getSpeedbonus(): ?int
+    {
+        return $this->speedbonus;
+    }
+
+    public function setSpeedbonus(?int $speedbonus): self
+    {
+        $this->speedbonus = $speedbonus;
+
+        return $this;
+    }
+
+    public function getSpeedmax(): ?int
+    {
+        return $this->speedmax;
+    }
+
+    public function setSpeedmax(?int $speedmax): self
+    {
+        $this->speedmax = $speedmax;
+
+        return $this;
+    }
+
+    public function getFatepointsbonus(): ?int
+    {
+        return $this->fatepointsbonus;
+    }
+
+    public function setFatepointsbonus(?int $fatepointsbonus): self
+    {
+        $this->fatepointsbonus = $fatepointsbonus;
+
+        return $this;
+    }
+
+    public function getFatepointsmax(): ?int
+    {
+        return $this->fatepointsmax;
+    }
+
+    public function setFatepointsmax(?int $fatepointsmax): self
+    {
+        $this->fatepointsmax = $fatepointsmax;
+
+        return $this;
+    }
+
+    public function getFatepointscurrent(): ?int
+    {
+        return $this->fatepointscurrent;
+    }
+
+    public function setFatepointscurrent(?int $fatepointscurrent): self
+    {
+        $this->fatepointscurrent = $fatepointscurrent;
 
         return $this;
     }

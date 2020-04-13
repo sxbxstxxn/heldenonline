@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200325175530 extends AbstractMigration
+final class Version20200413102218 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,7 @@ final class Version20200325175530 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE chars ADD attribute_ch INT NOT NULL, ADD attribute_ff INT NOT NULL, ADD attribute_ge INT NOT NULL, ADD attribute_ko INT NOT NULL, ADD attribute_kk INT NOT NULL');
+        $this->addSql('ALTER TABLE chars ADD soulpowerbonus INT DEFAULT NULL, ADD soulpowermax INT DEFAULT NULL, ADD toughnessbonus INT DEFAULT NULL, ADD toughnessmax INT DEFAULT NULL, ADD dodgebonus INT DEFAULT NULL, ADD dodgemax INT DEFAULT NULL, ADD initiativebonus INT DEFAULT NULL, ADD initiativemax INT DEFAULT NULL, ADD speedbonus INT DEFAULT NULL, ADD speedmax INT DEFAULT NULL, ADD fatepointsbonus INT DEFAULT NULL, ADD fatepointsmax INT DEFAULT NULL, ADD fatepointscurrent INT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20200325175530 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE chars DROP attribute_ch, DROP attribute_ff, DROP attribute_ge, DROP attribute_ko, DROP attribute_kk');
+        $this->addSql('ALTER TABLE chars DROP soulpowerbonus, DROP soulpowermax, DROP toughnessbonus, DROP toughnessmax, DROP dodgebonus, DROP dodgemax, DROP initiativebonus, DROP initiativemax, DROP speedbonus, DROP speedmax, DROP fatepointsbonus, DROP fatepointsmax, DROP fatepointscurrent');
     }
 }

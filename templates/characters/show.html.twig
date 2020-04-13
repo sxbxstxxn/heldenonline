@@ -343,10 +343,10 @@
                                     <div class="energy-box">
                                         <div class="col-12 energy-description p-0">Lebensenergie</div>
                                         <div class="col-12 energy-values p-0">
-                                            <div class="col-3 energy-value">21</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value last">21</div>
+                                            <div class="col-3 energy-value">{{ character.lifeenergy }}</div>
+                                            <div class="col-3 energy-value">{{ character.lifeenergybonus }}</div>
+                                            <div class="col-3 energy-value">{{ character.lifeenergypurchase }}</div>
+                                            <div class="col-3 energy-value last">{{ character.lifeenergymax }}</div>
                                         </div>
                                         <div class="col-12 energy-value-descriptions p-0">
                                             <div class="col-3 energy-value-description p-0">Wert</div>
@@ -364,10 +364,10 @@
                                     <div class="energy-box">
                                         <div class="col-12 energy-description p-0">Astralenergie</div>
                                         <div class="col-12 energy-values p-0">
-                                            <div class="col-3 energy-value">21</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value last">21</div>
+                                            <div class="col-3 energy-value">{{ character.astralenergy }}</div>
+                                            <div class="col-3 energy-value">{{ character.astralenergybonus }}</div>
+                                            <div class="col-3 energy-value">{{ character.astralenergypurchase }}</div>
+                                            <div class="col-3 energy-value last">{{ character.astralenergymax }}</div>
                                         </div>
                                         <div class="col-12 energy-value-descriptions p-0">
                                             <div class="col-3 energy-value-description p-0">Wert</div>
@@ -385,10 +385,10 @@
                                     <div class="energy-box">
                                         <div class="col-12 energy-description p-0">Karmaenergie</div>
                                         <div class="col-12 energy-values p-0">
-                                            <div class="col-3 energy-value">21</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value">0</div>
-                                            <div class="col-3 energy-value last">21</div>
+                                            <div class="col-3 energy-value">{{ character.karmaenergy }}</div>
+                                            <div class="col-3 energy-value">{{ character.karmaenergybonus }}</div>
+                                            <div class="col-3 energy-value">{{ character.karmaenergypurchase }}</div>
+                                            <div class="col-3 energy-value last">{{ character.karmaenergymax }}</div>
                                         </div>
                                         <div class="col-12 energy-value-descriptions p-0">
                                             <div class="col-3 energy-value-description p-0">Wert</div>
@@ -407,9 +407,9 @@
                                     <div class="energy-box">
                                         <div class="col-12 energy-description p-0">Seelenkraft</div>
                                         <div class="col-12 energy-values p-0">
-                                            <div class="col-4 energy-value">3</div>
-                                            <div class="col-4 energy-value">0</div>
-                                            <div class="col-4 energy-value last">7</div>
+                                            <div class="col-4 energy-value">{{ character.soulpower }}</div>
+                                            <div class="col-4 energy-value">{{ character.soulpowerbonus }}</div>
+                                            <div class="col-4 energy-value last">{{ character.soulpowermax }}</div>
                                         </div>
                                         <div class="col-12 energy-value-descriptions p-0">
                                             <div class="col-4 energy-value-description p-0">Wert</div>
@@ -426,9 +426,9 @@
                                         <div class="energy-box">
                                             <div class="col-12 energy-description p-0">Zähigkeit</div>
                                             <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value">0</div>
-                                                <div class="col-4 energy-value">0</div>
-                                                <div class="col-4 energy-value last">5</div>
+                                                <div class="col-4 energy-value">{{ character.toughness }}</div>
+                                                <div class="col-4 energy-value">{{ character.toughnessbonus }}</div>
+                                                <div class="col-4 energy-value last">{{ character.toughnessmax }}</div>
                                             </div>
                                             <div class="col-12 energy-value-descriptions p-0">
                                                 <div class="col-4 energy-value-description p-0">Wert</div>
@@ -445,9 +445,9 @@
                                         <div class="energy-box">
                                             <div class="col-12 energy-description p-0">Ausweichen</div>
                                             <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value">7</div>
-                                                <div class="col-4 energy-value">0</div>
-                                                <div class="col-4 energy-value last">12</div>
+                                                <div class="col-4 energy-value">{{ character.dodge }}</div>
+                                                <div class="col-4 energy-value">{{ character.dodgebonus }}</div>
+                                                <div class="col-4 energy-value last">{{ character.dodgemax }}</div>
                                             </div>
                                             <div class="col-12 energy-value-descriptions p-0">
                                                 <div class="col-4 energy-value-description p-0">Wert</div>
@@ -464,9 +464,9 @@
                                         <div class="energy-box">
                                             <div class="col-12 energy-description p-0">Initiative</div>
                                             <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value">14</div>
-                                                <div class="col-4 energy-value">0</div>
-                                                <div class="col-4 energy-value last">25</div>
+                                                <div class="col-4 energy-value">{{ character.initiative }}</div>
+                                                <div class="col-4 energy-value">{{ character.initiativebonus }}</div>
+                                                <div class="col-4 energy-value last">{{ character.initiativemax }}</div>
                                             </div>
                                             <div class="col-12 energy-value-descriptions p-0">
                                                 <div class="col-4 energy-value-description p-0">Wert</div>
@@ -483,9 +483,9 @@
                                         <div class="energy-box">
                                             <div class="col-12 energy-description p-0">Geschwindigkeit</div>
                                             <div class="col-12 energy-values p-0">
-                                                <div class="col-4 energy-value">8</div>
-                                                <div class="col-4 energy-value">0</div>
-                                                <div class="col-4 energy-value last">15</div>
+                                                <div class="col-4 energy-value">{{ character.speed }}</div>
+                                                <div class="col-4 energy-value">{{ character.speedbonus }}</div>
+                                                <div class="col-4 energy-value last">{{ character.speedmax }}</div>
                                             </div>
                                             <div class="col-12 energy-value-descriptions p-0">
                                                 <div class="col-4 energy-value-description p-0">Wert</div>
@@ -502,10 +502,10 @@
                                         <div class="energy-box">
                                             <div class="col-12 energy-description p-0">Schicksalspunkte</div>
                                             <div class="col-12 energy-values p-0">
-                                                <div class="col-3 energy-value">3</div>
-                                                <div class="col-3 energy-value">0</div>
-                                                <div class="col-3 energy-value">5</div>
-                                                <div class="col-3 energy-value last">3</div>
+                                                <div class="col-3 energy-value">{{ character.fatepoints }}</div>
+                                                <div class="col-3 energy-value">{{ character.fatepointsbonus }}</div>
+                                                <div class="col-3 energy-value">{{ character.fatepointsmax }}</div>
+                                                <div class="col-3 energy-value last">{{ character.fatepointscurrent }}</div>
                                             </div>
                                             <div class="col-12 energy-value-descriptions p-0">
                                                 <div class="col-3 energy-value-description p-0">Wert</div>
