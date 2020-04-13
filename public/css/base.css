@@ -578,6 +578,35 @@ input:read-only {
     background-color: #a1afbd;
 }
 
+/* energy */
+.charactersheet .energy-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .energy-box .energy-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+.charactersheet .energy-box .energy-value {
+    background-color: #a1afbd;
+    float:left;
+    font-size:20px;
+    font-weight:bold;
+    border-right:2px solid;
+}
+.charactersheet .energy-box .energy-value.last {
+    border-right:none;
+}
+.charactersheet .energy-box .energy-value-description {
+    background-color: #6c757d;
+    float:left;
+    font-size:12px;
+}
+
+
 /* USERLIST */
 .mychars .character {
     background-color: #6c757d;

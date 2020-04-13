@@ -103,6 +103,10 @@ class CharacterController extends AbstractController
                 $formData = $form->getData();
 
                 $character->setCharname($formData->getCharname());
+                $character->setAptotal($formData->getAptotal());
+                $character->setApavailable($formData->getApavailable());
+                $character->setApspent($formData->getApspent());
+                $character->setExperiencelevel($formData->getExperiencelevel());
                 $character->setAttributeMu($formData->getAttributeMu());
                 $character->setAttributeKl($formData->getAttributeKl());
                 $character->setAttributeIn($formData->getAttributeIn());

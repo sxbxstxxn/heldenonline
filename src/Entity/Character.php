@@ -154,6 +154,26 @@ class Character
      */
     private $further;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $aptotal;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $apavailable;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $apspent;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    private $experiencelevel;
+
 
     public function getId(): ?int
     {
@@ -468,6 +488,54 @@ class Character
     public function setFurther(?string $further): self
     {
         $this->further = $further;
+
+        return $this;
+    }
+
+    public function getAptotal(): ?int
+    {
+        return $this->aptotal;
+    }
+
+    public function setAptotal(int $aptotal): self
+    {
+        $this->aptotal = $aptotal;
+
+        return $this;
+    }
+
+    public function getApavailable(): ?int
+    {
+        return $this->apavailable;
+    }
+
+    public function setApavailable(int $apavailable): self
+    {
+        $this->apavailable = $apavailable;
+
+        return $this;
+    }
+
+    public function getApspent(): ?int
+    {
+        return $this->apspent;
+    }
+
+    public function setApspent(int $apspent): self
+    {
+        $this->apspent = $apspent;
+
+        return $this;
+    }
+
+    public function getExperiencelevel(): ?string
+    {
+        return $this->experiencelevel;
+    }
+
+    public function setExperiencelevel(string $experiencelevel): self
+    {
+        $this->experiencelevel = $experiencelevel;
 
         return $this;
     }

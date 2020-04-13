@@ -34,6 +34,22 @@ class CharacterType extends AbstractType
                 'class' => Profession::class,
                 'choice_label' => 'professionname'
             ])
+
+            ->add('experiencelevel', ChoiceType::class, [
+                'choices' => [
+                    'Unerfahren' => 'Unerfahren',
+                    'Durchschnittlich' => 'Durchschnittlich',
+                    'Erfahren' => 'Erfahren',
+                    'Kompetent' => 'Kompetent',
+                    'Meisterlich' => 'Meisterlich',
+                    'Brillant' => 'Brillant',
+                    'Legendär' => 'Legendär',
+                ],
+            ])
+            ->add('aptotal')
+            ->add('apavailable')
+            ->add('apspent')
+
             ->add('attributeMu')
             ->add('attributeKl')
             ->add('attributeIn')
