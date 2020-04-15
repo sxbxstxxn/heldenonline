@@ -561,6 +561,13 @@
                                             <div class="col-12 advantage-value p-0">
                                                 {{ form_widget(form.advantages, {'attr': {'class':'inputbox form-control form-control-chosen' , 'data-placeholder':'Vorteil auswählen...'}}) }}
                                             </div>
+                                            <div id="advantage-value-ids" class="">
+                                                <script type="text/javascript">
+                                                    {% for advantage in character.advantages %}
+                                                        $('select#character_advantages option[value='+'{{ advantage.id }}'+']').prop('selected', 'selected');
+                                                    {% endfor %}
+                                                </script>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

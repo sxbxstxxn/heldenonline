@@ -120,7 +120,7 @@ class CharacterType extends AbstractType
             ->add('fatepointsmax')
             ->add('fatepointscurrent')
 
-            
+
             ->add('advantages', EntityType::class, [
                 'class' => Advantage::class,
                 'choice_label' => 'advantagename',

@@ -165,8 +165,16 @@ class CharacterController extends AbstractController
                 $character->setFatepointsmax($formData->getFatepointsmax());
                 $character->setFatepointscurrent($formData->getFatepointscurrent());
 
-
-
+                /* I'm sure there is a better way, have to find out later */
+                /* remove all advantages */
+                foreach($character->getAdvantages() as $charadvantage) {
+                    $character->removeAdvantage($charadvantage);
+                }
+                /* add chosen advantages */
+                foreach($formData->getAdvantages() as $formadvantage) {
+                    $character->addAdvantage($formadvantage);
+                }
+                
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
                 return $this->redirectToRoute('characters');

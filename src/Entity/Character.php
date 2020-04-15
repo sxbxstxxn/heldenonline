@@ -1117,4 +1117,5 @@ class Character
 
         return $this;
     }
+
 }
