@@ -63,8 +63,16 @@ input:read-only {
     opacity:0.5;
 }
 
+/*
 .nopadding {
     padding:0px;
+}
+*/
+
+/* CHOSEN */
+.chosen-container .chosen-results li.highlighted {
+    background-color: #6c757d;
+    color:#343A40;
 }
 
 .inputbox {
