@@ -1,30 +1,9 @@
 <div class="characterlist">
     {% for character in characters %}
-        <div class="row character">
-            <div class="col-8 col-md-10">
-                {{character.charname}}
+            <div class="row character">
+                <div class="col-12">{{character.charname}}</div>
+                <a href="/characters/show/{{ character.id }}" class="stretched-link"></a>
             </div>
-            <div class="col-4 col-md-2">
-                <div class="row">
-                    <div class="col-4 text-right nopadding">
-                        <a class="text-dark" href="/characters/show/{{ character.id }}">
-                            <i class="material-icons nopadding">remove_red_eye</i>
-                        </a>
-                    </div>
-                    <div class="col-4 text-right nopadding">
-                        <a class="text-dark" href="/characters/edit/{{ character.id }}">
-                            <i class="material-icons nopadding">edit</i>
-                        </a>
-                    </div>
-                    <div class="col-4 text-right nopadding">
-                        <a class="text-dark" href="" data-toggle="modal" data-target="#deleteChar{{character.id}}">
-                            <i class="material-icons nopadding">delete</i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            {% include 'characters/deletemodal.html.twig' %}
-        </div>
     {% endfor %}
 </div>
 

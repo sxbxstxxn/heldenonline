@@ -102,8 +102,6 @@ class CharacterController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $formData = $form->getData();
 
-//var_dump(nl2br($formData->getAnnotation()));die;
-
                 $character->setCharname($formData->getCharname());
                 $character->setAptotal($formData->getAptotal());
                 $character->setApavailable($formData->getApavailable());

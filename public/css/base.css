@@ -687,10 +687,16 @@ input:read-only {
 }
 
 
-/* USERLIST */
+/* Characterlist */
 .mychars .character {
-    background-color: #6c757d;
+    background-color: #a1afbd;
+    color:#343A40;
     padding-top:5px;
     margin-bottom:5px;
     font-size:20px;
+    position:relative;
+}
+
+.mychars .character:hover {
+    background-color:#6c757d;
 }
