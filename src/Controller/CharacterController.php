@@ -102,7 +102,7 @@ class CharacterController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $formData = $form->getData();
 
-
+//var_dump(nl2br($formData->getAnnotation()));die;
 
                 $character->setCharname($formData->getCharname());
                 $character->setAptotal($formData->getAptotal());
@@ -174,7 +174,24 @@ class CharacterController extends AbstractController
                 foreach($formData->getAdvantages() as $formadvantage) {
                     $character->addAdvantage($formadvantage);
                 }
-                
+                /* remove all disadvantages */
+                foreach($character->getDisadvantages() as $chardisadvantage) {
+                    $character->removeDisadvantage($chardisadvantage);
+                }
+                /* add chosen disadvantages */
+                foreach($formData->getDisadvantages() as $formdisadvantage) {
+                    $character->addDisadvantage($formdisadvantage);
+                }
+                /* remove all generalspecialskills */
+                foreach($character->getGeneralspecialskills() as $chargeneralspecialskill) {
+                    $character->removeGeneralspecialskill($chargeneralspecialskill);
+                }
+                /* add chosen disadvantages */
+                foreach($formData->getGeneralspecialskills() as $formgeneralspecialskill) {
+                    $character->addGeneralspecialskill($formgeneralspecialskill);
+                }
+                $character->setAnnotation($formData->getAnnotation());
+
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
                 return $this->redirectToRoute('characters');

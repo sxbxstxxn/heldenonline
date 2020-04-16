@@ -349,9 +349,26 @@ class Character
      */
     private $advantages;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Disadvantage")
+     */
+    private $disadvantages;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Generalspecialskill")
+     */
+    private $generalspecialskills;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $annotation;
+
     public function __construct()
     {
         $this->advantages = new ArrayCollection();
+        $this->disadvantages = new ArrayCollection();
+        $this->generalspecialskills = new ArrayCollection();
     }
 
 
@@ -1114,6 +1131,70 @@ class Character
         if ($this->advantages->contains($advantage)) {
             $this->advantages->removeElement($advantage);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Disadvantage[]
+     */
+    public function getDisadvantages(): Collection
+    {
+        return $this->disadvantages;
+    }
+
+    public function addDisadvantage(Disadvantage $disadvantage): self
+    {
+        if (!$this->disadvantages->contains($disadvantage)) {
+            $this->disadvantages[] = $disadvantage;
+        }
+
+        return $this;
+    }
+
+    public function removeDisadvantage(Disadvantage $disadvantage): self
+    {
+        if ($this->disadvantages->contains($disadvantage)) {
+            $this->disadvantages->removeElement($disadvantage);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Generalspecialskill[]
+     */
+    public function getGeneralspecialskills(): Collection
+    {
+        return $this->generalspecialskills;
+    }
+
+    public function addGeneralspecialskill(Generalspecialskill $generalspecialskill): self
+    {
+        if (!$this->generalspecialskills->contains($generalspecialskill)) {
+            $this->generalspecialskills[] = $generalspecialskill;
+        }
+
+        return $this;
+    }
+
+    public function removeGeneralspecialskill(Generalspecialskill $generalspecialskill): self
+    {
+        if ($this->generalspecialskills->contains($generalspecialskill)) {
+            $this->generalspecialskills->removeElement($generalspecialskill);
+        }
+
+        return $this;
+    }
+
+    public function getAnnotation(): ?string
+    {
+        return $this->annotation;
+    }
+
+    public function setAnnotation(?string $annotation): self
+    {
+        $this->annotation = $annotation;
 
         return $this;
     }

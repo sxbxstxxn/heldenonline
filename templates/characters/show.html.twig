@@ -535,8 +535,50 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="advantage-box">
+                                            <div class="col-12 advantage-description p-0">Nachteile</div>
+                                            <div class="col-12 advantage-value">
+                                                {% for disadvantage in character.disadvantages %}
+                                                    {{ disadvantage.disadvantagename }}{% if not loop.last %},{% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row break"></div>
+                        <div class="row generalspecialskills">
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="generalspecialskill-box">
+                                            <div class="col-12 generalspecialskill-description p-0">Allgemeine Sonderfertigkeiten</div>
+                                            <div class="col-12 generalspecialskill-value">
+                                                {% for generalspecialskill in character.generalspecialskills %}
+                                                    {{ generalspecialskill.skillname }}{% if not loop.last %},{% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="annotation-box">
+                                            <div class="col-12 annotation-description p-0">Anmerkungen</div>
+                                            <div class="col-12 annotation-value">
+                                                {{ character.annotation|nl2br }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">

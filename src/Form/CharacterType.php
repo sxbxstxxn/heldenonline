@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Advantage;
 use App\Entity\Character;
 use App\Entity\Culture;
+use App\Entity\Disadvantage;
+use App\Entity\Generalspecialskill;
 use App\Entity\Profession;
 use App\Entity\Species;
 
@@ -126,6 +128,17 @@ class CharacterType extends AbstractType
                 'choice_label' => 'advantagename',
                 'multiple' => true
             ])
+            ->add('disadvantages', EntityType::class, [
+                'class' => Disadvantage::class,
+                'choice_label' => 'disadvantagename',
+                'multiple' => true
+            ])
+            ->add('generalspecialskills', EntityType::class, [
+                'class' => Generalspecialskill::class,
+                'choice_label' => 'skillname',
+                'multiple' => true
+            ])
+            ->add('annotation')
 
             ->add('submit', SubmitType::class);
 

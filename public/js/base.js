@@ -1,43 +1,42 @@
-/*
+/*!
+ * jQuery Textarea AutoSize plugin : https://github.com/javierjulio/textarea-autosize
+ * Author: Javier Julio
+ * Licensed under the MIT license
+ */
+! function(t, e, i, n) {
+    function s(e, i) {
+        this.element = e, this.$element = t(e), this.init()
+    }
+    var h = "textareaAutoSize",
+        o = "plugin_" + h,
+        r = function(t) {
+            return t.replace(/\s/g, "").length > 0
+        };
+    s.prototype = {
+        init: function() {
+            var i = parseInt(this.$element.css("paddingBottom")) + parseInt(this.$element.css("paddingTop")) + parseInt(this.$element.css("borderTopWidth")) + parseInt(this.$element.css("borderBottomWidth")) || 0;
+            r(this.element.value) && this.$element.height(this.element.scrollHeight - i), this.$element.on("input keyup", function(n) {
+                var s = t(e),
+                    h = s.scrollTop();
+                t(this).height(0).height(this.scrollHeight - i), s.scrollTop(h)
+            })
+        }
+    }, t.fn[h] = function(e) {
+        return this.each(function() {
+            t.data(this, o) || t.data(this, o, new s(this, e))
+        }), this
+    }
+}(jQuery, window, document);
+
+
 $(function () {
-    //$('[data-toggle="tooltip"]').tooltip()
-
-});
-*/
-
-$(function () {
-
     $('.form-control-chosen').chosen({
         allow_single_deselect: true,
         width: '100%'
     });
-    /*
-    $('.form-control-chosen-required').chosen({
-        allow_single_deselect: false,
-        width: '100%'
-    });
-    $('.form-control-chosen-search-threshold-100').chosen({
-        allow_single_deselect: true,
-        disable_search_threshold: 100,
-        width: '100%'
-    });
-    $('.form-control-chosen-optgroup').chosen({
-        width: '100%'
-    });
-
-    $(function() {
-        $('[title="clickable_optgroup"]').addClass('chosen-container-optgroup-clickable');
-    });
-    $(document).on('click', '[title="clickable_optgroup"] .group-result', function() {
-        var unselected = $(this).nextUntil('.group-result').not('.result-selected');
-        if(unselected.length) {
-            unselected.trigger('mouseup');
-        } else {
-            $(this).nextUntil('.group-result').each(function() {
-                $('a.search-choice-close[data-option-array-index="' + $(this).data('option-array-index') + '"]').trigger('click');
-            });
-        }
-    });
-
-     */
+    // Initialize Textarea
+    $('.textarea-autosize').textareaAutoSize();
 });
+
+
+

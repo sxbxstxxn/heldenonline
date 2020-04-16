@@ -74,6 +74,12 @@ input:read-only {
     background-color: #6c757d;
     color:#343A40;
 }
+.chosen-container .chosen-choices {
+    min-height:37px;
+}
+.chosen-container .search-field {
+    display:none;
+}
 
 .inputbox {
     border:none;
@@ -632,6 +638,52 @@ input:read-only {
     min-height:24px;
     background-color: #a1afbd;
     text-align: left;
+}
+
+/* generalspecialskills */
+.charactersheet .generalspecialskill-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .generalspecialskill-box .generalspecialskill-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+.charactersheet .generalspecialskill-box .generalspecialskill-value {
+    min-height:24px;
+    background-color: #a1afbd;
+    text-align: left;
+}
+/* annotation */
+.charactersheet .annotation-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin:1px;
+}
+
+.charactersheet .annotation-box .annotation-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+.charactersheet .annotation-box .annotation-value {
+    min-height:24px;
+    background-color: #a1afbd;
+    text-align: left;
+}
+.charactersheet .annotation-box .annotation-value textarea{
+    text-align:left;
+    white-space: pre-wrap;
+}
+
+.charactersheet .annotation-box .annotation-value textarea.textarea-autosize {
+    height: 2.25rem;
+    min-height: 2.25rem;
+    resize: none;
+    overflow-y:hidden;
 }
 
 

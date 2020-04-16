@@ -572,6 +572,59 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="advantage-box">
+                                            <div class="col-12 advantage-description p-0">Nachteile</div>
+                                            <div class="col-12 advantage-value p-0">
+                                                {{ form_widget(form.disadvantages, {'attr': {'class':'inputbox form-control form-control-chosen' , 'data-placeholder':'Nachteil auswählen...'}}) }}
+                                            </div>
+                                            <div id="advantage-value-ids" class="">
+                                                <script type="text/javascript">
+                                                    {% for disadvantage in character.disadvantages %}
+                                                    $('select#character_disadvantages option[value='+'{{ disadvantage.id }}'+']').prop('selected', 'selected');
+                                                    {% endfor %}
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row break"></div>
+                        <div class="row generalspecialskills">
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="generalspecialskill-box">
+                                            <div class="col-12 generalspecialskill-description p-0">Allgemeine Sonderfertigkeiten</div>
+                                            <div class="col-12 generalspecialskill-value p-0">
+                                                {{ form_widget(form.generalspecialskills, {'attr': {'class':'inputbox form-control form-control-chosen' , 'data-placeholder':'Allgemeine Sonderfertigkeit auswählen...'}}) }}
+                                            </div>
+                                            <div id="generalspecialskill-value-ids" class="">
+                                                <script type="text/javascript">
+                                                    {% for generalspecialskill in character.generalspecialskills %}
+                                                    $('select#character_generalspecialskills option[value='+'{{ generalspecialskill.id }}'+']').prop('selected', 'selected');
+                                                    {% endfor %}
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="annotation-box">
+                                            <div class="col-12 annotation-description p-0">Anmerkungen</div>
+                                            <div class="col-12 annotation-value p-0">
+                                                {{ form_widget(form.annotation, {'attr': {'class':'form-control textarea-autosize','rows':'1' },'value':character.annotation}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row break"></div>
                         <div class="row">
