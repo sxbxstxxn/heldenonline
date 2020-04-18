@@ -15,17 +15,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
 class CharacterController extends AbstractController
 {
+    private $router;
+
     /**
      * @var EntityManagerInterface
      */
-    public function __construct(EntityManagerInterface $entityManager, CharacterRepository $characterRepository)
+    public function __construct(EntityManagerInterface $entityManager, CharacterRepository $characterRepository, UrlGeneratorInterface $router)
     {
         $this->entityManager = $entityManager;
         $this->characterRepository = $characterRepository;
+        $this->router = $router;
     }
 
     /**
@@ -192,7 +196,12 @@ class CharacterController extends AbstractController
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
-                return $this->redirectToRoute('characters');
+
+                //return $this->redirectToRoute('characters');
+                $url = $this->router->generate('character_show', [
+                    'id' => $character->getId()
+                ]);
+                return $this->redirect($url);
             }
             return $this->render(
                 'characters/edit.html.twig', [
