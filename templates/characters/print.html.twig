@@ -1,0 +1,762 @@
+<html>
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicons/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicons/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicons/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('images/favicons/site.webmanifest') }}">
+  <link rel="mask-icon" href="{{ asset('images/favicons/safari-pinned-tab.svg') }}" color="#343a40">
+  <link rel="shortcut icon" href="{{ asset('images/favicons/favicon.ico') }}">
+  <title>{% block title %}Helden Online - {{ character.charname }} - Druckansicht{% endblock %}</title>
+  {% block stylesheets %}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+    <!-- Helden Online CSS -->
+    <link href="{{ asset('css/print.css') }}" rel="stylesheet">
+  {% endblock %}
+</head>
+<body>
+  <div class="character">
+    <div class="character-page personal-data">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Persönliche Daten</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+        <div class="story">
+          <div class="row">
+            <div class="header">Familie</div>
+            <div class="value">{{ character.family }}</div>
+            <div class="header">Geburtsort</div>
+            <div class="value">{{ character.birthplace }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Geburtsdatum</div>
+            <div class="value">{{ character.birthdate }}</div>
+            <div class="header-small">Alter</div>
+            <div class="value-small">{{ character.age }}</div>
+            <div class="header-small">Geschlecht</div>
+            <div class="value-small">{{ character.gender }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Spezies</div>
+            <div class="value">{{ character.species.speciesname }}</div>
+            <div class="header-small">Größe</div>
+            <div class="value-small">{{ character.size }}</div>
+            <div class="header-small">Gewicht</div>
+            <div class="value-small">{{ character.weight }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Haarfarbe</div>
+            <div class="value">{{ character.haircolor }}</div>
+            <div class="header">Augenfarbe</div>
+            <div class="value">{{ character.eyecolor }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Kultur</div>
+            <div class="value">{{ character.culture.culturename }}</div>
+            <div class="header">Profession</div>
+            <div class="value">{{ character.profession.professionname }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Titel</div>
+            <div class="value">{{ character.title }}</div>
+            <div class="header">Sozialstatus</div>
+            <div class="value">{{ character.socialstatus }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Charakteristika</div>
+            <div class="value-big">{{ character.characteristics }}</div>
+          </div>
+          <div class="row">
+            <div class="header">Sonstiges</div>
+            <div class="value-big">{{ character.further }}</div>
+          </div>
+        </div>
+        <div class="experience">
+          <div class="row">
+            <div class="box">
+              <div class="box-inner">
+                {{ character.experiencelevel }}
+              </div>
+            </div>
+            <div class="boxdescription">Erfahrungsgrad</div>
+          </div>
+          <div class="row">
+            <div class="box">
+              <div class="box-inner">
+                {{ character.aptotal }}
+              </div>
+            </div>
+            <div class="boxdescription">AP gesamt</div>
+          </div>
+          <div class="row">
+            <div class="box">
+              <div class="box-inner">
+                {{ character.apavailable }}
+              </div>
+            </div>
+            <div class="boxdescription">Ap verfügbar</div>
+          </div>
+          <div class="row">
+            <div class="box">
+              <div class="box-inner">
+                {{ character.apspent }}
+              </div>
+            </div>
+            <div class="boxdescription">AP ausgegeben</div>
+          </div>
+        </div>
+        <div class="advantages">
+          <div class="header">Vorteile</div>
+          <div class="box">
+            <div class="box-inner">
+              {% for advantage in character.advantages %}
+                <div class="case">{{ advantage.advantagename }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="header">Nachteile</div>
+          <div class="box">
+            <div class="box-inner">
+              {% for disadvantage in character.disadvantages %}
+                <div class="case">{{ disadvantage.disadvantagename }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="header">Allgemeine Sonderfertigkeiten</div>
+          <div class="box">
+            <div class="box-inner">
+              {% for generalspecialskill in character.generalspecialskills %}
+                <div class="case">{{ generalspecialskill.skillname }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="energy">
+          <div class="row">
+            <div class="boxheader"></div>
+            <div class="boxvalue"><div class="valuedescription">Wert</div></div>
+            <div class="boxvalue"><div class="valuedescription">Bonus</div></div>
+            <div class="boxvalue"><div class="valuedescription">Zukauf</div></div>
+            <div class="boxvalue"><div class="valuedescription">Max</div></div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Lebensenergie</div>
+              <div class="headerdescription">(Gw der Spezies + KO + KO)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.lifeenergy}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+
+              <div class="value">
+                <div class="value-inner">{{character.lifeenergybonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+
+              <div class="value">
+                <div class="value-inner">{{character.lifeenergypurchase}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+
+              <div class="value">
+                <div class="value-inner">{{character.lifeenergymax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Astralenergie</div>
+              <div class="headerdescription">(20 durch Zauberer + Leiteigenschaft)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.astralenergy}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.astralenergybonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.astralenergypurchase}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.astralenergymax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Karmaenergie</div>
+              <div class="headerdescription">(20 durch Geweihter + Leiteigenschaft)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.karmaenergy}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.karmaenergybonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.karmaenergypurchase}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.karmaenergymax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Seelenkraft</div>
+              <div class="headerdescription">(GW der Spezies + (MU+KL+IN)/6)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.soulpower}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.soulpowerbonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">X</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.soulpowermax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Zähigkeit</div>
+              <div class="headerdescription">(GW der Spezies + (KO+KO+KK)/6)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.toughness}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.toughnessbonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">X</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.toughnessmax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Ausweichen</div>
+              <div class="headerdescription">(GE/2)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.dodge}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.dodgebonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">X</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.dodgemax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Initiative</div>
+              <div class="headerdescription">(MU+GE)/2</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.initiative}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.initiativebonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">X</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.initiativemax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="boxheader">
+              <div class="header">Geschwindigkeit</div>
+              <div class="headerdescription">(GW der Spezies)</div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.speed}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.speedbonus}}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">X</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="value">
+                <div class="value-inner">{{character.speedmax}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row fatepoints">
+            <div class="boxheader">
+              <div class="header">Schicksalspunkte</div>
+            </div>
+            <div class="boxvalue">
+              <div class="valuedescription">Wert</div>
+              <div class="value">
+                <div class="value-inner">{{ character.fatepoints }}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="valuedescription">Bonus</div>
+              <div class="value">
+                <div class="value-inner">{{ character.fatepointsbonus }}</div>
+              </div>
+            </div>
+            <div class="boxvalue">
+              <div class="valuedescription">Max</div>
+              <div class="value">
+                <div class="value-inner">{{ character.fatepointsmax }}</div>
+              </div>
+            </div>
+            <div class="boxvalue boxvalue-big">
+              <div class="valuedescription">Aktuell</div>
+              <div class="value">
+                <div class="value-inner">{{ character.fatepointscurrent }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row annotation">
+            <div class="boxheader">
+              <div class="header">Anmerkungen</div>
+            </div>
+            <div class="boxvalue">
+              <div class="boxvalue-inner">
+                {{ character.annotation}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-page playvalues">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Spielwerte</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-page battle">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Kampf</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-page ownership">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Besitz</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-page spells">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Zauber</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-page liturgies">
+      <div class="character-page-printview">
+        <div class="logo">
+          <img class="ulisseslogo" src="{{ asset('images/logo-fanseite.png') }}"/>
+          <div class="heldenonline">https://helden.online</div>
+          <div class="document">Liturgien</div>
+        </div>
+        <div class="attributes">
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">MU</div>
+              <div class="value">{{character.attributeMu}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KL</div>
+              <div class="value">{{character.attributeKl}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">IN</div>
+              <div class="value">{{character.attributeIn}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">CH</div>
+              <div class="value">{{character.attributeCh}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">FF</div>
+              <div class="value">{{character.attributeFf}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">GE</div>
+              <div class="value">{{character.attributeGe}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KO</div>
+              <div class="value">{{character.attributeKo}}</div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="header">KK</div>
+              <div class="value">{{character.attributeKk}}</div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="name-inner">{{ character.charname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

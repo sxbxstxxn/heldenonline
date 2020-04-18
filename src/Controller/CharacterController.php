@@ -93,6 +93,31 @@ class CharacterController extends AbstractController
     }
 
     /**
+     * @Route("/characters/print/{id}", name="characters_print")
+     */
+    public function print(Character $character)
+    {
+        $user = $this->getUser();
+
+        if (!$character) {
+            throw $this->createNotFoundException(
+                'Kein Charakter mit der ID '.$id.' vorhanden.'
+            );
+        }
+        if ($user == $character->getUser()) {
+
+            return $this->render(
+                'characters/print.html.twig', [
+                'character' => $character
+            ]);
+        }
+        else {
+            $this->addFlash('danger', 'Dies ist nicht Dein Char. Keine Berechtigung.');
+            return $this->redirectToRoute('characters');
+        }
+    }
+
+    /**
      * @Route("characters/edit/{id}", name="character_edit")
      */
     public function edit(Character $character, Request $request)
