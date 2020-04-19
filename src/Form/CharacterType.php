@@ -27,15 +27,15 @@ class CharacterType extends AbstractType
 
             ->add('species', EntityType::class, [
                 'class' => Species::class,
-                'choice_label' => 'speciesname'
+                'choice_label' => 'name'
             ])
             ->add('culture', EntityType::class, [
                 'class' => Culture::class,
-                'choice_label' => 'culturename'
+                'choice_label' => 'name'
             ])
             ->add('profession', EntityType::class, [
                 'class' => Profession::class,
-                'choice_label' => 'professionname'
+                'choice_label' => 'name'
             ])
 
             ->add('experiencelevel', ChoiceType::class, [
@@ -125,12 +125,12 @@ class CharacterType extends AbstractType
 
             ->add('advantages', EntityType::class, [
                 'class' => Advantage::class,
-                'choice_label' => 'advantagename',
+                'choice_label' => 'name',
                 'multiple' => true
             ])
             ->add('disadvantages', EntityType::class, [
                 'class' => Disadvantage::class,
-                'choice_label' => 'disadvantagename',
+                'choice_label' => 'name',
                 'multiple' => true
             ])
             ->add('generalspecialskills', EntityType::class, [

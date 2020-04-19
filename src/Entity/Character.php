@@ -82,19 +82,19 @@ class Character
     private $attributeKk;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Species", inversedBy="speciesname")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Species", inversedBy="name")
      * @ORM\JoinColumn(nullable=false)
      */
     private $species;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Culture", inversedBy="speciesname")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Culture", inversedBy="name")
      * @ORM\JoinColumn(nullable=false)
      */
     private $culture;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Profession", inversedBy="professionname")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profession", inversedBy="name")
      * @ORM\JoinColumn(nullable=false)
      */
     private $profession;

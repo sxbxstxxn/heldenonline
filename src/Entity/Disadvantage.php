@@ -19,21 +19,21 @@ class Disadvantage
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $disadvantagename;
+    private $name;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getDisadvantagename(): ?string
+    public function getName(): string
     {
-        return $this->disadvantagename;
+        return $this->name;
     }
 
-    public function setDisadvantagename(string $disadvantagename): self
+    public function setName(string $name): self
     {
-        $this->disadvantagename = $disadvantagename;
+        $this->name = $name;
 
         return $this;
     }

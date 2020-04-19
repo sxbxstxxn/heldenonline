@@ -19,21 +19,21 @@ class Advantage
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $advantagename;
+    private $name;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getAdvantagename(): ?string
+    public function getName(): string
     {
-        return $this->advantagename;
+        return $this->name;
     }
 
-    public function setAdvantagename(string $advantagename): self
+    public function setName(string $name): self
     {
-        $this->advantagename = $advantagename;
+        $this->name = $name;
 
         return $this;
     }

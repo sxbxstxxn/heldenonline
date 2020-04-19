@@ -19,22 +19,22 @@ class Species
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $speciesname;
+    private $name;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
 
-    public function getSpeciesname(): ?string
+    public function getName(): string
     {
-        return $this->speciesname;
+        return $this->name;
     }
 
-    public function setSpeciesname(string $speciesname): self
+    public function setName(string $name): self
     {
-        $this->speciesname = $speciesname;
+        $this->name = $name;
 
         return $this;
     }

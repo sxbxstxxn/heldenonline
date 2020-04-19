@@ -285,9 +285,9 @@ class CharacterController extends AbstractController
         //$characterrepository $this->entityManager->getRepository(Character::class);
         $char = $this->characterRepository->find(2);
         $species = $char->getSpecies();
-        $speciesname = $species->getSpeciesname();
+        $speciesName = $species->getName();
 
-        var_dump($speciesname);die;
+        var_dump($speciesName);die;
     }
 
 }

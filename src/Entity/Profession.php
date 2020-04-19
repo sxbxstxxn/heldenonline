@@ -19,21 +19,21 @@ class Profession
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $professionname;
+    private $name;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getProfessionname(): ?string
+    public function getName(): string
     {
-        return $this->professionname;
+        return $this->name;
     }
 
-    public function setProfessionname(string $professionname): self
+    public function setName(string $name): self
     {
-        $this->professionname = $professionname;
+        $this->name = $name;
 
         return $this;
     }

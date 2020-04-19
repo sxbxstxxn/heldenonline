@@ -19,21 +19,21 @@ class Culture
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $culturename;
+    private $name;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getCulturename(): ?string
+    public function getName(): string
     {
-        return $this->culturename;
+        return $this->name;
     }
 
-    public function setCulturename(string $culturename): self
+    public function setName(string $name): self
     {
-        $this->culturename = $culturename;
+        $this->name = $name;
 
         return $this;
     }
