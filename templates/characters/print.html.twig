@@ -93,7 +93,7 @@
           </div>
           <div class="row">
             <div class="header">Spezies</div>
-            <div class="value">{{ character.species.speciesname }}</div>
+            <div class="value">{{ character.species.name }}</div>
             <div class="header-small">Größe</div>
             <div class="value-small">{{ character.size }}</div>
             <div class="header-small">Gewicht</div>
@@ -107,9 +107,9 @@
           </div>
           <div class="row">
             <div class="header">Kultur</div>
-            <div class="value">{{ character.culture.culturename }}</div>
+            <div class="value">{{ character.culture.name }}</div>
             <div class="header">Profession</div>
-            <div class="value">{{ character.profession.professionname }}</div>
+            <div class="value">{{ character.profession.name }}</div>
           </div>
           <div class="row">
             <div class="header">Titel</div>
@@ -165,7 +165,7 @@
           <div class="box">
             <div class="box-inner">
               {% for advantage in character.advantages %}
-                <div class="case">{{ advantage.advantagename }}</div>
+                <div class="case">{{ advantage.name }}</div>
               {% endfor %}
             </div>
           </div>
@@ -173,7 +173,7 @@
           <div class="box">
             <div class="box-inner">
               {% for disadvantage in character.disadvantages %}
-                <div class="case">{{ disadvantage.disadvantagename }}</div>
+                <div class="case">{{ disadvantage.name }}</div>
               {% endfor %}
             </div>
           </div>
