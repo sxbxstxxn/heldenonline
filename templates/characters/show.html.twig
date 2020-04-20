@@ -533,7 +533,7 @@
                                             <div class="col-12 advantage-description p-0">Vorteile</div>
                                             <div class="col-12 advantage-value">
                                                 {% for advantage in character.advantages %}
-                                                    {{ advantage.ename }}{% if not loop.last %},{% endif %}
+                                                    {{ advantage.name }}{% if not loop.last %},{% endif %}
                                                 {% endfor %}
                                             </div>
                                         </div>
@@ -547,7 +547,7 @@
                                             <div class="col-12 advantage-description p-0">Nachteile</div>
                                             <div class="col-12 advantage-value">
                                                 {% for disadvantage in character.disadvantages %}
-                                                    {{ disadvantage.disadvantagename }}{% if not loop.last %},{% endif %}
+                                                    {{ disadvantage.name }}{% if not loop.last %},{% endif %}
                                                 {% endfor %}
                                             </div>
                                         </div>
