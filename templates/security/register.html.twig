@@ -17,13 +17,13 @@
                 <div class="row username">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 nopadding">
+                            <div class="col-12 p-0">
                                 <div class="username-box {{ (form.children.username.vars.valid) ? '' : 'has-error'}}">
-                                    <div class="col-12 username-description nopadding">Benutzername</div>
-                                    <div class="col-12 username-value nopadding">
+                                    <div class="col-12 username-description p-0">Benutzername</div>
+                                    <div class="col-12 username-value p-0">
                                         {{ form_widget(form.username, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
-                                    <div class="col-12 username-error nopadding">
+                                    <div class="col-12 username-error p-0">
                                         {% for error in form.children.username.vars.errors.form.errors %}
                                             {{ error.message }}<br/>
                                         {% endfor %}
@@ -37,13 +37,13 @@
                 <div class="row email">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 nopadding">
+                            <div class="col-12 p-0">
                                 <div class="email-box {{ (form.children.email.vars.valid) ? '' : 'has-error'}}">
-                                    <div class="col-12 email-description nopadding">E-Mail</div>
-                                    <div class="col-12 email-value nopadding">
+                                    <div class="col-12 email-description p-0">E-Mail</div>
+                                    <div class="col-12 email-value p-0">
                                         {{ form_widget(form.email, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
-                                    <div class="col-12 email-error nopadding">
+                                    <div class="col-12 email-error p-0">
                                         {% for error in form.children.email.vars.errors.form.errors %}
                                             {{ error.message }}<br/>
                                         {% endfor %}
@@ -57,26 +57,26 @@
                 <div class="row password">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 col-md-6 nopadding">
+                            <div class="col-12 col-md-6 p-0">
                                 <div class="password-box {{ (form.children.password.first.vars.valid) ? '' : 'has-error'}}">
-                                    <div class="col-12 password-description nopadding">Passwort</div>
-                                    <div class="col-12 password-value nopadding">
+                                    <div class="col-12 password-description p-0">Passwort</div>
+                                    <div class="col-12 password-value p-0">
                                         {{ form_widget(form.password.first, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
-                                    <div class="col-12 password-error nopadding">
+                                    <div class="col-12 password-error p-0">
                                         {% for error in form.children.password.first.vars.errors.form.errors %}
                                             {{ error.message }}<br/>
                                         {% endfor %}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 nopadding">
+                            <div class="col-12 col-md-6 p-0">
                                 <div class="password-box {{ (form.children.password.second.vars.valid) ? '' : 'has-error'}}">
-                                    <div class="col-12 password-description nopadding">Passwort</div>
-                                    <div class="col-12 password-value nopadding">
+                                    <div class="col-12 password-description p-0">Passwort</div>
+                                    <div class="col-12 password-value p-0">
                                         {{ form_widget(form.password.second, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
-                                    <div class="col-12 password-error nopadding">
+                                    <div class="col-12 password-error p-0">
                                         {% for error in form.children.password.second.vars.errors.form.errors %}
                                             {{ error.message }}<br/>
                                         {% endfor %}
@@ -90,18 +90,18 @@
                 <div class="row birthandpic">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 col-md-6 nopadding">
+                            <div class="col-12 col-md-6 p-0">
                                 <div class="birthday-box">
-                                    <div class="col-12 birthday-description nopadding">Geburtsdatum</div>
-                                    <div class="col-12 birthday-value nopadding">
+                                    <div class="col-12 birthday-description p-0">Geburtsdatum</div>
+                                    <div class="col-12 birthday-value p-0">
                                         {{ form_widget(form.dateofbirth, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 nopadding">
+                            <div class="col-12 col-md-6 p-0">
                                 <div class="picture-box">
-                                    <div class="col-12 picture-description nopadding">Bild</div>
-                                    <div class="col-12 picture-value nopadding">
+                                    <div class="col-12 picture-description p-0">Bild</div>
+                                    <div class="col-12 picture-value p-0">
                                         {{ form_widget(form.picture, {'attr': {'class': 'inputbox' }}) }}
                                     </div>
                                 </div>

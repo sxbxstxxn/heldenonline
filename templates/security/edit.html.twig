@@ -24,10 +24,10 @@
             <div class="row username">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-12 nopadding">
+                        <div class="col-12 p-0">
                             <div class="username-box">
-                                <div class="col-12 username-description nopadding">Benutzername</div>
-                                <div class="col-12 username-value nopadding">
+                                <div class="col-12 username-description p-0">Benutzername</div>
+                                <div class="col-12 username-value p-0">
                                     <input class="inputbox" type="text" value="{{ user.username }}" readonly>
                                 </div>
                             </div>
@@ -39,10 +39,10 @@
             <div class="row email">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-12 nopadding">
+                        <div class="col-12 p-0">
                             <div class="email-box">
-                                <div class="col-12 email-description nopadding">E-Mail</div>
-                                <div class="col-12 email-value nopadding">
+                                <div class="col-12 email-description p-0">E-Mail</div>
+                                <div class="col-12 email-value p-0">
                                     <input class="inputbox" type="text" value="{{ user.email }}" readonly>
                                 </div>
                             </div>
@@ -54,31 +54,31 @@
             <div class="row birthandpic">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-12 col-md-6 nopadding">
+                        <div class="col-12 col-md-6 p-0">
                             <div class="birthday-box">
-                                <div class="col-12 birthday-description nopadding">Geburtsdatum</div>
-                                <div class="col-12 birthday-value nopadding">
+                                <div class="col-12 birthday-description p-0">Geburtsdatum</div>
+                                <div class="col-12 birthday-value p-0">
                                     {{ form_widget(form.dateofbirth, {'attr': {'class': 'inputbox' }, 'value': user.dateofbirth| date("Y-m-d")}) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 nopadding">
+                        <div class="col-12 col-md-6 p-0">
                             <div class="picture-box">
-                                <div class="col-12 picture-description nopadding">Bild</div>
-                                <div class="col-12 picture-value nopadding">
+                                <div class="col-12 picture-description p-0">Bild</div>
+                                <div class="col-12 picture-value p-0">
                                     {% if user.picture %}
                                         <div id="editpicturebigmode">
-                                                <div class="col-1 offset-11 nopadding">
+                                                <div class="col-1 offset-11 p-0">
                                                     <i class="linkicon lefticon material-icons" data-toggle="tooltip" data-placement="right" title="Bild entfernen" onclick="deletePicture()">delete_sweep</i>
                                                 </div>
-                                                <div class="col-10 offset-1 nopadding">
+                                                <div class="col-10 offset-1 p-0">
                                                     <img class="img-fluid" src="{{ asset('uploads/pictures/' ~ user.picture) }}" />
                                                 </div>
-                                                <div class="col-10 offset-1 nopadding">{{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}</div>
+                                                <div class="col-10 offset-1 p-0">{{ form_widget(form.picture, {'attr': {'class': 'form-control-file hidden' }, 'value': user.picture}) }}</div>
                                         </div>
 
                                     {% else %}
-                                        <div class="col-10 offset-1 nopadding">
+                                        <div class="col-10 offset-1 p-0">
                                             {{ form_widget(form.picture, {'attr': {'class': 'form-control-file' }}) }}
                                         </div>
                                     {% endif %}

@@ -17,10 +17,10 @@
                     <div class="row username">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12 nopadding">
+                                <div class="col-12 p-0">
                                     <div class="username-box {{ (error) ? 'has-error' : ''}}">
-                                        <div class="col-12 username-description nopadding">Benutzername</div>
-                                        <div class="col-12 username-value nopadding">
+                                        <div class="col-12 username-description p-0">Benutzername</div>
+                                        <div class="col-12 username-value p-0">
                                             <input type="text" id="username" name="_username" required="required" class="inputbox" value="{{ last_username }}">
                                         </div>
                                     </div>
@@ -32,10 +32,10 @@
                     <div class="row password">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12 nopadding">
+                                <div class="col-12 p-0">
                                     <div class="password-box {{ (error) ? 'has-error' : ''}}">
-                                        <div class="col-12 password-description nopadding">Passwort</div>
-                                        <div class="col-12 password-value nopadding">
+                                        <div class="col-12 password-description p-0">Passwort</div>
+                                        <div class="col-12 password-value p-0">
                                             <input type="password" id="password" name="_password" required="required" class="password-field inputbox">
                                         </div>
                                     </div>
@@ -53,10 +53,10 @@
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-6 nopadding">
+                    <div class="col-6 p-0">
                         <a href="{{ path('forgotpw') }}" class="text-secondary">Passwort vergessen</a>
                     </div>
-                    <div class="col-6 nopadding">
+                    <div class="col-6 p-0">
                         <button type="submit" class="btn btn-secondary float-right">Login</button>
                     </div>
                 </div>
