@@ -680,6 +680,34 @@ input:read-only {
     overflow-y:hidden;
 }
 
+/* SKILLSHEET */
+.skillsheet .skill-box {
+    background-color: #6c757d;
+    color: #343A40;
+    text-align: center;
+    margin: 1px;
+}
+
+.skillsheet .skill-box .skill-description {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.skillsheet .skill-box .skill-row .skill-field {
+    float:left;
+    background-color:#a1afbd;
+}
+
+.skillsheet .skill-box .skill-row .skill-name {
+    text-align: left;
+}
+
+.skillsheet .skill-box .skill-row .skill-field {
+    padding:0px;
+}
+.skillsheet .skill-box .skill-row .skill-field .inputbox {
+    padding:0px;
+}
 
 /* Characterlist */
 .mychars .character {

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200413102218 extends AbstractMigration
+final class Version20200901173935 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20200413102218 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE chars ADD soulpowerbonus INT DEFAULT NULL, ADD soulpowermax INT DEFAULT NULL, ADD toughnessbonus INT DEFAULT NULL, ADD toughnessmax INT DEFAULT NULL, ADD dodgebonus INT DEFAULT NULL, ADD dodgemax INT DEFAULT NULL, ADD initiativebonus INT DEFAULT NULL, ADD initiativemax INT DEFAULT NULL, ADD speedbonus INT DEFAULT NULL, ADD speedmax INT DEFAULT NULL, ADD fatepointsbonus INT DEFAULT NULL, ADD fatepointsmax INT DEFAULT NULL, ADD fatepointscurrent INT DEFAULT NULL');
+        $this->addSql('CREATE TABLE character_skills (id INT AUTO_INCREMENT NOT NULL, charid_id INT NOT NULL, skillid_id INT NOT NULL, INDEX IDX_7673D5E352A49010 (charid_id), INDEX IDX_7673D5E3652072FE (skillid_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE character_skills ADD CONSTRAINT FK_7673D5E352A49010 FOREIGN KEY (charid_id) REFERENCES chars (id)');
+        $this->addSql('ALTER TABLE character_skills ADD CONSTRAINT FK_7673D5E3652072FE FOREIGN KEY (skillid_id) REFERENCES skill (id)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,6 @@ final class Version20200413102218 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE chars DROP soulpowerbonus, DROP soulpowermax, DROP toughnessbonus, DROP toughnessmax, DROP dodgebonus, DROP dodgemax, DROP initiativebonus, DROP initiativemax, DROP speedbonus, DROP speedmax, DROP fatepointsbonus, DROP fatepointsmax, DROP fatepointscurrent');
+        $this->addSql('DROP TABLE character_skills');
     }
 }

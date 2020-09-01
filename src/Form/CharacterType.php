@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Advantage;
 use App\Entity\Character;
+use App\Entity\CharacterSkills;
+use App\Entity\CharSkills;
 use App\Entity\Culture;
 use App\Entity\Disadvantage;
 use App\Entity\Generalspecialskill;
@@ -139,6 +141,8 @@ class CharacterType extends AbstractType
                 'multiple' => true
             ])
             ->add('annotation')
+
+            ->add('charskills')
 
             ->add('submit', SubmitType::class);
 

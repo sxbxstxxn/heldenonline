@@ -586,8 +586,63 @@
                         </div>
                     </div>
                 </div>
+                <!-- Seite Fertigkeiten -->
                 <div class="tab-pane fade" id="playvalues" role="tabpanel" aria-labelledby="playvalues-tab">
-                    Spielwerte
+                    <div class="skillsheet">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="skill-box">
+                                            <div class="col-12 skill-description p-0">Körpertalente</div>
+                                            {% for skill in character.charSkills %}
+                                                {% if skill.skill.skillarea.id == 1 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-4 skill-field skill-name">{{ skill.skill.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skill.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skill.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skill.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                        <div class="col-1 skill-field skill-r">-</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="skill-box">
+                                            Gesellschaftstalente
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="skill-box">
+                                            Naturtalente
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="skill-box">
+                                            Wissenstalente
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div class="skill-box">
+                                            Handwerkstalente
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="battle" role="tabpanel" aria-labelledby="contact-tab">
                     Kampf
