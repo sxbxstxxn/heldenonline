@@ -89,7 +89,7 @@ class User implements UserInterface
      * @ORM\Column(name="last_activity_at", type="integer")
      * @Groups({"list"})
      */
-    protected $lastActivityAt;
+    protected $lastActivityAt = 0;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Character", mappedBy="user")
