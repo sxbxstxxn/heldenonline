@@ -9,7 +9,6 @@ use App\Entity\Species;
 use App\Entity\User;
 use App\Form\CharacterType;
 use App\Repository\CharacterRepository;
-use App\Entity\CharacterSkills;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpParser\Node\Stmt\Return_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -219,7 +218,6 @@ class CharacterController extends AbstractController
                     $character->addGeneralspecialskill($formgeneralspecialskill);
                 }
                 $character->setAnnotation($formData->getAnnotation());
-                $character->addCharSkill($formData->getCharSkills());
 
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');

@@ -4,8 +4,6 @@ namespace App\Form;
 
 use App\Entity\Advantage;
 use App\Entity\Character;
-use App\Entity\CharacterSkills;
-use App\Entity\CharSkills;
 use App\Entity\Culture;
 use App\Entity\Disadvantage;
 use App\Entity\Generalspecialskill;
@@ -16,6 +14,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -142,9 +141,10 @@ class CharacterType extends AbstractType
             ])
             ->add('annotation')
 
-            ->add('charskills')
+
 
             ->add('submit', SubmitType::class);
+
 
     }
 
