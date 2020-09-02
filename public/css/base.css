@@ -703,7 +703,11 @@ input:read-only {
 }
 
 .skillsheet .skill-box .skill-row .skill-field {
-    padding:0px;
+    border-right:2px solid;
+}
+
+.skillsheet .skill-box .skill-row .skill-r{
+    border-right:none;
 }
 .skillsheet .skill-box .skill-row .skill-field .inputbox {
     padding:0px;
