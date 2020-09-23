@@ -4,17 +4,22 @@ namespace App\Form;
 
 use App\Entity\Advantage;
 use App\Entity\Character;
+use App\Entity\CharacterHasSkills;
 use App\Entity\Culture;
 use App\Entity\Disadvantage;
 use App\Entity\Generalspecialskill;
 use App\Entity\Profession;
+use App\Entity\Skill;
 use App\Entity\Species;
+
+
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -140,7 +145,6 @@ class CharacterType extends AbstractType
                 'multiple' => true
             ])
             ->add('annotation')
-
 
 
             ->add('submit', SubmitType::class);

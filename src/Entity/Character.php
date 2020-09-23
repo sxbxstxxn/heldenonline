@@ -364,6 +364,11 @@ class Character
      */
     private $annotation;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CharacterHasSkills", mappedBy="charid", orphanRemoval=true)
+     */
+    private $hasSkills;
+
 
 
     
@@ -373,6 +378,7 @@ class Character
         $this->advantages = new ArrayCollection();
         $this->disadvantages = new ArrayCollection();
         $this->generalspecialskills = new ArrayCollection();
+        $this->hasSkills = new ArrayCollection();
     }
 
 
@@ -1199,6 +1205,37 @@ class Character
     public function setAnnotation(?string $annotation): self
     {
         $this->annotation = $annotation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterHasSkills[]
+     */
+    public function getHasSkills(): Collection
+    {
+        return $this->hasSkills;
+    }
+
+    public function addHasSkill(CharacterHasSkills $hasSkill): self
+    {
+        if (!$this->hasSkills->contains($hasSkill)) {
+            $this->hasSkills[] = $hasSkill;
+            $hasSkill->setCharid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHasSkill(CharacterHasSkills $hasSkill): self
+    {
+        if ($this->hasSkills->contains($hasSkill)) {
+            $this->hasSkills->removeElement($hasSkill);
+            // set the owning side to null (unless already changed)
+            if ($hasSkill->getCharid() === $this) {
+                $hasSkill->setCharid(null);
+            }
+        }
 
         return $this;
     }

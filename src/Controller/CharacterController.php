@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 use App\Entity\Character;
+use App\Entity\CharacterHasSkills;
+use App\Entity\Skill;
 use App\Entity\Species;
 
 use App\Entity\User;
@@ -128,6 +130,7 @@ class CharacterController extends AbstractController
             $form = $this->createForm(CharacterType::class);
             $form->handleRequest($request);
 
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $formData = $form->getData();
 
@@ -219,6 +222,9 @@ class CharacterController extends AbstractController
                 }
                 $character->setAnnotation($formData->getAnnotation());
 
+
+
+
                 $this->entityManager->flush();
                 $this->addFlash('success', 'Änderungen an '.$character->getCharname().' gespeichtert.');
 
@@ -228,6 +234,11 @@ class CharacterController extends AbstractController
                 ]);
                 return $this->redirect($url);
             }
+            /*
+            echo '<pre>';
+            var_dump($_POST);
+            echo '</pre>';
+            */
             return $this->render(
                 'characters/edit.html.twig', [
                 'character' => $character,

@@ -44,10 +44,16 @@ class Skill
      */
     private $skillarea;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\CharacterHasSkills", mappedBy="skillid", orphanRemoval=true)
+     */
+    private $hasCharacters;
+
 
     public function __construct()
     {
         $this->characterSkills = new ArrayCollection();
+        $this->hasCharacters = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,6 +117,37 @@ class Skill
     public function setSkillarea(?Skillarea $skillarea): self
     {
         $this->skillarea = $skillarea;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CharacterHasSkills[]
+     */
+    public function getHasCharacters(): Collection
+    {
+        return $this->hasCharacters;
+    }
+
+    public function addHasCharacter(CharacterHasSkills $hasCharacter): self
+    {
+        if (!$this->hasCharacters->contains($hasCharacter)) {
+            $this->hasCharacters[] = $hasCharacter;
+            $hasCharacter->setSkillid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHasCharacter(CharacterHasSkills $hasCharacter): self
+    {
+        if ($this->hasCharacters->contains($hasCharacter)) {
+            $this->hasCharacters->removeElement($hasCharacter);
+            // set the owning side to null (unless already changed)
+            if ($hasCharacter->getSkillid() === $this) {
+                $hasCharacter->setSkillid(null);
+            }
+        }
 
         return $this;
     }

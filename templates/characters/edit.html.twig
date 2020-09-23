@@ -645,28 +645,53 @@
                                     <div class="col-12 p-0">
                                         <div class="skill-box">
                                             <div class="col-12 skill-description p-0">Körpertalente</div>
-                                            <div class="col-12 skill-row p-0">
-                                                <div class="col-4 skill-field skill-name">Talent1</div>
-                                                <div class="col-3 skill-field skill-proof">MU/MU/MU</div>
-                                                <div class="col-2 skill-field skill-be">Ja</div>
-                                                <div class="col-1 skill-field skill-sf">B</div>
-                                                <div class="col-1 skill-field skill-fw">7</div>
-                                                <div class="col-1 skill-field skill-r">-</div>
-                                            </div>
+                                            {% for skill in character.hasSkills %}
+                                                {% if skill.skillid.skillarea.id == 1 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div class="skill-box">
-                                            Gesellschaftstalente
+                                            <div class="col-12 skill-description p-0">Gesellschaftstalente</div>
+                                            {% for skill in character.hasSkills %}
+                                                {% if skill.skillid.skillarea.id == 2 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div class="skill-box">
-                                            Naturtalente
+                                            <div class="col-12 skill-description p-0">Naturtalente</div>
+                                            {% for skill in character.hasSkills %}
+                                                {% if skill.skillid.skillarea.id == 3 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -675,21 +700,50 @@
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div class="skill-box">
-                                            Wissenstalente
+                                            <div class="col-12 skill-description p-0">Wissenstalente</div>
+                                            {% for skill in character.hasSkills %}
+                                                {% if skill.skillid.skillarea.id == 4 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div class="skill-box">
-                                            Handwerkstalente
+                                            <div class="col-12 skill-description p-0">Handwerkstalente</div>
+                                            {% for skill in character.hasSkills %}
+                                                {% if skill.skillid.skillarea.id == 5 %}
+                                                    <div class="col-12 skill-row p-0">
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+                                                        <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
+                                                        <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
+                                                        <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
+                                                        <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 debugging">
+                                    Debugging Field
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
                 <div class="tab-pane fade" id="battle" role="tabpanel" aria-labelledby="battle-tab">
                     Kampf
                 </div>
@@ -703,7 +757,7 @@
                     Liturgien
                 </div>
             </div>
-
+        </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col align-self-end p-0">

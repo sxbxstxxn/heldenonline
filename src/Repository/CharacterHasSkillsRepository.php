@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\CharSkills;
+use App\Entity\CharacterHasSkills;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method CharSkills|null find($id, $lockMode = null, $lockVersion = null)
- * @method CharSkills|null findOneBy(array $criteria, array $orderBy = null)
- * @method CharSkills[]    findAll()
- * @method CharSkills[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CharacterHasSkills|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CharacterHasSkills|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CharacterHasSkills[]    findAll()
+ * @method CharacterHasSkills[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CharSkillsRepository extends ServiceEntityRepository
+class CharacterHasSkillsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CharSkills::class);
+        parent::__construct($registry, CharacterHasSkills::class);
     }
 
     // /**
-    //  * @return CharSkills[] Returns an array of CharSkills objects
+    //  * @return CharacterHasSkills[] Returns an array of CharacterHasSkills objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CharSkillsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?CharSkills
+    public function findOneBySomeField($value): ?CharacterHasSkills
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
