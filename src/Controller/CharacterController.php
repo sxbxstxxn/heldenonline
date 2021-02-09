@@ -216,10 +216,11 @@ class CharacterController extends AbstractController
                 foreach($character->getGeneralspecialskills() as $chargeneralspecialskill) {
                     $character->removeGeneralspecialskill($chargeneralspecialskill);
                 }
-                /* add chosen disadvantages */
+                /* add chosen generalspecialskills */
                 foreach($formData->getGeneralspecialskills() as $formgeneralspecialskill) {
                     $character->addGeneralspecialskill($formgeneralspecialskill);
                 }
+
                 $character->setAnnotation($formData->getAnnotation());
 
 

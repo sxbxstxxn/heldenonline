@@ -648,12 +648,15 @@
                                             {% for skill in character.hasSkills %}
                                                 {% if skill.skillid.skillarea.id == 1 %}
                                                     <div class="col-12 skill-row p-0">
-                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }}</div>
+
+                                                        <div class="col-5 skill-field skill-name">{{ skill.skillid.name }} ({{ skill.id}})</div>
                                                         <div class="col-3 skill-field skill-proof">{{ skill.skillid.proof }}</div>
                                                         <div class="col-2 skill-field skill-be">{{ skill.skillid.be }}</div>
                                                         <div class="col-1 skill-field skill-sf">{{ skill.skillid.sf }}</div>
                                                         <div class="col-1 skill-field skill-fw">{{ skill.value }}</div>
+
                                                     </div>
+
                                                 {% endif %}
                                             {% endfor %}
                                         </div>

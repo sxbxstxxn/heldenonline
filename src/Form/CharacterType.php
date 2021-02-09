@@ -144,6 +144,16 @@ class CharacterType extends AbstractType
                 'choice_label' => 'skillname',
                 'multiple' => true
             ])
+
+            /*
+            ->add('characterhasskills', EntityType::class, [
+                'class' => CharacterHasSkills::class,
+                'choice_label' => 'value',
+                'multiple' => true
+            ])
+            */
+            ->add('characterhasskills')
+
             ->add('annotation')
 
 

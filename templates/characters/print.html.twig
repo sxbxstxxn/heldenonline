@@ -507,6 +507,92 @@
             <div class="name-inner">{{ character.charname }}</div>
           </div>
         </div>
+
+        <div class="skillbox">
+          <div class="row"><div class="header">Körpertalente</div></div>
+          {% for skill in character.hasSkills %}
+            {% if skill.skillid.skillarea.id == 1 %}
+              <div class="row">
+                <div class="bodyline">
+                  <div class="skill-name">{{ skill.skillid.name }}</div>
+                  <div class="skill-proof">{{ skill.skillid.proof }}</div>
+                  <div class="skill-be">{{ skill.skillid.be }}</div>
+                  <div class="skill-sf">{{ skill.skillid.sf }}</div>
+                  <div class="skill-fw">{{ skill.value }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="skillbox">
+          <div class="row"><div class="header">Wissenstalente</div></div>
+          {% for skill in character.hasSkills %}
+            {% if skill.skillid.skillarea.id == 4 %}
+              <div class="row">
+                <div class="bodyline">
+                  <div class="skill-name">{{ skill.skillid.name }}</div>
+                  <div class="skill-proof">{{ skill.skillid.proof }}</div>
+                  <div class="skill-be">{{ skill.skillid.be }}</div>
+                  <div class="skill-sf">{{ skill.skillid.sf }}</div>
+                  <div class="skill-fw">{{ skill.value }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="breaker"></div>
+
+        <div class="skillbox">
+          <div class="row"><div class="header">Gesellschaftstalente</div></div>
+          {% for skill in character.hasSkills %}
+            {% if skill.skillid.skillarea.id == 2 %}
+              <div class="row">
+                <div class="bodyline">
+                  <div class="skill-name">{{ skill.skillid.name }}</div>
+                  <div class="skill-proof">{{ skill.skillid.proof }}</div>
+                  <div class="skill-be">{{ skill.skillid.be }}</div>
+                  <div class="skill-sf">{{ skill.skillid.sf }}</div>
+                  <div class="skill-fw">{{ skill.value }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+          <div class="breaker"></div>
+          <div class="row"><div class="header">Naturtalente</div></div>
+          {% for skill in character.hasSkills %}
+            {% if skill.skillid.skillarea.id == 3 %}
+              <div class="row">
+                <div class="bodyline">
+                  <div class="skill-name">{{ skill.skillid.name }}</div>
+                  <div class="skill-proof">{{ skill.skillid.proof }}</div>
+                  <div class="skill-be">{{ skill.skillid.be }}</div>
+                  <div class="skill-sf">{{ skill.skillid.sf }}</div>
+                  <div class="skill-fw">{{ skill.value }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="skillbox">
+          <div class="row"><div class="header">Handwerksstalente</div></div>
+          {% for skill in character.hasSkills %}
+            {% if skill.skillid.skillarea.id == 5 %}
+              <div class="row">
+                <div class="bodyline">
+                  <div class="skill-name">{{ skill.skillid.name }}</div>
+                  <div class="skill-proof">{{ skill.skillid.proof }}</div>
+                  <div class="skill-be">{{ skill.skillid.be }}</div>
+                  <div class="skill-sf">{{ skill.skillid.sf }}</div>
+                  <div class="skill-fw">{{ skill.value }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+
+
       </div>
     </div>
     <div class="character-page battle">
